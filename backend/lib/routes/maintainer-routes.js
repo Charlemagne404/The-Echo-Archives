@@ -10,6 +10,12 @@ function parsePositiveInteger(value, fallback) {
   return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
 }
 
+function defaultPublicationTier(eligibility = {}) {
+  if (eligibility.imported?.eligible) return "imported";
+  if (eligibility.indexedOnly?.eligible) return "indexed-only";
+  return "";
+}
+
 function createAuthRequiredError() {
   const error = new Error("Maintainer authentication is required.");
   error.statusCode = 401;
@@ -253,9 +259,7 @@ function createMaintainerRouter({
         return res.status(409).json({ error: "The importer candidate is not ready for editorial approval." });
       }
       const eligibility = candidate.readiness?.publicationEligibility || {};
-      const publicationTier = req.body?.publicationTier || (
-        eligibility.imported?.ready ? "imported" : eligibility.indexedOnly?.ready ? "indexed-only" : ""
-      );
+      const publicationTier = req.body?.publicationTier || defaultPublicationTier(eligibility);
       if (!publicationTier) return res.status(409).json({ error: "No publication tier is currently eligible for this candidate." });
       const publication = await importService.publishForMaintainer(
         candidate.id,
@@ -776,4 +780,5 @@ function createMaintainerRouter({
 
 module.exports = {
   createMaintainerRouter,
+  defaultPublicationTier,
 };

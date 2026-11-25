@@ -18,6 +18,7 @@ function createContext({ discordNotifications = null, automationEnabled = true, 
   const submissionService = createSubmissionService({ store, rateLimiter });
   const prepared = new Map();
   const archiveShowIds = new Set();
+  const handoffSubmissions = [];
   const importer = {
     getSubmissionIdentityKeys(submission = {}) {
       const payload = submission.payload || {};
@@ -39,6 +40,7 @@ function createContext({ discordNotifications = null, automationEnabled = true, 
       return urls.some((url) => /^https:\/\//i.test(url || ""));
     },
     async seedSubmissionForMaintainer(submission, actor) {
+      handoffSubmissions.push(submission);
       const candidate = importStore.createCandidate({
         status: "queued",
         title: submission.showTitle,
@@ -87,7 +89,7 @@ function createContext({ discordNotifications = null, automationEnabled = true, 
     fs.rmSync(tempDir, { recursive: true, force: true });
   }
 
-  return { archiveShowIds, db, importer, importStore, lifecycle, prepared, store, submissionService, submitShow, close };
+  return { archiveShowIds, db, handoffSubmissions, importer, importStore, lifecycle, prepared, store, submissionService, submitShow, close };
 }
 
 test("intake is idempotent and automatic preparation reuses a durable importer candidate", async () => {
@@ -140,6 +142,46 @@ test("idempotent intake retries return the accepted row without consuming anothe
     assert.equal(repeated.idempotent, true);
     assert.equal(rateLimitChecks, 1);
     assert.equal(context.db.prepare("SELECT COUNT(*) AS count FROM show_submissions").get().count, 1);
+  } finally {
+    context.close();
+  }
+});
+
+test("automatic handoff omits private submitter notes and holds credentialed source URLs", async () => {
+  const context = createContext();
+  try {
+    const valid = context.submissionService.submit({
+      intakeVersion: 2,
+      submissionType: "show",
+      showTitle: "Privacy Lane",
+      creatorName: "Public Creator",
+      contactEmail: "private@example.test",
+      notes: "Private intake note with private@example.test",
+      verificationNotes: "Private verification note",
+      archiveFitNote: "Private archive note",
+      listenLinks: [{ label: "RSS Feed", url: "https://feeds.example/privacy.xml" }],
+    }, { sourceIp: "198.51.100.21", userAgent: "PrivateAgent/1" });
+    await context.lifecycle.runOnce();
+    const handedOff = context.handoffSubmissions.find((submission) => submission.id === valid.submission.id);
+    assert.ok(handedOff);
+    assert.deepEqual(handedOff.payload.listenLinks, [{ label: "RSS Feed", url: "https://feeds.example/privacy.xml" }]);
+    assert.equal(JSON.stringify(handedOff).includes("private@example.test"), false);
+    assert.equal(JSON.stringify(handedOff).includes("Private intake note"), false);
+    assert.equal(JSON.stringify(handedOff).includes("198.51.100.21"), false);
+    assert.equal(JSON.stringify(handedOff).includes("PrivateAgent/1"), false);
+
+    const credentialed = context.submissionService.submit({
+      intakeVersion: 2,
+      submissionType: "show",
+      showTitle: "Credentialed Source",
+      contactEmail: "credentialed@example.test",
+      listenLinks: [{ label: "RSS Feed", url: "https://feeds.example/private.xml?token=private-token-value" }],
+    }, {});
+    await context.lifecycle.runOnce();
+    const held = context.store.getShowSubmission(credentialed.submission.id);
+    assert.equal(held.processing_status, "needs-investigation");
+    assert.equal(held.import_candidate_id, "");
+    assert.equal(context.handoffSubmissions.some((submission) => submission.id === credentialed.submission.id), false);
   } finally {
     context.close();
   }

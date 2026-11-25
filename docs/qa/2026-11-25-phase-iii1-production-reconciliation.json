@@ -1,0 +1,444 @@
+{
+  "manifestVersion": 1,
+  "generatedAt": "2026-11-25T21:19:56.202Z",
+  "source": {
+    "productionRelease": "092faa604982ffd229fe0686157c4d275818e303",
+    "databaseSnapshot": {
+      "capturedAt": "2026-11-25T19:52:05.215Z",
+      "bytes": 128245760,
+      "sha256": "566267ef583e19c9c1fbc25a27d166eac57cf2f5f97ad24e7da17e102a5d1c5d",
+      "integrity": "quick_check ok; foreign_key_check 0"
+    },
+    "currentRuntimeCatalog": {
+      "source": "https://echoarchives.net/data/shows.json (fresh public read-only fetch)",
+      "capturedAt": "2026-11-25T21:05:23.540Z",
+      "sha256": "9ffcbb004a03c851b2e5fd87a18c94a727e026b5a49999cb15df901f8f81025b",
+      "showCount": 760,
+      "allPublished": true
+    },
+    "freshnessLimitation": "Database snapshot mtime precedes the live catalog capture by about 73 minutes; current production submissions after that snapshot are not observable from this account. Re-run with an operator-captured, application-consistent snapshot immediately before rollout."
+  },
+  "dryRun": {
+    "mode": "read-only-dry-run",
+    "writesPerformed": false,
+    "repeatedRuns": 2,
+    "recommendationsIdentical": true,
+    "comparisonWithPrevious": {
+      "previousPath": "2026-11-25-phase-iii-production-reconciliation.json",
+      "previousRows": 13,
+      "currentRows": 13,
+      "substantiveDifferences": []
+    },
+    "command": "node backend/scripts/submission-reconciliation-dry-run.js --db <fresh-production-snapshot> --catalog <current-production-shows.json>"
+  },
+  "summary": {
+    "currentShowSubmissions": 13,
+    "archiveShows": 760,
+    "actionCounts": {
+      "resolve-already-listed": 1,
+      "retain-for-review": 1,
+      "resolve-published": 9,
+      "consolidate-duplicate": 1,
+      "retain-open": 1
+    },
+    "automaticResolutions": 11,
+    "actionableOutstanding": 2
+  },
+  "rows": [
+    {
+      "submissionId": "cc21fc8c-e099-4292-a47a-3bd10abb25af",
+      "title": "Rosanna's Secret",
+      "submittedAt": "2026-08-12 09:52:52",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "",
+        "importerCandidateStatus": "",
+        "candidateLinkedBy": "none",
+        "candidateProvenanceExact": false
+      },
+      "proposedChange": {
+        "resolutionStatus": "already-listed",
+        "action": "resolve-already-listed",
+        "targetShowId": "rosannas-secret",
+        "evidence": {
+          "identityTypes": [
+            "youtube-playlist-id"
+          ]
+        },
+        "reason": "shared strong provider identity with an archive show",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": []
+    },
+    {
+      "submissionId": "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8",
+      "title": "OPTOg",
+      "submittedAt": "2026-09-08 08:01:58",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "b5924d82-4105-45ab-b58f-29fc29b31fe6",
+        "importerCandidateStatus": "needs-review",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "open",
+        "action": "retain-for-review",
+        "targetShowId": "",
+        "evidence": {
+          "candidateId": "b5924d82-4105-45ab-b58f-29fc29b31fe6",
+          "candidateStatus": "needs-review"
+        },
+        "reason": "linked importer candidate needs maintainer review and no strong archive match exists",
+        "confidence": "medium-high no-match"
+      },
+      "potentialTitleMatches": []
+    },
+    {
+      "submissionId": "336e8b27-a795-42e0-a3e6-cef6f933b642",
+      "title": "Mina",
+      "submittedAt": "2026-09-10 06:06:12",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "b0837864-24af-4170-b898-9f8247935d43",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "mina-an-audiobook-podcast-by-roo-bannister",
+        "evidence": {
+          "candidateId": "b0837864-24af-4170-b898-9f8247935d43",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": [
+            "rss-url"
+          ]
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": []
+    },
+    {
+      "submissionId": "3184620d-551e-40dd-bdd4-ee36be3236e2",
+      "title": "Don't Stop Me Now",
+      "submittedAt": "2026-09-10 06:09:59",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "3a50a2fe-b0ae-472d-b18f-23045b3b87e9",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "dont-stop-me-now-an-audiobook-podcast",
+        "evidence": {
+          "candidateId": "3a50a2fe-b0ae-472d-b18f-23045b3b87e9",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": [
+            "rss-url"
+          ]
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": []
+    },
+    {
+      "submissionId": "d41c7e2b-71ef-46c5-aeff-95e438492ffe",
+      "title": "Welcome to the Brass Eagle",
+      "submittedAt": "2026-10-03 15:53:55",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "c9e37e4a-07a3-4bbc-99bb-93a13414b067",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "welcome-to-the-brass-eagle",
+        "evidence": {
+          "candidateId": "c9e37e4a-07a3-4bbc-99bb-93a13414b067",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": [
+            "apple-id",
+            "rss-url",
+            "spotify-show-id"
+          ]
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": [
+        {
+          "showId": "welcome-to-the-brass-eagle",
+          "title": "Welcome to the Brass Eagle",
+          "evidence": "exact-title-or-alias"
+        }
+      ]
+    },
+    {
+      "submissionId": "7d61d053-41f2-4c91-861b-accce6f7e5b2",
+      "title": "Polybius Protocol",
+      "submittedAt": "2026-10-11 22:39:37",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "0798ed68-13ac-4c0a-9177-925ee0fe603b",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "polybius-protocol",
+        "evidence": {
+          "candidateId": "0798ed68-13ac-4c0a-9177-925ee0fe603b",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": [
+            "apple-id",
+            "rss-url",
+            "spotify-show-id"
+          ]
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": []
+    },
+    {
+      "submissionId": "a0390437-0eed-43c1-b2a7-ff33e27f5271",
+      "title": "Dyme: An Original Appalachian Horror Audio Drama",
+      "submittedAt": "2026-10-16 19:06:38",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "",
+        "importerCandidateStatus": "",
+        "candidateLinkedBy": "none",
+        "candidateProvenanceExact": false
+      },
+      "proposedChange": {
+        "resolutionStatus": "duplicate",
+        "action": "consolidate-duplicate",
+        "targetShowId": "dyme-an-appalachian-horror-audio-drama",
+        "evidence": {
+          "sharedIdentityTypes": [
+            "apple-id",
+            "rss-url",
+            "spotify-show-id"
+          ],
+          "canonicalSubmissionId": "4d31d2c6-b1f0-4614-99e4-2d0ba2b0dd2a"
+        },
+        "reason": "shared strong provider identity; preserve both submission rows",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": []
+    },
+    {
+      "submissionId": "b51fff09-12d1-4b26-9e1d-ec386169ce78",
+      "title": "The Great Work and Other Administrative Matters",
+      "submittedAt": "2026-10-17 20:51:18",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "8317bc0b-69cd-426c-95da-ef31905a8bc3",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "the-great-work-and-other-administrative-matters",
+        "evidence": {
+          "candidateId": "8317bc0b-69cd-426c-95da-ef31905a8bc3",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": [
+            "rss-url"
+          ]
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": [
+        {
+          "showId": "the-great-work-and-other-administrative-matters",
+          "title": "The Great Work and Other Administrative Matters",
+          "evidence": "exact-title-or-alias"
+        }
+      ]
+    },
+    {
+      "submissionId": "50d2cc64-df29-484a-a3f1-ef1a5257c315",
+      "title": "Richian Presents: Dracula",
+      "submittedAt": "2026-10-20 21:31:28",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "1a8ff012-dc4c-486b-8ace-216241f780b9",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "richian-presents-dracula",
+        "evidence": {
+          "candidateId": "1a8ff012-dc4c-486b-8ace-216241f780b9",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": []
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": [
+        {
+          "showId": "richian-presents-dracula",
+          "title": "Richian Presents: Dracula",
+          "evidence": "exact-title-or-alias"
+        }
+      ]
+    },
+    {
+      "submissionId": "efb35049-e89f-4bda-98e4-d2e75724f6f7",
+      "title": "Parsons Nose Radio Theater",
+      "submittedAt": "2026-10-21 15:33:46",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "1d544f0a-8797-4273-8149-1b9bc3cbfbbc",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "parsons-nose-radio-theater",
+        "evidence": {
+          "candidateId": "1d544f0a-8797-4273-8149-1b9bc3cbfbbc",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": [
+            "apple-id"
+          ]
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": [
+        {
+          "showId": "parsons-nose-radio-theater",
+          "title": "Parson’s Nose Radio Theater",
+          "evidence": "exact-title-or-alias"
+        }
+      ]
+    },
+    {
+      "submissionId": "4d31d2c6-b1f0-4614-99e4-2d0ba2b0dd2a",
+      "title": "Dyme",
+      "submittedAt": "2026-10-24 18:37:33",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "f79ab797-27fc-498b-b4c1-0958de03c15e",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "dyme-an-appalachian-horror-audio-drama",
+        "evidence": {
+          "candidateId": "f79ab797-27fc-498b-b4c1-0958de03c15e",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": [
+            "apple-id",
+            "rss-url",
+            "spotify-show-id"
+          ]
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": []
+    },
+    {
+      "submissionId": "dbd8a87e-9c09-4afa-aeb2-5745aaddbaaa",
+      "title": "The Chronicles of Oz",
+      "submittedAt": "2026-10-28 21:08:19",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "94aacc3b-179a-410b-bad5-24901832c719",
+        "importerCandidateStatus": "published",
+        "candidateLinkedBy": "candidate-submission-identity",
+        "candidateProvenanceExact": true
+      },
+      "proposedChange": {
+        "resolutionStatus": "published",
+        "action": "resolve-published",
+        "targetShowId": "the-chronicles-of-oz",
+        "evidence": {
+          "candidateId": "94aacc3b-179a-410b-bad5-24901832c719",
+          "source": "primary-source-submission-id",
+          "archiveContainsTarget": true,
+          "identityTypes": []
+        },
+        "reason": "published importer candidate has exact submission provenance and its show exists in the current archive",
+        "confidence": "high"
+      },
+      "potentialTitleMatches": [
+        {
+          "showId": "the-chronicles-of-oz",
+          "title": "The Chronicles of Oz",
+          "evidence": "exact-title-or-alias"
+        }
+      ]
+    },
+    {
+      "submissionId": "3dbad274-c403-4609-aaa0-4ffa55b05fde",
+      "title": "The Survivor Tapes",
+      "submittedAt": "2026-11-25 05:50:56",
+      "before": {
+        "moderationStatus": "new",
+        "resolutionStatus": "not-migrated",
+        "importerCandidateId": "",
+        "importerCandidateStatus": "",
+        "candidateLinkedBy": "none",
+        "candidateProvenanceExact": false
+      },
+      "proposedChange": {
+        "resolutionStatus": "open",
+        "action": "retain-open",
+        "targetShowId": "",
+        "evidence": {},
+        "reason": "no archive match or linked importer candidate; preserve as unresolved operational work",
+        "confidence": "no match found"
+      },
+      "potentialTitleMatches": []
+    }
+  ]
+}

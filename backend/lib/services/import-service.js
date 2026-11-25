@@ -32,6 +32,7 @@ const { readShowsFile, validateSiteData } = require("../../scripts/review-helper
 const { buildCatalog } = require("../../../tools/build-catalog");
 const { writeShowRecordsAtomically } = require("../../../tools/lib/catalog-source");
 const { completeCatalogPublicationRecovery, runWithCatalogPublication } = require("../../../tools/lib/catalog-publication-transaction");
+const { hasCredentialedSourceUrl } = require("../privacy/submission-derived-data");
 
 const PIPELINE_VERSION = "2.0";
 const IDENTITY_FIELDS = [
@@ -1080,6 +1081,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       sources.push({ ...result, fetchStatus: result.fetchStatus || "fetched", fetchedAt: new Date().toISOString() });
       const rawBody = typeof result.raw === "string" ? result.raw : result.raw?.text || JSON.stringify(result.raw || {});
       store.putSourceCache({
+        candidateId,
         sourceType: cacheIdentity.sourceType || result.sourceType,
         sourceKey: cacheIdentity.sourceKey || result.sourceKey || result.sourceUrl,
         sourceUrl: result.sourceUrl,
@@ -1437,6 +1439,12 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     if (persisted?.status === "rejected") {
       const error = new Error("A rejected submission cannot be handed to the import lane.");
       error.statusCode = 409;
+      throw error;
+    }
+    if (hasCredentialedSourceUrl(submission)) {
+      const error = new Error("A submitted link contains embedded credentials or private query data; use a public feed or site URL.");
+      error.statusCode = 422;
+      error.code = "submission_source_requires_manual_review";
       throw error;
     }
     if (persisted?.candidateId) {

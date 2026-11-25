@@ -170,6 +170,39 @@ test("catalog integrity permits blank descriptions only for complete provisional
   assert.match(invalid.errors.join("\n"), /description must be a non-empty string/i);
 });
 
+test("explicitly published legacy provisional records survive runtime to split catalog migration", () => {
+  const legacy = show({
+    description: "",
+    genres: [],
+    formats: [],
+    tags: [],
+    metadata: {
+      import: {
+        publication: {
+          provisional: true,
+          tier: "indexed-only",
+          publishedAt: "2026-11-04T20:05:28.010Z",
+        },
+      },
+    },
+  });
+  for (const mode of ["runtime", "split"]) {
+    const report = collectCatalogIntegrityIssues({
+      sourceData: { mode, shows: [legacy], collections: [], reviewsById: {} },
+      entities: [], creators: [], networks: [], changelog: [],
+    });
+    assert.equal(report.ok, true, `${mode}: ${report.errors.join("\n")}`);
+  }
+
+  const unpublished = { ...legacy, status: "draft" };
+  const invalid = collectCatalogIntegrityIssues({
+    sourceData: { mode: "split", shows: [unpublished], collections: [], reviewsById: {} },
+    entities: [], creators: [], networks: [], changelog: [],
+  });
+  assert.equal(invalid.ok, false);
+  assert.match(invalid.errors.join("\n"), /incomplete provisional publication review record/i);
+});
+
 test("raw integrity validates optional discovery profiles without requiring them", () => {
   const validReport = collectCatalogIntegrityIssues({
     sourceData: {

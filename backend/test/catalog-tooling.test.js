@@ -8,6 +8,7 @@ const { buildCatalog } = require("../../tools/build-catalog");
 const { scaffoldCatalogEntry } = require("../../tools/scaffold-catalog");
 const { buildCatalogSnapshot, createRuntimeEvidenceRecord, createSearchIndexRecord, serializeRuntimeShow } = require("../../tools/lib/catalog-artifacts");
 const { writeShowRecordsAtomically, writeCollectionRecordsAtomically } = require("../../tools/lib/catalog-source");
+const { loadEntities } = require("../lib/entities");
 const { runWithCatalogPublication } = require("../../tools/lib/catalog-publication-transaction");
 const { getRuntimeEvidence } = require("../../shared/discovery/runtime");
 const {
@@ -204,6 +205,38 @@ test("runtime evidence stays in its compact projection and keeps estimate qualif
   assert.equal(Object.hasOwn(createSearchIndexRecord(show), "length"), false);
   assert.equal(Object.hasOwn(createSearchIndexRecord(show), "metadata"), false);
   assert.equal(getRuntimeEvidence({ ...show, ...projection }).kind, "derived-estimate");
+});
+
+test("runtime-to-split migration carries the entity registry used by existing shows", () => {
+  const tempRoot = createTempSiteRoot();
+  const entity = {
+    id: "demo-studio",
+    name: "Demo Studio",
+    type: "studio",
+    aliases: [],
+    publication: "public",
+    indexable: true,
+    reviewedAt: "2026-06-30",
+    sources: ["https://example.com/"],
+  };
+  const shows = [{
+    id: "demo-show",
+    status: "published",
+    entityLinks: [{ entityId: entity.id, role: "studio" }],
+  }];
+
+  try {
+    writeJson(path.join(tempRoot, "data", "shows.json"), shows);
+    writeJson(path.join(tempRoot, "data", "collections.json"), []);
+    writeJson(path.join(tempRoot, "data", "entities.json"), [entity]);
+
+    assert.equal(ensureSplitCatalogSource(tempRoot), true);
+    const migrated = readCatalogSource(tempRoot);
+    assert.deepEqual(migrated.entities, [entity]);
+    assert.deepEqual(loadEntities(tempRoot, migrated.shows), [entity]);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
 });
 
 test("buildCatalog bootstraps split catalog source and writes generated artifacts", async () => {

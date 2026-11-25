@@ -349,16 +349,19 @@ function readRuntimeReviews(siteRoot) {
 function readCatalogSource(siteRoot) {
   assertCatalogPublicationReadable(siteRoot);
   if (hasSplitCatalogSource(siteRoot)) {
+    const entitiesPath = path.join(siteRoot, CATALOG_SOURCE_ROOT, "entities.json");
     return {
       mode: "split",
       shows: readSplitRecordDirectory(path.join(siteRoot, SHOWS_SOURCE_DIR), "show"),
       collections: readSplitRecordDirectory(path.join(siteRoot, COLLECTIONS_SOURCE_DIR), "collection"),
       reviewsById: readSplitReviews(siteRoot),
+      ...(fs.existsSync(entitiesPath) ? { entities: readJsonFile(entitiesPath) } : {}),
     };
   }
 
   const runtimeShowsPath = path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json");
   const runtimeCollectionsPath = path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json");
+  const runtimeEntitiesPath = path.join(siteRoot, RUNTIME_DATA_DIR, "entities.json");
   const shows = fs.existsSync(runtimeShowsPath) ? readJsonFile(runtimeShowsPath) : [];
   const collections = fs.existsSync(runtimeCollectionsPath) ? readJsonFile(runtimeCollectionsPath) : [];
 
@@ -375,6 +378,7 @@ function readCatalogSource(siteRoot) {
     shows,
     collections,
     reviewsById: readRuntimeReviews(siteRoot),
+    ...(fs.existsSync(runtimeEntitiesPath) ? { entities: readJsonFile(runtimeEntitiesPath) } : {}),
   };
 }
 
@@ -424,10 +428,12 @@ function writeCatalogSource(siteRoot, sourceData, { mode = sourceData.mode || "s
   assertUniqueRecordIds(sourceData.shows, "show");
   assertUniqueRecordIds(sourceData.collections, "collection");
   assertUniqueRecordIds(Object.keys(sourceData.reviewsById || {}).map((id) => ({ id })), "review");
+  if (Array.isArray(sourceData.entities)) assertUniqueRecordIds(sourceData.entities, "entity");
   recoverCatalogPublication(siteRoot);
   const recordTargets = () => mode === "split"
     ? [...sourceData.shows.map((record) => path.join(siteRoot, SHOWS_SOURCE_DIR, `${record.id}.json`)), path.join(siteRoot, SHOWS_SOURCE_DIR, ORDER_FILE_NAME),
       ...sourceData.collections.map((record) => path.join(siteRoot, COLLECTIONS_SOURCE_DIR, `${record.id}.json`)), path.join(siteRoot, COLLECTIONS_SOURCE_DIR, ORDER_FILE_NAME),
+      ...(Array.isArray(sourceData.entities) ? [path.join(siteRoot, CATALOG_SOURCE_ROOT, "entities.json")] : []),
       ...Object.keys(sourceData.reviewsById || {}).map((id) => path.join(siteRoot, REVIEWS_SOURCE_DIR, `${id}.json`)), ...sourcePaths(siteRoot)]
     : [path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json"), path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json"),
       ...Object.keys(sourceData.reviewsById || {}).map((id) => path.join(siteRoot, RUNTIME_REVIEWS_DIR, `${id}.json`))];
@@ -436,6 +442,7 @@ function writeCatalogSource(siteRoot, sourceData, { mode = sourceData.mode || "s
   if (mode === "split") {
     syncRecordDirectory(path.join(siteRoot, SHOWS_SOURCE_DIR), sourceData.shows);
     syncRecordDirectory(path.join(siteRoot, COLLECTIONS_SOURCE_DIR), sourceData.collections);
+    if (Array.isArray(sourceData.entities)) writeJsonFileAtomic(path.join(siteRoot, CATALOG_SOURCE_ROOT, "entities.json"), sourceData.entities);
     syncReviewsDirectory(path.join(siteRoot, REVIEWS_SOURCE_DIR), sourceData.reviewsById || {});
     publication.commit();
     return;

@@ -27,6 +27,7 @@
     "test:smoke:required": "node scripts/run-smoke-tests.js --require-browser",
     "test:setup:browser": "playwright install chromium",
     "test:smoke:maintainer-import": "node --test test/maintainer-import.smoke.js",
+    "test:smoke:maintainer-queue": "node --test --test-concurrency=1 test/maintainer-queue.smoke.js",
     "test:smoke:home-card": "node --test --test-concurrency=1 test/home-card-interactions.smoke.js",
     "test:smoke:runtime-projection": "node --test --test-concurrency=1 --test-name-pattern='only the runtime evidence projection is unavailable' test/discovery-stability.smoke.js",
     "test:smoke:serial": "node scripts/run-smoke-tests.js --serial",
@@ -73,7 +74,8 @@
     "test:read-only-browser": "node --test test/read-only-browser.test.js",
     "echo-publisher": "node scripts/echo-publisher.js",
     "test:database-migrations": "node --test --test-concurrency=1 test/database-migration-recovery.test.js",
-    "submission:reconcile-dry-run": "node scripts/submission-reconciliation-dry-run.js"
+    "submission:reconcile-dry-run": "node scripts/submission-reconciliation-dry-run.js",
+    "submission:privacy-redaction-dry-run": "node scripts/submission-privacy-redaction-dry-run.js"
   },
   "engines": {
     "node": ">=22.14.0"

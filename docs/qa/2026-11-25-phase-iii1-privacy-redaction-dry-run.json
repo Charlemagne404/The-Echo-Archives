@@ -1,0 +1,188 @@
+{
+  "manifestVersion": 1,
+  "generatedAt": "2026-11-25T20:52:30.000Z",
+  "source": {
+    "productionRelease": "092faa604982ffd229fe0686157c4d275818e303",
+    "databaseSnapshot": {
+      "path": "/tmp/echo-phase31-final-refresh-20261125/community.sqlite (sanitized operational metadata only)",
+      "capturedAt": "2026-11-25T19:52:05.215Z",
+      "bytes": 128245760,
+      "sha256": "566267ef583e19c9c1fbc25a27d166eac57cf2f5f97ad24e7da17e102a5d1c5d"
+    },
+    "privacyCommitment": "Published privacy page: submission content/contact 180 days; network data 30 days. Those values were supplied as policy inputs for this dry-run; effective production environment values remain unread by this account.",
+    "snapshotCatalogTiming": "The database snapshot and first catalog capture were made together; the latest public catalog fetch is 2026-11-25T21:05:23Z. Reconciliation manifest records the resulting ~73-minute snapshot/catalog age gap."
+  },
+  "dryRun": {
+    "mode": "read-only-dry-run",
+    "writesPerformed": false,
+    "manifestSha256": "a9a0e01620ed88aa9757675106f7e3b6a2455f8544b52c1b392abc3ee10fea88",
+    "sourceSnapshotSha256Unchanged": true,
+    "command": "node backend/scripts/submission-privacy-redaction-dry-run.js --db <fresh-production-snapshot> --network-retention-days <verified-production-value> --personal-retention-days <verified-production-value>",
+    "applyStatus": "not applied"
+  },
+  "summary": {
+    "submissionRows": 13,
+    "networkRetentionRowsDue": 0,
+    "personalContentRowsDue": 0,
+    "submissionsWithCandidateCopies": 10,
+    "uniqueRowsProposedForImmediateDataMinimization": 6,
+    "unreadableCompressedRows": 0,
+    "rowsByTable": {
+      "catalog_import_candidates": 5,
+      "catalog_import_runs": 1
+    }
+  },
+  "records": [
+    {
+      "submissionId": "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8",
+      "candidateIds": [
+        "b5924d82-4105-45ab-b58f-29fc29b31fe6"
+      ],
+      "proposedRows": {
+        "catalog_import_candidates": 1,
+        "catalog_import_runs": 1
+      },
+      "candidateId": "b5924d82-4105-45ab-b58f-29fc29b31fe6",
+      "proposedFieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "submissionId": "336e8b27-a795-42e0-a3e6-cef6f933b642",
+      "candidateIds": [
+        "b0837864-24af-4170-b898-9f8247935d43"
+      ],
+      "proposedRows": {
+        "catalog_import_candidates": 1,
+        "catalog_import_runs": 1
+      },
+      "candidateId": "b0837864-24af-4170-b898-9f8247935d43",
+      "proposedFieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "submissionId": "3184620d-551e-40dd-bdd4-ee36be3236e2",
+      "candidateIds": [
+        "3a50a2fe-b0ae-472d-b18f-23045b3b87e9"
+      ],
+      "proposedRows": {
+        "catalog_import_candidates": 1,
+        "catalog_import_runs": 1
+      },
+      "candidateId": "3a50a2fe-b0ae-472d-b18f-23045b3b87e9",
+      "proposedFieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "submissionId": "d41c7e2b-71ef-46c5-aeff-95e438492ffe",
+      "candidateIds": [
+        "c9e37e4a-07a3-4bbc-99bb-93a13414b067"
+      ],
+      "proposedRows": {
+        "catalog_import_candidates": 1,
+        "catalog_import_runs": 1
+      },
+      "candidateId": "c9e37e4a-07a3-4bbc-99bb-93a13414b067",
+      "proposedFieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "submissionId": "b51fff09-12d1-4b26-9e1d-ec386169ce78",
+      "candidateIds": [
+        "8317bc0b-69cd-426c-95da-ef31905a8bc3"
+      ],
+      "proposedRows": {
+        "catalog_import_candidates": 1,
+        "catalog_import_runs": 1
+      },
+      "candidateId": "8317bc0b-69cd-426c-95da-ef31905a8bc3",
+      "proposedFieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    }
+  ],
+  "uniqueRows": [
+    {
+      "table": "catalog_import_candidates",
+      "candidateId": "b5924d82-4105-45ab-b58f-29fc29b31fe6",
+      "sourceSubmissionId": "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8",
+      "fieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "table": "catalog_import_candidates",
+      "candidateId": "b0837864-24af-4170-b898-9f8247935d43",
+      "sourceSubmissionId": "336e8b27-a795-42e0-a3e6-cef6f933b642",
+      "fieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "table": "catalog_import_candidates",
+      "candidateId": "3a50a2fe-b0ae-472d-b18f-23045b3b87e9",
+      "sourceSubmissionId": "3184620d-551e-40dd-bdd4-ee36be3236e2",
+      "fieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "table": "catalog_import_candidates",
+      "candidateId": "c9e37e4a-07a3-4bbc-99bb-93a13414b067",
+      "sourceSubmissionId": "d41c7e2b-71ef-46c5-aeff-95e438492ffe",
+      "fieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "table": "catalog_import_candidates",
+      "candidateId": "8317bc0b-69cd-426c-95da-ef31905a8bc3",
+      "sourceSubmissionId": "b51fff09-12d1-4b26-9e1d-ec386169ce78",
+      "fieldPaths": [
+        "objective_json.submissionHints[0].notes",
+        "objective_json.submissionHints[0].verificationNotes"
+      ]
+    },
+    {
+      "table": "catalog_import_runs",
+      "runId": "32a5dfd0-63e0-477b-a455-00d7b1e173ae",
+      "sharedByCandidateIds": [
+        "b5924d82-4105-45ab-b58f-29fc29b31fe6",
+        "b0837864-24af-4170-b898-9f8247935d43",
+        "3a50a2fe-b0ae-472d-b18f-23045b3b87e9",
+        "c9e37e4a-07a3-4bbc-99bb-93a13414b067",
+        "8317bc0b-69cd-426c-95da-ef31905a8bc3"
+      ],
+      "fieldPaths": [
+        "input_json.searchResults[0,1,4,6,7].objective.submissionHints[0].notes",
+        "input_json.searchResults[0,1,4,6,7].objective.submissionHints[0].verificationNotes"
+      ]
+    }
+  ],
+  "providerSourceFinding": {
+    "tables": [
+      "catalog_import_sources",
+      "catalog_import_source_cache"
+    ],
+    "exactSubmittedEmailStringMatchRows": 39,
+    "snapshotRows": 20,
+    "cacheRows": 19,
+    "sourceTypes": [
+      "website",
+      "rss"
+    ],
+    "classification": "The proposed operational redactions are private submission notes and verification notes stored in linked candidate and run JSON. Exact submitted-email-string matches also occur in independently fetched public website/RSS source snapshots and caches; their source provenance is public provider content, so retain creator metadata and raw provider bodies. No source IP or user-agent matches were found in candidate, event, job, or run records. The provider-content rows are outside the six proposed immediate redactions."
+  }
+}

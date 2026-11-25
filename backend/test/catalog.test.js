@@ -73,6 +73,30 @@ test("loadCatalog reads the structured show catalog", async () => {
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });
 
+test("runtime loading preserves already-published legacy provisional records without weakening new publication validation", async () => {
+  const tempRoot = createTempSiteRoot();
+  const legacyShow = createShowRecord({
+    metadata: { import: { publication: { provisional: true, tier: "indexed-only", publishedAt: "2026-11-04T20:05:28.010Z" } } },
+  });
+  try {
+    writeJson(path.join(tempRoot, "data", "shows.json"), [legacyShow]);
+    writeJson(path.join(tempRoot, "data", "collections.json"), []);
+    const [loaded] = await loadCatalog(tempRoot);
+    assert.equal(loaded.id, legacyShow.id);
+    assert.deepEqual(loaded.metadata.import.publication, legacyShow.metadata.import.publication);
+    assert.equal(loaded.metadata.import.factualReview, undefined);
+
+    writeJson(path.join(tempRoot, "data", "shows.json"), [{
+      ...legacyShow,
+      id: "draft-provisional-show",
+      status: "draft",
+    }]);
+    await assert.rejects(loadCatalog(tempRoot), /incomplete provisional publication review record/i);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("a published complete review companion sets the public review tier consistently", () => {
   const source = createShowRecord({ reviewStatus: "indexed-only", archiveTake: "Older factual note." });
   const companion = {

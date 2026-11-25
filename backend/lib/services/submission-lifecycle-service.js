@@ -1,4 +1,5 @@
 const { createHash } = require("node:crypto");
+const { hasCredentialedSourceUrl, sanitizeUserProvidedText } = require("../privacy/submission-derived-data");
 
 const DEFAULT_INTERVAL_MS = 60_000;
 const STALE_PROCESSING_LEASE_MS = 2 * 60_000;
@@ -16,15 +17,40 @@ function boundedInteger(value, fallback, minimum, maximum) {
 }
 
 function toImportSubmission(row) {
+  const storedPayload = row.payload_json && typeof row.payload_json === "object" ? row.payload_json : {};
+  const rawLinks = Array.isArray(storedPayload.listenLinks) ? storedPayload.listenLinks : [];
+  const requiresManualSourceReview = hasCredentialedSourceUrl({
+    officialSite: row.official_site,
+    rssOrListenLink: row.rss_or_listen_link,
+    contactEmail: row.contact_email,
+    sourceIp: row.source_ip,
+    payload: { listenLinks: rawLinks },
+  });
+  const listenLinks = rawLinks.filter((link) => !hasCredentialedSourceUrl({
+    contactEmail: row.contact_email,
+    sourceIp: row.source_ip,
+    payload: { listenLinks: [link] },
+  }))
+    .map((link) => ({ label: sanitizeUserProvidedText(link?.label || ""), url: String(link?.url || "") }));
+  const officialSite = hasCredentialedSourceUrl({ officialSite: row.official_site }) ? "" : row.official_site;
+  const rssOrListenLink = hasCredentialedSourceUrl({ rssOrListenLink: row.rss_or_listen_link }) ? "" : row.rss_or_listen_link;
   return {
     id: row.id,
     status: row.status,
     submissionType: row.submission_type,
     showTitle: row.show_title,
     creatorName: row.creator_name,
-    officialSite: row.official_site,
-    rssOrListenLink: row.rss_or_listen_link,
-    payload: row.payload_json || {},
+    officialSite,
+    rssOrListenLink,
+    requiresManualSourceReview,
+    payload: {
+      ...(storedPayload.intakeVersion === 2 ? { intakeVersion: 2 } : {}),
+      listenLinks,
+      selectedTags: Array.isArray(storedPayload.selectedTags) ? storedPayload.selectedTags : [],
+      completionStatus: storedPayload.completionStatus || "unknown",
+      shortDescription: sanitizeUserProvidedText(storedPayload.shortDescription || ""),
+      suggestedDescriptors: sanitizeUserProvidedText(storedPayload.suggestedDescriptors || ""),
+    },
   };
 }
 
@@ -378,6 +404,15 @@ function createSubmissionLifecycleService({
       }
       const potentialMatches = importService.findPotentialSubmissionMatches(submission);
       const hasSource = importService.submissionHasSupportedPreparationSource(submission);
+      if (submission.requiresManualSourceReview) {
+        setProcessing(submission, "needs-investigation", {
+          error: "A submitted link contains embedded credentials or private query data; request a public feed or site URL.",
+          eventType: "needs-investigation",
+          eventKey: "credentialed-source-url",
+          reason: "submitted-source-url-may-contain-private-credentials",
+        });
+        return true;
+      }
       if (potentialMatches.length || !hasSource) {
         setProcessing(submission, "needs-investigation", {
           error: potentialMatches.length
@@ -414,7 +449,7 @@ function createSubmissionLifecycleService({
       const retryable = error?.retryable !== false && attemptCount < MAX_AUTOMATIC_ATTEMPTS;
       const nextAttemptAt = retryable ? new Date(now().getTime() + Math.min(60 * 60_000, 30_000 * (2 ** (attemptCount - 1)))) : null;
       setProcessing(submission, retryable ? "retry-wait" : "needs-investigation", {
-        error: String(error?.message || error).slice(0, 1_000),
+        error: "Automatic preparation could not start; retry or maintainer investigation is required.",
         nextAttemptAt,
         eventType: retryable ? "dispatch-retry-scheduled" : "processing-failed",
         eventKey: retryable ? `dispatch-retry:${attemptCount}` : `dispatch-failed:${attemptCount}`,
@@ -446,8 +481,8 @@ function createSubmissionLifecycleService({
       const claimedIds = ids.filter((_id, index) => claimed[index]);
       return { enabled, claimed: claimedIds.length, submissionIds: claimedIds };
     } catch (error) {
-      logger.error(JSON.stringify({ level: "error", event: "submission_lifecycle_reconciliation_failed", error: String(error?.message || error).slice(0, 240) }));
-      return { enabled, claimed: 0, error: String(error?.message || error).slice(0, 240) };
+      logger.error(JSON.stringify({ level: "error", event: "submission_lifecycle_reconciliation_failed", errorName: String(error?.name || "Error").slice(0, 80) }));
+      return { enabled, claimed: 0, error: "Submission lifecycle reconciliation failed." };
     } finally {
       running = false;
     }

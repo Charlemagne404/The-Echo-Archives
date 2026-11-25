@@ -71,7 +71,17 @@ async function waitForSelected(page, expectedId) {
 function assertQueueUrl(urlString, expectedItem) {
   const url = new URL(urlString);
   const keys = [...url.searchParams.keys()];
-  assert.ok(keys.every((key) => ["item", "page", "pageSize", "q", "status"].includes(key)));
+  assert.ok(keys.every((key) => [
+    "item",
+    "page",
+    "pageSize",
+    "q",
+    "status",
+    "submissionType",
+    "priority",
+    "lane",
+    "includeClosed",
+  ].includes(key)));
   assert.equal(url.searchParams.get("item"), expectedItem);
   assert.equal(url.searchParams.get("q"), "Queue");
   assert.doesNotMatch(urlString, /PRIVATE|secret@example\.com|private\.example|reviewNotes|sourceIp|userAgent/i);

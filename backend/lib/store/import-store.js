@@ -1,5 +1,11 @@
 const { createHash, randomUUID } = require("node:crypto");
 const { gunzipSync, gzipSync } = require("node:zlib");
+const {
+  sanitizeCandidateValue,
+  sanitizeProviderSourceValue,
+  sanitizeRunInput,
+  sanitizeRunSummary,
+} = require("../privacy/submission-derived-data");
 
 const {
   IMPORT_OPEN_STATUSES,
@@ -480,6 +486,10 @@ function createImportStore({ db }) {
 
   function createCandidate(payload = {}) {
     const id = payload.id || randomUUID();
+    payload = sanitizeCandidateValue(db, id, payload, {
+      primarySourceType: payload.primarySourceType || "",
+      primarySourceKey: payload.primarySourceKey || "",
+    });
     db.prepare(`
       INSERT INTO catalog_import_candidates (
         id, status, mode, existing_show_id, scope_status, has_duplicate_match,
@@ -654,8 +664,13 @@ function createImportStore({ db }) {
       )
     `);
     const inserted = [];
-    (Array.isArray(sources) ? sources : []).forEach((source) => {
-      const rawBody = source.rawBody ?? source.raw?.text ?? source.raw?.body ?? "";
+    (Array.isArray(sources) ? sources : []).forEach((entry) => {
+      const source = sanitizeProviderSourceValue(db, candidateId, entry);
+      const rawBodyValue = source.rawBody ?? source.raw?.text ?? source.raw?.body ?? "";
+      // This is an independently fetched provider response. Keep its public
+      // creator metadata intact; private submission fields are never inputs to
+      // the fetch response, while submitted source URLs are sanitized above.
+      const rawBody = Buffer.isBuffer(rawBodyValue) ? rawBodyValue.toString("utf8") : rawBodyValue;
       const packed = packRawBody(rawBody);
       const info = insert.run({
         candidateId,
@@ -666,7 +681,7 @@ function createImportStore({ db }) {
         httpStatus: source.httpStatus ?? source.raw?.httpStatus ?? null,
         etag: source.etag || source.raw?.etag || "",
         lastModified: source.lastModified || source.raw?.lastModified || "",
-        payloadHash: source.payloadHash || packed.hash,
+        payloadHash: packed.hash,
         payloadGzip: packed.gzip,
         rawTruncated: source.rawTruncated || packed.truncated ? 1 : 0,
         payloadJson: JSON.stringify(source.payload || source.rawMetadata || {
@@ -694,7 +709,8 @@ function createImportStore({ db }) {
         @evidenceStatus, @selected, @observedAt
       )
     `);
-    (Array.isArray(evidence) ? evidence : []).forEach((item) => {
+    (Array.isArray(evidence) ? evidence : []).forEach((entry) => {
+      const item = sanitizeCandidateValue(db, candidateId, entry);
       insert.run({
         candidateId,
         fieldName: trimText(item.fieldName, 200),
@@ -740,6 +756,7 @@ function createImportStore({ db }) {
     if (!current) {
       return null;
     }
+    updates = sanitizeCandidateValue(db, id, updates);
     const next = { ...current, ...updates };
     db.prepare(`
       UPDATE catalog_import_candidates SET
@@ -810,10 +827,11 @@ function createImportStore({ db }) {
   }
 
   function recordEvent(candidateId, eventType, actor = "", payload = {}) {
+    const sanitized = sanitizeCandidateValue(db, candidateId, { actor: actor || "", payload: payload || {} });
     db.prepare(`
       INSERT INTO catalog_import_events (id, candidate_id, event_type, actor, payload_json)
       VALUES (?, ?, ?, ?, ?)
-    `).run(randomUUID(), candidateId, eventType, actor || "", JSON.stringify(payload || {}));
+    `).run(randomUUID(), candidateId, eventType, sanitized.actor, JSON.stringify(sanitized.payload));
   }
 
   function claimIdentity(identityType, identityValue, mapping = {}) {
@@ -890,11 +908,12 @@ function createImportStore({ db }) {
   function createRun({ runType, status = "queued", input = {}, summary = {} }) {
     const id = randomUUID();
     const now = new Date().toISOString();
+    input = sanitizeRunInput(db, input || {});
     db.prepare(`
       INSERT INTO catalog_import_runs (
         id, run_type, status, input_json, summary_json, updated_at, started_at, completed_at
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `).run(id, runType, status, JSON.stringify(input || {}), JSON.stringify(summary || {}), now, status === "processing" ? now : null, status === "completed" ? now : null);
+    `).run(id, runType, status, JSON.stringify(input || {}), JSON.stringify(sanitizeRunSummary(db, input || {}, summary || {})), now, status === "processing" ? now : null, status === "completed" ? now : null);
     return getRun(id);
   }
 
@@ -922,6 +941,8 @@ function createImportStore({ db }) {
     if (!current) {
       return null;
     }
+    const candidateIds = updates.summary?.candidateIds || current.summary?.candidateIds || [];
+    const sanitizedSummary = JSON.stringify(sanitizeRunSummary(db, { candidateIds }, updates.summary ?? current.summary ?? {}));
     const status = updates.status || current.status;
     const now = new Date().toISOString();
     db.prepare(`
@@ -932,7 +953,7 @@ function createImportStore({ db }) {
       WHERE id = ?
     `).run(
       status,
-      JSON.stringify(updates.summary ?? current.summary ?? {}),
+      sanitizedSummary,
       now,
       status === "processing" ? now : null,
       ["completed", "failed"].includes(status) ? now : null,
@@ -943,6 +964,7 @@ function createImportStore({ db }) {
 
   function enqueueJob({ candidateId, runId = "", jobType = "prepare", inputRevision = 1, payload = {}, maxAttempts = 4 }) {
     const id = randomUUID();
+    payload = sanitizeCandidateValue(db, candidateId, payload || {});
     db.prepare(`
       INSERT INTO catalog_import_jobs (
         id, candidate_id, run_id, job_type, status, max_attempts,
@@ -990,6 +1012,8 @@ function createImportStore({ db }) {
   });
 
   function completeJob(id, result = {}) {
+    const job = db.prepare("SELECT candidate_id FROM catalog_import_jobs WHERE id = ?").get(id);
+    result = sanitizeCandidateValue(db, job?.candidate_id || "", result || {});
     db.prepare(`
       UPDATE catalog_import_jobs SET status='completed', result_json=?, error_text='',
         lease_owner='', lease_expires_at=NULL, completed_at=?, updated_at=CURRENT_TIMESTAMP
@@ -1003,6 +1027,7 @@ function createImportStore({ db }) {
     if (!current) {
       return null;
     }
+    const safeError = sanitizeCandidateValue(db, current.candidateId, String(error?.message || error));
     const exhausted = !retryable || current.attemptCount >= current.maxAttempts;
     const delays = [30_000, 120_000, 600_000, 600_000];
     const delay = Math.max(retryAfterMs, delays[Math.max(0, current.attemptCount - 1)] || 600_000);
@@ -1011,12 +1036,16 @@ function createImportStore({ db }) {
       UPDATE catalog_import_jobs SET status=?, error_text=?, next_attempt_at=?,
         lease_owner='', lease_expires_at=NULL, completed_at=?, updated_at=CURRENT_TIMESTAMP
       WHERE id=?
-    `).run(exhausted ? "failed" : "retry", trimText(error?.message || error, 4000), nextAttemptAt, exhausted ? new Date().toISOString() : null, id);
+    `).run(exhausted ? "failed" : "retry", trimText(safeError, 4000), nextAttemptAt, exhausted ? new Date().toISOString() : null, id);
     return hydrateJob(db.prepare("SELECT * FROM catalog_import_jobs WHERE id = ?").get(id));
   }
 
   function putSourceCache(entry = {}) {
-    const packed = packRawBody(entry.rawBody || "");
+    const candidateId = entry.candidateId || "";
+    entry = sanitizeProviderSourceValue(db, candidateId, entry);
+    // Preserve public provider response bodies and creator contact metadata.
+    const rawBody = Buffer.isBuffer(entry.rawBody) ? entry.rawBody.toString("utf8") : entry.rawBody || "";
+    const packed = packRawBody(rawBody);
     db.prepare(`
       INSERT INTO catalog_import_source_cache (
         source_type, source_key, source_url, fetch_status, http_status,
@@ -1033,7 +1062,7 @@ function createImportStore({ db }) {
     `).run(
       entry.sourceType || "", entry.sourceKey || "", entry.sourceUrl || "",
       entry.fetchStatus || "fetched", entry.httpStatus ?? null, entry.etag || "",
-      entry.lastModified || "", packed.gzip, entry.payloadHash || packed.hash,
+      entry.lastModified || "", packed.gzip, packed.hash,
       entry.rawTruncated || packed.truncated ? 1 : 0,
       JSON.stringify(entry.normalized || {}), entry.error || "",
       entry.fetchedAt || new Date().toISOString(), entry.expiresAt || null,

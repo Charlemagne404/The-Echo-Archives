@@ -1,4 +1,5 @@
 const { randomUUID } = require("node:crypto");
+const { redactSubmissionDerivedData, sanitizeSubmissionDerivedValue } = require("../privacy/submission-derived-data");
 
 const PRIORITY_ORDER_SQL = `
   CASE priority
@@ -419,15 +420,19 @@ function createSubmissionStore({ db }) {
     evidence = {},
     createdAt = new Date().toISOString(),
   } = {}) {
-    const key = String(eventKey || `${eventType}:${randomUUID()}`).slice(0, 240);
+    const safeEventKey = sanitizeSubmissionDerivedValue(db, submissionId, String(eventKey || `${eventType}:${randomUUID()}`));
+    const safeActor = sanitizeSubmissionDerivedValue(db, submissionId, String(actor || "system"));
+    const safeReason = sanitizeSubmissionDerivedValue(db, submissionId, String(reason || ""));
+    const safeEvidence = sanitizeSubmissionDerivedValue(db, submissionId, evidence && typeof evidence === "object" ? evidence : {});
+    const key = String(safeEventKey).slice(0, 240);
     const result = statements.insertLifecycleEvent.run({
       id: randomUUID(),
       submissionId: String(submissionId || "").slice(0, 80),
       eventType: String(eventType || "event").slice(0, 80),
       eventKey: key,
-      actor: String(actor || "system").slice(0, 160),
-      reason: String(reason || "").slice(0, 240),
-      evidenceJson: JSON.stringify(evidence && typeof evidence === "object" ? evidence : {}),
+      actor: String(safeActor).slice(0, 160),
+      reason: String(safeReason).slice(0, 240),
+      evidenceJson: JSON.stringify(safeEvidence),
       createdAt: String(createdAt || new Date().toISOString()),
     });
     return result.changes === 1;
@@ -464,7 +469,7 @@ function createSubmissionStore({ db }) {
     const result = statements.updateProcessing.run({
       id,
       status,
-      error: String(error || "").slice(0, 1_000),
+      error: String(sanitizeSubmissionDerivedValue(db, id, String(error || ""))).slice(0, 1_000),
       startedAt: startedAt instanceof Date ? startedAt.toISOString() : startedAt,
       nextAttemptAt: nextAttemptAt instanceof Date ? nextAttemptAt.toISOString() : nextAttemptAt,
     });
@@ -478,6 +483,10 @@ function createSubmissionStore({ db }) {
     const allowed = new Set(["published", "already-listed", "duplicate", "rejected"]);
     if (!allowed.has(status)) throw new Error("Unknown submission resolution state.");
     const now = new Date().toISOString();
+    reason = sanitizeSubmissionDerivedValue(db, id, String(reason || ""));
+    evidence = sanitizeSubmissionDerivedValue(db, id, evidence && typeof evidence === "object" ? evidence : {});
+    actor = sanitizeSubmissionDerivedValue(db, id, String(actor || "system"));
+    eventKey = sanitizeSubmissionDerivedValue(db, id, String(eventKey || ""));
     return db.transaction(() => {
       const result = statements.resolveSubmission.run({
         id,
@@ -502,6 +511,10 @@ function createSubmissionStore({ db }) {
 
   function resolveDuplicateSubmission(id, relatedSubmissionId, { reason = "", evidence = {}, actor = "system", eventKey = "" } = {}) {
     const now = new Date().toISOString();
+    reason = sanitizeSubmissionDerivedValue(db, relatedSubmissionId, sanitizeSubmissionDerivedValue(db, id, String(reason || "")));
+    evidence = sanitizeSubmissionDerivedValue(db, relatedSubmissionId, sanitizeSubmissionDerivedValue(db, id, evidence && typeof evidence === "object" ? evidence : {}));
+    actor = sanitizeSubmissionDerivedValue(db, id, String(actor || "system"));
+    eventKey = sanitizeSubmissionDerivedValue(db, id, String(eventKey || ""));
     return db.transaction(() => {
       const result = statements.resolveSubmission.run({
         id,
@@ -532,6 +545,7 @@ function createSubmissionStore({ db }) {
   }
 
   function relateSubmissions(submissionId, relatedSubmissionId, { relationshipType = "related-to", evidence = {}, createdAt = new Date().toISOString() } = {}) {
+    evidence = sanitizeSubmissionDerivedValue(db, relatedSubmissionId, sanitizeSubmissionDerivedValue(db, submissionId, evidence && typeof evidence === "object" ? evidence : {}));
     const result = statements.insertSubmissionRelation.run({
       submissionId,
       relatedSubmissionId,
@@ -838,7 +852,31 @@ function createSubmissionStore({ db }) {
     const personalCutoff = new Date(safeNowMs - Math.max(1, personalRetentionDays) * 24 * 60 * 60 * 1000).toISOString();
 
     return db.transaction(() => {
+      const networkDueIds = db.prepare(`
+        SELECT id FROM show_submissions
+        WHERE (source_ip <> '' OR user_agent <> '') AND datetime(submitted_at) <= datetime(?)
+      `).all(networkCutoff).map((row) => row.id);
+      const contentDueIds = db.prepare(`
+        SELECT id FROM show_submissions
+        WHERE datetime(COALESCE(reviewed_at, submitted_at)) <= datetime(?)
+          AND content_redacted_at IS NULL
+      `).all(personalCutoff).map((row) => row.id);
+      const derivedRedactions = { rowsByTable: {}, totalRows: 0 };
+      networkDueIds.forEach((id) => {
+        const result = redactSubmissionDerivedData(db, id, { dryRun: false, scope: "network" });
+        derivedRedactions.totalRows += result.changedRows.totalRows;
+        Object.entries(result.changedRows.rowsByTable).forEach(([table, count]) => {
+          derivedRedactions.rowsByTable[table] = (derivedRedactions.rowsByTable[table] || 0) + count;
+        });
+      });
       const networkRowsRedacted = statements.redactSubmissionNetworkData.run({ cutoff: networkCutoff }).changes;
+      contentDueIds.forEach((id) => {
+        const result = redactSubmissionDerivedData(db, id, { dryRun: false, scope: "content" });
+        derivedRedactions.totalRows += result.changedRows.totalRows;
+        Object.entries(result.changedRows.rowsByTable).forEach(([table, count]) => {
+          derivedRedactions.rowsByTable[table] = (derivedRedactions.rowsByTable[table] || 0) + count;
+        });
+      });
       const redactedAt = new Date(safeNowMs).toISOString();
       const submissionContentRedacted = statements.redactExpiredSubmissionContent.run({
         cutoff: personalCutoff,
@@ -857,7 +895,7 @@ function createSubmissionStore({ db }) {
           createdAt: redactedAt,
         });
       });
-      return { networkRowsRedacted, submissionContentRedacted, submissionsDeleted: 0 };
+      return { networkRowsRedacted, submissionContentRedacted, derivedRedactions, submissionsDeleted: 0 };
     })();
   }
 

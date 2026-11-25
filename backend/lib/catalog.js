@@ -48,7 +48,10 @@ const {
   writeCatalogSource,
 } = require("../../tools/lib/catalog-source");
 const { validateProvenance } = require("../../tools/lib/catalog-provenance");
-const { isCompleteProvisionalIndexedEntry } = require("../../tools/lib/provisional-publication");
+const {
+  isCompleteProvisionalIndexedEntry,
+  isLegacyPublishedProvisionalIndexedEntry,
+} = require("../../tools/lib/provisional-publication");
 const { buildGeneratedSimilarityCollections } = require("./shows-like-routes");
 
 const VALID_REVIEW_STATUSES = new Set(REVIEW_STATUSES);
@@ -122,9 +125,14 @@ function isValidDateValue(value = "") {
   return Number.isFinite(timestamp);
 }
 
-function validateProvisionalPublication(record = {}) {
+function validateProvisionalPublication(record = {}, { allowLegacyPublishedProvisional = false } = {}) {
   const publication = record.metadata?.import?.publication || {};
-  if (publication.provisional === true && !isCompleteProvisionalIndexedEntry(record)) {
+  const isPublishedArchiveRecord = record.status === "published" && record.reviewStatus === "indexed-only";
+  if (
+    publication.provisional === true &&
+    !isCompleteProvisionalIndexedEntry(record) &&
+    !(allowLegacyPublishedProvisional && isPublishedArchiveRecord && isLegacyPublishedProvisionalIndexedEntry(record))
+  ) {
     throw new Error("Show " + record.id + " has an incomplete provisional publication review record.");
   }
 }
@@ -332,9 +340,12 @@ function validateDiscoveryTags(record) {
   });
 }
 
-function validatePublishedDiscoveryMetadata(record) {
+function validatePublishedDiscoveryMetadata(record, { allowLegacyPublishedProvisional = false } = {}) {
   if (record.status !== "published") return;
-  const provisional = isCompleteProvisionalIndexedEntry(record);
+  const provisional = isCompleteProvisionalIndexedEntry(record) || (
+    allowLegacyPublishedProvisional &&
+    isLegacyPublishedProvisionalIndexedEntry(record)
+  );
 
   if (!provisional && isPlaceholderDescription(record.title, record.description)) {
     throw new Error(`Show "${record.id}" needs a source-backed description of at least ${MIN_PUBLISHED_DESCRIPTION_LENGTH} characters before publication.`);
@@ -408,7 +419,7 @@ function validateImportedRecord(record) {
   }
 }
 
-function validateShowRecord(record, seenIds) {
+function validateShowRecord(record, seenIds, { allowLegacyPublishedProvisional = false } = {}) {
   if (!record || typeof record !== "object") {
     throw new Error("Every show record must be an object.");
   }
@@ -428,7 +439,10 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" is missing a title.`);
   }
 
-  const provisional = isCompleteProvisionalIndexedEntry(record);
+  const provisional = isCompleteProvisionalIndexedEntry(record) || (
+    allowLegacyPublishedProvisional &&
+    isLegacyPublishedProvisionalIndexedEntry(record)
+  );
   if (typeof record.description !== "string" || (!record.description.trim() && !provisional)) {
     throw new Error(`Show "${record.id}" is missing a description.`);
   }
@@ -455,10 +469,10 @@ function validateShowRecord(record, seenIds) {
 
   SHOW_STRING_ARRAY_FIELDS.forEach((fieldName) => validateArrayOfStrings("Show", record.id, fieldName, record[fieldName]));
   validateOptionalObjects(record, "Show");
-  validateProvisionalPublication(record);
+  validateProvisionalPublication(record, { allowLegacyPublishedProvisional });
   validateDiscoveryProfile(record);
   validateTextMap("Show", record.id, "similarReasons", record.similarReasons);
-  validatePublishedDiscoveryMetadata(record);
+  validatePublishedDiscoveryMetadata(record, { allowLegacyPublishedProvisional });
   validateDiscoveryTags(record);
   validateImportedRecord(record);
   assertUniqueNormalized(record.tags, "tags", record.id);
@@ -696,7 +710,11 @@ async function loadShows(siteRoot, options = {}) {
   const seenIds = new Set();
   const mergedRecords = records.map((record) => mergeReviewContent(record, reviewsById[record.id] || readReviewRecord(siteRoot, record.id)));
 
-  mergedRecords.forEach((record) => validateShowRecord(record, seenIds));
+  // A narrow set of already-published indexed-only records carry the explicit
+  // legacy publication tier and timestamp. Preserve those records as-is across
+  // runtime-to-split catalog migration; new publications remain strict.
+  const allowLegacyPublishedProvisional = true;
+  mergedRecords.forEach((record) => validateShowRecord(record, seenIds, { allowLegacyPublishedProvisional }));
 
   const normalized = mergedRecords.map((record) => normalizeShowRecord(record));
   const idSet = new Set(normalized.map((record) => record.id));

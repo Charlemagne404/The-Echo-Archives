@@ -1,0 +1,143 @@
+{
+  "manifestVersion": 1,
+  "mode": "isolated-current-production-snapshot-migration-validation",
+  "productionChanges": false,
+  "source": {
+    "productionRelease": "092faa604982ffd229fe0686157c4d275818e303",
+    "databaseSnapshotSha256": "566267ef583e19c9c1fbc25a27d166eac57cf2f5f97ad24e7da17e102a5d1c5d",
+    "databaseSnapshotBytes": 128245760,
+    "catalogSha256": "9ffcbb004a03c851b2e5fd87a18c94a727e026b5a49999cb15df901f8f81025b",
+    "catalogShows": 760
+  },
+  "migration": {
+    "executedOnIsolatedCopy": true,
+    "repeatedApplicationAndStartup": "safe; no additional rows or lifecycle changes",
+    "schemaOnly": {
+      "showSubmissionsColumnsAdded": [
+        "processing_status",
+        "resolution_status",
+        "resolution_reason",
+        "resolved_at",
+        "resolution_evidence_json",
+        "processing_error",
+        "processing_attempts",
+        "processing_started_at",
+        "processing_next_attempt_at",
+        "content_redacted_at",
+        "intake_key_hash"
+      ],
+      "tablesAdded": [
+        "submission_candidate_links",
+        "submission_lifecycle_events",
+        "submission_relations"
+      ],
+      "indexesAdded": [
+        "idx_show_submissions_intake_key",
+        "idx_show_submissions_lifecycle",
+        "idx_submission_candidate_links_candidate",
+        "idx_submission_lifecycle_events_timeline",
+        "idx_submission_relations_related"
+      ],
+      "triggersAdded": [
+        "protect_open_show_submissions_from_legacy_retention_delete"
+      ]
+    },
+    "dataChanges": {
+      "showSubmissions": {
+        "before": 13,
+        "after": 13,
+        "originalRowsPreserved": true,
+        "moderationStatusNewBeforeAndAfter": 13,
+        "processingStatusInitialized": 13,
+        "resolutionPublished": 9,
+        "resolutionStillOpen": 4,
+        "candidateLinksRestored": 10,
+        "lifecycleReceivedEvents": 13,
+        "lifecyclePublishedEvents": 9,
+        "totalLifecycleEvents": 22
+      },
+      "publishedResolutions": [
+        {
+          "submissionId": "336e8b27-a795-42e0-a3e6-cef6f933b642",
+          "candidateId": "b0837864-24af-4170-b898-9f8247935d43",
+          "showId": "mina-an-audiobook-podcast-by-roo-bannister"
+        },
+        {
+          "submissionId": "3184620d-551e-40dd-bdd4-ee36be3236e2",
+          "candidateId": "3a50a2fe-b0ae-472d-b18f-23045b3b87e9",
+          "showId": "dont-stop-me-now-an-audiobook-podcast"
+        },
+        {
+          "submissionId": "d41c7e2b-71ef-46c5-aeff-95e438492ffe",
+          "candidateId": "c9e37e4a-07a3-4bbc-99bb-93a13414b067",
+          "showId": "welcome-to-the-brass-eagle"
+        },
+        {
+          "submissionId": "7d61d053-41f2-4c91-861b-accce6f7e5b2",
+          "candidateId": "0798ed68-13ac-4c0a-9177-925ee0fe603b",
+          "showId": "polybius-protocol"
+        },
+        {
+          "submissionId": "b51fff09-12d1-4b26-9e1d-ec386169ce78",
+          "candidateId": "8317bc0b-69cd-426c-95da-ef31905a8bc3",
+          "showId": "the-great-work-and-other-administrative-matters"
+        },
+        {
+          "submissionId": "50d2cc64-df29-484a-a3f1-ef1a5257c315",
+          "candidateId": "1a8ff012-dc4c-486b-8ace-216241f780b9",
+          "showId": "richian-presents-dracula"
+        },
+        {
+          "submissionId": "efb35049-e89f-4bda-98e4-d2e75724f6f7",
+          "candidateId": "1d544f0a-8797-4273-8149-1b9bc3cbfbbc",
+          "showId": "parsons-nose-radio-theater"
+        },
+        {
+          "submissionId": "4d31d2c6-b1f0-4614-99e4-2d0ba2b0dd2a",
+          "candidateId": "f79ab797-27fc-498b-b4c1-0958de03c15e",
+          "showId": "dyme-an-appalachian-horror-audio-drama"
+        },
+        {
+          "submissionId": "dbd8a87e-9c09-4afa-aeb2-5745aaddbaaa",
+          "candidateId": "94aacc3b-179a-410b-bad5-24901832c719",
+          "showId": "the-chronicles-of-oz"
+        }
+      ],
+      "candidateLinks": [
+        { "submissionId": "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8", "candidateId": "b5924d82-4105-45ab-b58f-29fc29b31fe6" },
+        { "submissionId": "336e8b27-a795-42e0-a3e6-cef6f933b642", "candidateId": "b0837864-24af-4170-b898-9f8247935d43" },
+        { "submissionId": "3184620d-551e-40dd-bdd4-ee36be3236e2", "candidateId": "3a50a2fe-b0ae-472d-b18f-23045b3b87e9" },
+        { "submissionId": "d41c7e2b-71ef-46c5-aeff-95e438492ffe", "candidateId": "c9e37e4a-07a3-4bbc-99bb-93a13414b067" },
+        { "submissionId": "7d61d053-41f2-4c91-861b-accce6f7e5b2", "candidateId": "0798ed68-13ac-4c0a-9177-925ee0fe603b" },
+        { "submissionId": "b51fff09-12d1-4b26-9e1d-ec386169ce78", "candidateId": "8317bc0b-69cd-426c-95da-ef31905a8bc3" },
+        { "submissionId": "50d2cc64-df29-484a-a3f1-ef1a5257c315", "candidateId": "1a8ff012-dc4c-486b-8ace-216241f780b9" },
+        { "submissionId": "efb35049-e89f-4bda-98e4-d2e75724f6f7", "candidateId": "1d544f0a-8797-4273-8149-1b9bc3cbfbbc" },
+        { "submissionId": "4d31d2c6-b1f0-4614-99e4-2d0ba2b0dd2a", "candidateId": "f79ab797-27fc-498b-b4c1-0958de03c15e" },
+        { "submissionId": "dbd8a87e-9c09-4afa-aeb2-5745aaddbaaa", "candidateId": "94aacc3b-179a-410b-bad5-24901832c719" }
+      ],
+      "stillOpenAfterMigration": [
+        { "submissionId": "cc21fc8c-e099-4292-a47a-3bd10abb25af", "title": "Rosanna's Secret", "reason": "awaits explicit strong-identity already-listed reconciliation" },
+        { "submissionId": "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8", "title": "OPTOg", "reason": "candidate requires maintainer investigation" },
+        { "submissionId": "a0390437-0eed-43c1-b2a7-ff33e27f5271", "title": "Dyme: An Original Appalachian Horror Audio Drama", "reason": "duplicate consolidation is a separate reviewed reconciliation action" },
+        { "submissionId": "3dbad274-c403-4609-aaa0-4ffa55b05fde", "title": "The Survivor Tapes", "reason": "legitimate outstanding submission" }
+      ],
+      "unrelatedTables": {
+        "podcasts": { "before": 760, "after": 760, "contentChanged": false },
+        "catalog_import_candidates": { "before": 153, "after": 153, "contentChanged": false },
+        "catalog_import_jobs": { "before": 164, "after": 164, "contentChanged": false },
+        "catalog_import_runs": { "before": 46, "after": 46, "contentChanged": false },
+        "rating_submissions": { "before": 34, "after": 34, "contentChanged": false },
+        "rating_events": { "before": 2, "after": 2, "contentChanged": false }
+      }
+    },
+    "archiveRecordsModified": 0,
+    "automaticPublicationPerformed": false
+  },
+  "verification": {
+    "quickCheck": "ok",
+    "foreignKeyViolations": 0,
+    "repeatedStartupChanges": 0,
+    "sourceSnapshotChanged": false,
+    "note": "Published resolutions are migration side effects when automation is disabled. Remaining already-listed and duplicate recommendations are separate reconciliation operations and were not applied. Candidate publication remains behind maintainer approval."
+  }
+}

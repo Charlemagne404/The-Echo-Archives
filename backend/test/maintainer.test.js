@@ -8,11 +8,18 @@ const { spawn } = require("node:child_process");
 const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createSubmissionService } = require("../lib/services/submission-service");
+const { defaultPublicationTier } = require("../lib/routes/maintainer-routes");
 const { findFreePort } = require("./helpers/free-port");
 const { createVisibleStaticRoot } = require("./helpers/visible-static-root");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
+
+test("default submission publication tier follows importer eligibility", () => {
+  assert.equal(defaultPublicationTier({ imported: { eligible: true }, indexedOnly: { eligible: false } }), "imported");
+  assert.equal(defaultPublicationTier({ imported: { eligible: false }, indexedOnly: { eligible: true } }), "indexed-only");
+  assert.equal(defaultPublicationTier({ imported: { eligible: false }, indexedOnly: { eligible: false } }), "");
+});
 
 function createTempContext() {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-maintainer-"));
