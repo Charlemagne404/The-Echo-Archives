@@ -2,6 +2,7 @@ const express = require("express");
 
 function createSubmissionRouter({
   submissionService,
+  submissionLifecycleService = null,
   analyticsStore = null,
   discordNotifications = null,
   getShowHref = () => "",
@@ -33,6 +34,7 @@ function createSubmissionRouter({
       const result = submissionService.submit(req.body || {}, {
         sourceIp: req.ip || "",
         userAgent: req.get("user-agent") || "",
+        idempotencyKey: req.get("idempotency-key") || "",
       });
 
       if (result.filtered) {
@@ -42,6 +44,13 @@ function createSubmissionRouter({
       }
 
       const internal = isInternalRequest(req);
+      if (result.submission?.submission_type === "show") {
+        try {
+          submissionLifecycleService?.signalNewSubmission(result.submission.id);
+        } catch (_error) {
+          // Durable received state is recovered by the lifecycle scan after a restart.
+        }
+      }
       recordAnalytics({
         ...getAnalyticsRequestContext(req),
         eventName: "Catalogue Submission",
@@ -53,7 +62,7 @@ function createSubmissionRouter({
         internal,
       });
 
-      if (!internal) {
+      if (!internal && result.submission?.submission_type !== "show") {
         try {
           const submission = result.submission;
           const payload = submission.payload_json || {};

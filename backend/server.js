@@ -32,6 +32,7 @@ const { createPopularityService } = require("./lib/popularity");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createDataRetentionService } = require("./lib/services/data-retention-service");
 const { createImportService } = require("./lib/services/import-service");
+const { createSubmissionLifecycleService } = require("./lib/services/submission-lifecycle-service");
 const { createEchoPublisher } = require("./lib/services/echo-publisher");
 const { createEchoPublisherControlServer } = require("./lib/services/echo-publisher-control");
 const { createCollectionService } = require("./lib/services/collection-service");
@@ -580,8 +581,7 @@ async function startServer() {
         result.community.profileMetadataRedacted +
         result.community.orphanProfilesDeleted +
         result.submissions.networkRowsRedacted +
-        result.submissions.submissionsDeleted +
-        result.submissions.publishedSubmissionRowsRedacted +
+        result.submissions.submissionContentRedacted +
         result.analytics.eventsDeleted +
         result.analytics.visitorsDeleted;
       if (totalRows > 0) {
@@ -621,6 +621,13 @@ async function startServer() {
     config,
     onPublished: refreshCollectionsForCatalogChange,
   });
+  const submissionLifecycleService = createSubmissionLifecycleService({
+    store: submissionStore,
+    importService,
+    discordNotifications: discordNotificationDispatcher,
+    config,
+  });
+  submissionLifecycleService.start();
   const echoPublisher = createEchoPublisher({
     service: importService,
     store: importStore,
@@ -1117,6 +1124,7 @@ async function startServer() {
     "/api/submissions",
     createSubmissionRouter({
       submissionService,
+      submissionLifecycleService,
       analyticsStore,
       discordNotifications: discordNotificationDispatcher,
       getShowHref: (showId) => state.showByLowerId.get(String(showId || "").toLowerCase())?.href || "",
@@ -1129,6 +1137,7 @@ async function startServer() {
       auth: maintainerAuth,
       staticRoot: config.STATIC_ROOT,
       submissionService,
+      submissionLifecycleService,
       publishedListenerReviewService,
       importService,
       elevationService,
@@ -1851,6 +1860,7 @@ async function startServer() {
     if (shuttingDown) return;
     shuttingDown = true;
     clearInterval(dataRetentionTimer);
+    submissionLifecycleService.stop();
     discordNotificationDispatcher.stop();
     console.log(`Received ${signal}; closing Echo Archives cleanly.`);
 

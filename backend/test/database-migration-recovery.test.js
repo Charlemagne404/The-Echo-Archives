@@ -28,6 +28,9 @@ const REQUIRED_TABLES = [
   "rating_events",
   "community_abuse_events",
   "show_submissions",
+  "submission_candidate_links",
+  "submission_relations",
+  "submission_lifecycle_events",
   "published_listener_reviews",
   "listener_review_helpful_votes",
   "catalog_import_candidates",
@@ -66,6 +69,11 @@ const REQUIRED_INDEXES = [
   "idx_rating_events_podcast",
   "idx_show_submissions_status",
   "idx_show_submissions_import_candidate",
+  "idx_show_submissions_intake_key",
+  "idx_show_submissions_lifecycle",
+  "idx_submission_candidate_links_candidate",
+  "idx_submission_relations_related",
+  "idx_submission_lifecycle_events_timeline",
   "idx_catalog_import_candidates_status",
   "idx_catalog_import_candidates_scope",
   "idx_catalog_import_candidates_source",
@@ -509,6 +517,29 @@ function seedLegacyPreImportV2(dbPath, { incompatibleFts = false } = {}) {
     "2026-06-30T09:08:00.000Z",
   );
   db.prepare(`
+    INSERT INTO show_submissions (id, status, show_title, creator_name, contact_email, submitted_at)
+    VALUES (?, 'new', ?, ?, ?, ?), (?, 'accepted', ?, ?, ?, ?)
+  `).run(
+    "legacy-linked-ready",
+    "Ready Candidate Submission",
+    "Ready Creator",
+    "ready@example.test",
+    "2026-06-30T09:10:00.000Z",
+    "legacy-linked-published",
+    "Published Candidate Submission",
+    "Published Creator",
+    "published@example.test",
+    "2026-06-30T09:11:00.000Z",
+  );
+  db.prepare(`
+    INSERT INTO catalog_import_candidates (
+      id, status, title, primary_source_type, primary_source_key, updated_at
+    ) VALUES
+      ('legacy-submission-ready', 'ready', 'Ready Candidate', 'submission', 'legacy-linked-ready', '2026-06-30T09:12:00.000Z'),
+      ('legacy-submission-published', 'published', 'Published Candidate', 'submission', 'legacy-linked-published', '2026-06-30T09:13:00.000Z')
+  `).run();
+  db.prepare("UPDATE catalog_import_candidates SET published_show_id = 'published-show' WHERE id = 'legacy-submission-published'").run();
+  db.prepare(`
     INSERT INTO catalog_import_runs (id, run_type, status, input_json, summary_json, created_at)
     VALUES (?, 'seed', 'completed', ?, ?, ?)
   `).run(
@@ -680,7 +711,7 @@ test("historical pre-import-v2 schema migrates, preserves records, and rebuilds 
   try {
     db = openDatabase(dbPath);
     assertCurrentSchema(db);
-    assertMigrationMarkers(db, [RESET_MIGRATION, STATUS_MIGRATION, FTS_MIGRATION, ANALYTICS_MIGRATION]);
+    assertMigrationMarkers(db, [RESET_MIGRATION, STATUS_MIGRATION, FTS_MIGRATION, ANALYTICS_MIGRATION, "submission-lifecycle-v1-2026-11-25"]);
 
     assert.deepEqual(db.prepare(`
       SELECT id, title, created_at, updated_at, metadata_json
@@ -703,6 +734,19 @@ test("historical pre-import-v2 schema migrates, preserves records, and rebuilds 
     });
     assert.equal(db.prepare("SELECT status FROM catalog_import_candidates WHERE id = ?").get("legacy-candidate").status, "queued");
     assert.equal(db.prepare("SELECT notes FROM show_submissions WHERE id = ?").get("legacy-submission").notes, "Preserve this moderation record.");
+    assert.deepEqual(db.prepare("SELECT import_candidate_id, processing_status, resolution_status FROM show_submissions WHERE id = ?").get("legacy-linked-ready"), {
+      import_candidate_id: "legacy-submission-ready",
+      processing_status: "ready-for-review",
+      resolution_status: "open",
+    });
+    assert.deepEqual(db.prepare("SELECT import_candidate_id, processing_status, resolution_status, import_resolved_show_id FROM show_submissions WHERE id = ?").get("legacy-linked-published"), {
+      import_candidate_id: "legacy-submission-published",
+      processing_status: "completed",
+      resolution_status: "published",
+      import_resolved_show_id: "published-show",
+    });
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_candidate_links WHERE submission_id = ?").get("legacy-linked-ready").count, 1);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_lifecycle_events WHERE submission_id = ? AND event_type = 'received'").get("legacy-linked-ready").count, 1);
 
     assert.deepEqual(db.prepare(`
       SELECT mode, pipeline_version, input_revision
@@ -752,7 +796,8 @@ test("historical pre-import-v2 schema migrates, preserves records, and rebuilds 
     db.close();
     db = openDatabase(dbPath);
     assertCurrentSchema(db);
-    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM catalog_import_candidates_fts").get().count, 2);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM catalog_import_candidates_fts").get().count, 4);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_candidate_links WHERE submission_id = 'legacy-linked-ready'").get().count, 1);
   } finally {
     db?.close();
     cleanupRoot(root);

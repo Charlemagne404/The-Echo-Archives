@@ -20,6 +20,7 @@ function createMaintainerRouter({
   auth,
   staticRoot,
   submissionService,
+  submissionLifecycleService = null,
   publishedListenerReviewService,
   importService,
   elevationService,
@@ -146,6 +147,8 @@ function createMaintainerRouter({
         submissionType: req.query.submissionType,
         priority: req.query.priority,
         q: req.query.q,
+        lane: req.query.lane,
+        includeReceived: req.query.includeReceived === undefined ? undefined : parseBoolean(req.query.includeReceived),
         includeClosed: parseBoolean(req.query.includeClosed),
         page: parsePositiveInteger(req.query.page, 1),
         pageSize: parsePositiveInteger(req.query.pageSize, 20),
@@ -157,10 +160,32 @@ function createMaintainerRouter({
     }
   });
 
+  router.get("/api/maintainer/submissions/health", requireMaintainerSession, (_req, res, next) => {
+    try {
+      return res.json({ health: submissionLifecycleService?.getHealth?.() || { automationEnabled: false } });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
   router.get("/api/maintainer/submissions/:id", requireMaintainerSession, (req, res, next) => {
     try {
+      const submission = submissionService.getForMaintainer(req.params.id);
+      const lifecycle = submissionLifecycleService?.getDetail?.(req.params.id) || { lifecycle: { events: [], relations: [], candidates: [] }, potentialMatches: [], potentialSubmissionDuplicates: [] };
+      const candidates = lifecycle.lifecycle.candidates.map((candidate) => {
+        try {
+          return importService.getForMaintainer(candidate.id);
+        } catch (_error) {
+          return candidate;
+        }
+      });
       return res.json({
-        submission: submissionService.getForMaintainer(req.params.id),
+        submission,
+        history: lifecycle.lifecycle.events,
+        relatedSubmissions: lifecycle.lifecycle.relations,
+        candidates,
+        potentialMatches: lifecycle.potentialMatches,
+        potentialSubmissionDuplicates: lifecycle.potentialSubmissionDuplicates,
       });
     } catch (error) {
       return next(error);
@@ -177,6 +202,67 @@ function createMaintainerRouter({
           reviewedBy: req.body?.reviewedBy,
         }),
       });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/submissions/:id/retry", requireMaintainerSession, (req, res, next) => {
+    try {
+      if (!submissionLifecycleService) return res.status(503).json({ error: "Submission processing is unavailable." });
+      return res.status(202).json(submissionLifecycleService.retryForMaintainer(req.params.id, req.body?.reviewedBy || ""));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/submissions/:id/resolve-duplicate", requireMaintainerSession, (req, res, next) => {
+    try {
+      if (!submissionLifecycleService) return res.status(503).json({ error: "Submission lifecycle management is unavailable." });
+      return res.json({ submission: submissionLifecycleService.resolveDuplicateForMaintainer(
+        req.params.id,
+        req.body?.relatedSubmissionId || "",
+        req.body?.reviewedBy || "",
+      ) });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/submissions/:id/resolve-match", requireMaintainerSession, (req, res, next) => {
+    try {
+      if (!submissionLifecycleService) return res.status(503).json({ error: "Submission lifecycle management is unavailable." });
+      return res.json({ submission: submissionLifecycleService.resolveAlreadyListedForMaintainer(
+        req.params.id,
+        req.body?.showId || "",
+        req.body?.reviewedBy || "",
+      ) });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/submissions/:id/approve-and-publish", requireMaintainerSession, async (req, res, next) => {
+    try {
+      const submission = submissionService.getForMaintainer(req.params.id);
+      if (submission.submissionType !== "show" || !submission.importCandidateId) {
+        return res.status(409).json({ error: "This submission has no prepared importer candidate to publish." });
+      }
+      const candidate = importService.getForMaintainer(submission.importCandidateId);
+      if (candidate.status !== "ready" || !candidate.readiness?.ready || !candidate.preparedRecord?.id) {
+        return res.status(409).json({ error: "The importer candidate is not ready for editorial approval." });
+      }
+      const eligibility = candidate.readiness?.publicationEligibility || {};
+      const publicationTier = req.body?.publicationTier || (
+        eligibility.imported?.ready ? "imported" : eligibility.indexedOnly?.ready ? "indexed-only" : ""
+      );
+      if (!publicationTier) return res.status(409).json({ error: "No publication tier is currently eligible for this candidate." });
+      const publication = await importService.publishForMaintainer(
+        candidate.id,
+        req.body?.reviewedBy || "",
+        publicationTier,
+      );
+      return res.json({ publication, submission: submissionService.getForMaintainer(req.params.id) });
     } catch (error) {
       return next(error);
     }

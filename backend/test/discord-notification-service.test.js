@@ -394,6 +394,38 @@ test("successful submissions notify after save; failed and filtered requests sta
   });
 });
 
+test("show submissions use the lifecycle notice without a duplicate generic contribution notice", async () => {
+  const lifecycleEvents = [];
+  const contributionEvents = [];
+  const app = express();
+  app.use(express.json());
+  app.use("/api/submissions", createSubmissionRouter({
+    submissionService: {
+      submit: () => ({
+        accepted: true,
+        filtered: false,
+        submission: {
+          id: "show-submission-12345678",
+          submission_type: "show",
+          show_title: "A User Supplied Title",
+          submitted_at: "2026-11-25T10:00:00.000Z",
+          payload_json: {},
+        },
+      }),
+    },
+    submissionLifecycleService: { signalNewSubmission: (id) => lifecycleEvents.push(id) },
+    discordNotifications: { enqueueContribution: (event) => contributionEvents.push(event) },
+  }));
+  await withServer(app, async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/api/submissions/shows`, {
+      method: "POST", headers: { "content-type": "application/json" }, body: "{}",
+    });
+    assert.equal(response.status, 201);
+    assert.deepEqual(lifecycleEvents, ["show-submission-12345678"]);
+    assert.deepEqual(contributionEvents, []);
+  });
+});
+
 test("ratings notify only when changed and keep the existing response shape", async () => {
   const notifications = [];
   let ratingChangeType = "submitted";

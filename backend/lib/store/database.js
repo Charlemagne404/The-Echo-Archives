@@ -848,6 +848,150 @@ function migrate(db) {
     applyMigrationOnce(db, "catalog-import-v2-fts-backfill-2026-07-14", () => {
       db.prepare("INSERT INTO catalog_import_candidates_fts(catalog_import_candidates_fts) VALUES ('rebuild')").run();
     });
+
+  applyMigrationOnce(db, "submission-lifecycle-v1-2026-11-25", () => {
+    ensureColumn(db, "show_submissions", "processing_status", "processing_status TEXT NOT NULL DEFAULT 'not-required'");
+    ensureColumn(db, "show_submissions", "resolution_status", "resolution_status TEXT NOT NULL DEFAULT 'open'");
+    ensureColumn(db, "show_submissions", "resolution_reason", "resolution_reason TEXT NOT NULL DEFAULT ''");
+    ensureColumn(db, "show_submissions", "resolved_at", "resolved_at TEXT");
+    ensureColumn(db, "show_submissions", "resolution_evidence_json", "resolution_evidence_json TEXT NOT NULL DEFAULT '{}'");
+    ensureColumn(db, "show_submissions", "processing_error", "processing_error TEXT NOT NULL DEFAULT ''");
+    ensureColumn(db, "show_submissions", "processing_attempts", "processing_attempts INTEGER NOT NULL DEFAULT 0");
+    ensureColumn(db, "show_submissions", "processing_started_at", "processing_started_at TEXT");
+    ensureColumn(db, "show_submissions", "processing_next_attempt_at", "processing_next_attempt_at TEXT");
+    ensureColumn(db, "show_submissions", "content_redacted_at", "content_redacted_at TEXT");
+    ensureColumn(db, "show_submissions", "intake_key_hash", "intake_key_hash TEXT NOT NULL DEFAULT ''");
+
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS submission_candidate_links (
+        submission_id TEXT NOT NULL REFERENCES show_submissions(id) ON DELETE CASCADE,
+        candidate_id TEXT NOT NULL REFERENCES catalog_import_candidates(id) ON DELETE CASCADE,
+        relationship_type TEXT NOT NULL DEFAULT 'source',
+        evidence_json TEXT NOT NULL DEFAULT '{}',
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (submission_id, candidate_id)
+      );
+
+      CREATE TABLE IF NOT EXISTS submission_relations (
+        submission_id TEXT NOT NULL REFERENCES show_submissions(id) ON DELETE CASCADE,
+        related_submission_id TEXT NOT NULL REFERENCES show_submissions(id) ON DELETE CASCADE,
+        relationship_type TEXT NOT NULL CHECK (relationship_type IN ('duplicate-of', 'related-to')),
+        evidence_json TEXT NOT NULL DEFAULT '{}',
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (submission_id, related_submission_id, relationship_type),
+        CHECK (submission_id <> related_submission_id)
+      );
+
+      CREATE TABLE IF NOT EXISTS submission_lifecycle_events (
+        id TEXT PRIMARY KEY,
+        submission_id TEXT NOT NULL REFERENCES show_submissions(id) ON DELETE CASCADE,
+        event_type TEXT NOT NULL,
+        event_key TEXT NOT NULL DEFAULT '',
+        actor TEXT NOT NULL DEFAULT '',
+        reason TEXT NOT NULL DEFAULT '',
+        evidence_json TEXT NOT NULL DEFAULT '{}',
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE (submission_id, event_key)
+      );
+
+      CREATE UNIQUE INDEX IF NOT EXISTS idx_show_submissions_intake_key
+        ON show_submissions (intake_key_hash) WHERE intake_key_hash <> '';
+      CREATE INDEX IF NOT EXISTS idx_show_submissions_lifecycle
+        ON show_submissions (submission_type, resolution_status, processing_status, submitted_at);
+      CREATE INDEX IF NOT EXISTS idx_submission_candidate_links_candidate
+        ON submission_candidate_links (candidate_id, submission_id);
+      CREATE INDEX IF NOT EXISTS idx_submission_relations_related
+        ON submission_relations (related_submission_id, relationship_type);
+      CREATE INDEX IF NOT EXISTS idx_submission_lifecycle_events_timeline
+        ON submission_lifecycle_events (submission_id, created_at DESC, id DESC);
+    `);
+
+    db.exec(`
+      INSERT OR IGNORE INTO submission_candidate_links (submission_id, candidate_id, relationship_type, evidence_json)
+      SELECT id, import_candidate_id, 'source', '{"source":"legacy-submission-link"}'
+      FROM show_submissions
+      WHERE import_candidate_id <> '';
+
+      INSERT OR IGNORE INTO submission_candidate_links (submission_id, candidate_id, relationship_type, evidence_json)
+      SELECT s.id, c.id, 'source', '{"source":"candidate-submission-identity"}'
+      FROM show_submissions AS s
+      JOIN catalog_import_candidates AS c
+        ON c.primary_source_type = 'submission' AND c.primary_source_key = s.id
+      WHERE s.submission_type = 'show';
+
+      UPDATE show_submissions
+      SET import_candidate_id = (
+        SELECT candidate_id FROM submission_candidate_links
+        WHERE submission_id = show_submissions.id
+        ORDER BY created_at, candidate_id LIMIT 1
+      )
+      WHERE import_candidate_id = '' AND EXISTS (
+        SELECT 1 FROM submission_candidate_links WHERE submission_id = show_submissions.id
+      );
+
+      UPDATE show_submissions
+      SET processing_status = CASE
+        WHEN submission_type <> 'show' THEN 'not-required'
+        WHEN status = 'rejected' THEN 'not-required'
+        WHEN EXISTS (
+          SELECT 1 FROM submission_candidate_links l
+          JOIN catalog_import_candidates c ON c.id = l.candidate_id
+          WHERE l.submission_id = show_submissions.id AND c.status = 'ready'
+        ) THEN 'ready-for-review'
+        WHEN EXISTS (
+          SELECT 1 FROM submission_candidate_links l
+          JOIN catalog_import_candidates c ON c.id = l.candidate_id
+          WHERE l.submission_id = show_submissions.id AND c.status = 'needs-review'
+        ) THEN 'needs-investigation'
+        WHEN EXISTS (
+          SELECT 1 FROM submission_candidate_links l
+          JOIN catalog_import_candidates c ON c.id = l.candidate_id
+          WHERE l.submission_id = show_submissions.id AND c.status = 'failed'
+        ) THEN 'failed'
+        WHEN EXISTS (
+          SELECT 1 FROM submission_candidate_links l
+          JOIN catalog_import_candidates c ON c.id = l.candidate_id
+          WHERE l.submission_id = show_submissions.id AND c.status IN ('queued', 'processing')
+        ) THEN 'processing'
+        ELSE 'received'
+      END;
+
+      UPDATE show_submissions
+      SET resolution_status = 'rejected', resolution_reason = 'maintainer-rejected'
+      WHERE status = 'rejected' AND resolution_status = 'open';
+
+      UPDATE show_submissions
+      SET resolution_status = CASE
+            WHEN c.primary_source_type = 'submission' AND c.primary_source_key = show_submissions.id THEN 'published'
+            ELSE 'already-listed'
+          END,
+          resolution_reason = CASE
+            WHEN c.primary_source_type = 'submission' AND c.primary_source_key = show_submissions.id THEN 'linked-candidate-published'
+            ELSE 'linked-show-already-listed'
+          END,
+          resolution_evidence_json = '{"source":"candidate-publication","confidence":"high"}',
+          import_resolved_show_id = c.published_show_id,
+          resolved_at = COALESCE(resolved_at, c.updated_at),
+          processing_status = 'completed'
+      FROM catalog_import_candidates AS c
+      JOIN submission_candidate_links AS l ON l.candidate_id = c.id
+      WHERE l.submission_id = show_submissions.id
+        AND c.status = 'published' AND c.published_show_id <> ''
+        AND show_submissions.status <> 'rejected' AND show_submissions.resolution_status = 'open';
+
+      INSERT OR IGNORE INTO submission_lifecycle_events
+        (id, submission_id, event_type, event_key, actor, reason, evidence_json, created_at)
+      SELECT 'legacy:' || id || ':received', id, 'received', 'received', 'migration', 'legacy-submission-preserved', '{}', submitted_at
+      FROM show_submissions;
+
+      INSERT OR IGNORE INTO submission_lifecycle_events
+        (id, submission_id, event_type, event_key, actor, reason, evidence_json, created_at)
+      SELECT 'legacy:' || id || ':resolved:' || resolution_status, id, resolution_status,
+        'resolution:' || resolution_status, 'migration', resolution_reason, resolution_evidence_json,
+        COALESCE(resolved_at, submitted_at)
+      FROM show_submissions WHERE resolution_status <> 'open';
+    `);
+  });
   });
 
   runMigrations();

@@ -61,6 +61,37 @@ test("ordinary discovery publication scope excludes non-English and actual-play/
   assert.equal(inferScopeStatus({ title: "Signal Harbour", language: "en", description: "An English serialized fiction audio drama." }), "in-scope");
 });
 
+test("submission matching accepts a shared YouTube show playlist identity, not a video title alone", () => {
+  const context = createTempImportContext({
+    shows: [{
+      id: "rosannas-secret",
+      title: "Rosanna's Secret",
+      creators: ["Goatshead Castle Productions"],
+      listenLinks: { start: "https://www.youtube.com/watch?v=ObbbdgusQ6s&list=PLQHiDb_oo19OUDZ83ovUHm36acdM2degU" },
+      officialLinks: { youtube: "https://www.youtube.com/@GoatsheadCastle" },
+      metadata: {},
+    }],
+  });
+  try {
+    const submission = {
+      showTitle: "Rosanna's Secret",
+      creatorName: "Goatshead Castle",
+      payload: { listenLinks: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=ObbbdgusQ6s&list=PLQHiDb_oo19OUDZ83ovUHm36acdM2degU" }] },
+    };
+    assert.deepEqual(context.service.getSubmissionIdentityKeys(submission), [{
+      type: "youtube-playlist-id",
+      value: "PLQHiDb_oo19OUDZ83ovUHm36acdM2degU",
+    }]);
+    assert.equal(context.service.findSubmissionIdentityMatch(submission).showId, "rosannas-secret");
+    assert.equal(context.service.findSubmissionIdentityMatch({
+      ...submission,
+      payload: { listenLinks: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=ObbbdgusQ6s" }] },
+    }), null);
+  } finally {
+    cleanup(context);
+  }
+});
+
 function appleEmptyResponse() {
   return new Response(JSON.stringify({ resultCount: 0, results: [] }), {
     status: 200,

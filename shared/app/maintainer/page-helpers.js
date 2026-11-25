@@ -6,6 +6,7 @@ const MAINTAINER_FILTER_KEYS = [
   "status",
   "submissionType",
   "priority",
+  "lane",
   "includeClosed",
   "page",
   "pageSize",
@@ -23,6 +24,13 @@ const VIEW_STATE_COPY = {
 };
 
 export const FILTER_OPTIONS = {
+  lane: [
+    ["actionable", "Actionable"],
+    ["processing", "Processing"],
+    ["investigation", "Needs investigation"],
+    ["resolved", "Resolved"],
+    ["all", "All submissions"],
+  ],
   status: [
     ["", "All open"],
     ["new", "New"],
@@ -67,6 +75,7 @@ export function readFilters(defaultPageSize = 20) {
     status: params.get("status") || "",
     submissionType: params.get("submissionType") || "",
     priority: params.get("priority") || "",
+    lane: params.get("lane") || "actionable",
     includeClosed: ["1", "true"].includes((params.get("includeClosed") || "").toLowerCase()),
     page: Math.max(1, Number.parseInt(params.get("page") || "1", 10) || 1),
     pageSize: Math.max(1, Number.parseInt(params.get("pageSize") || String(defaultPageSize), 10) || defaultPageSize),

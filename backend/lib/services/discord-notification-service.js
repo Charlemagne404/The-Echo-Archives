@@ -91,6 +91,39 @@ function formatContributionEmbed(contribution, { siteUrl = "https://echoarchives
   return { embeds: [embed], allowed_mentions: { parse: [] } };
 }
 
+function formatSubmissionLifecycleEmbed(event = {}, { siteUrl = "https://echoarchives.net", now = new Date() } = {}) {
+  const labels = {
+    "new-submission": "New show submission received",
+    "ready-for-review": "Show submission ready for review",
+    "processing-failed": "Show submission needs attention",
+    "stale-submission": "Unresolved show submission is stale",
+  };
+  const title = labels[event.eventType] || "Submission queue update";
+  const timestamp = new Date(event.timestamp || now).toISOString();
+  const submissionId = String(event.submissionId || "").slice(0, 80);
+  const detailHref = new URL(`/maintainer/submissions.html?item=${encodeURIComponent(submissionId)}`, siteUrl).href;
+  const descriptions = {
+    "new-submission": "A show submission entered the review queue. Personal contact and network details are not included.",
+    "ready-for-review": "Importer preparation passed its readiness checks. Explicit editorial approval is still required to publish.",
+    "processing-failed": "Automatic preparation exhausted its retry policy and needs maintainer investigation.",
+    "stale-submission": "This submission has remained unresolved beyond the queue age threshold.",
+  };
+  return {
+    embeds: [{
+      color: EMBED_COLORS.contribution,
+      title,
+      url: detailHref,
+      description: descriptions[event.eventType] || "The submission queue recorded a lifecycle change.",
+      timestamp,
+      footer: { text: "Echo Archives · Submission queue" },
+      fields: [
+        { name: "Submission", value: sanitizeDiscordText(submissionId || "Unavailable", 80), inline: true },
+      ],
+    }],
+    allowed_mentions: { parse: [] },
+  };
+}
+
 function formatDailySummaryEmbed(summary, { now = new Date() } = {}) {
   if (!summary || summary.available === false) return null;
   const embed = {
@@ -256,6 +289,17 @@ function createDiscordNotificationDispatcher({
       return enqueue(contribution.eventId, contribution.kind, payload);
     } catch (_error) {
       logger.error(JSON.stringify({ level: "error", event: "discord_outbox_enqueue_failed" }));
+      return false;
+    }
+  }
+
+  function enqueueSubmissionLifecycle(event) {
+    if (!event?.eventId || !event?.eventType) return false;
+    try {
+      const payload = formatSubmissionLifecycleEmbed(event, { siteUrl, now: clock() });
+      return enqueue(event.eventId, `submission-${event.eventType}`, payload);
+    } catch (_error) {
+      logger.error(JSON.stringify({ level: "error", event: "discord_submission_lifecycle_enqueue_failed" }));
       return false;
     }
   }
@@ -442,6 +486,7 @@ function createDiscordNotificationDispatcher({
 
   return {
     enqueueContribution,
+    enqueueSubmissionLifecycle,
     enqueueDailySummary,
     dispatchDue,
     formatDailySummaryEmbed,
@@ -454,6 +499,7 @@ function createDiscordNotificationDispatcher({
 module.exports = {
   createDiscordNotificationDispatcher,
   formatContributionEmbed,
+  formatSubmissionLifecycleEmbed,
   formatDailySummaryEmbed,
   sanitizeDiscordText,
   sendDiscordIntegrationTestMessage,

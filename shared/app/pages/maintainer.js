@@ -1,4 +1,4 @@
-import { createMaintainerSession, destroyMaintainerSession, fetchMaintainerListenerReview, fetchMaintainerSubmission, fetchMaintainerSubmissions, handoffMaintainerSubmissionToImport, MaintainerAuthError, patchMaintainerSubmission } from "../maintainer/api.js";
+import { approveAndPublishMaintainerSubmission, createMaintainerSession, destroyMaintainerSession, fetchMaintainerListenerReview, fetchMaintainerSubmission, fetchMaintainerSubmissionHealth, fetchMaintainerSubmissions, handoffMaintainerSubmissionToImport, MaintainerAuthError, patchMaintainerSubmission, resolveMaintainerSubmissionDuplicate, resolveMaintainerSubmissionMatch, retryMaintainerSubmission } from "../maintainer/api.js";
 import { bindMaintainerListenerReviewEditor } from "../maintainer/listener-review-editor.js";
 import { formatDateTime, formatStatus, formatSubmissionType, summarizeCounts } from "../maintainer/format.js";
 import {
@@ -56,6 +56,7 @@ export async function initializeMaintainerPage() {
     appShell: document.getElementById("maintainerAppShell"),
     authStatus: document.getElementById("maintainerAuthStatus"),
     summaryCards: document.getElementById("maintainerSummaryCards"),
+    queueHealth: document.getElementById("maintainerQueueHealth"),
     list: document.getElementById("maintainerList"),
     detail: document.getElementById("maintainerDetail"),
     listStatus: document.getElementById("maintainerListStatus"),
@@ -69,6 +70,7 @@ export async function initializeMaintainerPage() {
     reportLink: document.getElementById("maintainerReportLink"),
     search: document.getElementById("maintainerSearch"),
     status: document.getElementById("maintainerStatusFilter"),
+    lane: document.getElementById("maintainerLaneFilter"),
     submissionType: document.getElementById("maintainerTypeFilter"),
     priority: document.getElementById("maintainerPriorityFilter"),
     includeClosed: document.getElementById("maintainerIncludeClosed"),
@@ -84,6 +86,7 @@ export async function initializeMaintainerPage() {
 
   function syncFilterControls() {
     renderSelectOptions(elements.status, FILTER_OPTIONS.status, state.filters.status);
+    renderSelectOptions(elements.lane, FILTER_OPTIONS.lane, state.filters.lane);
     renderSelectOptions(elements.submissionType, FILTER_OPTIONS.submissionType, state.filters.submissionType);
     renderSelectOptions(elements.priority, FILTER_OPTIONS.priority, state.filters.priority);
     if (elements.search instanceof HTMLInputElement) elements.search.value = state.filters.q;
@@ -135,8 +138,17 @@ export async function initializeMaintainerPage() {
       const listenerReview = result.submission.submissionType === "listener-review"
         ? await fetchMaintainerListenerReview(selectedId).then((payload) => payload.review).catch(() => null)
         : null;
-      elements.detail.innerHTML = renderDetailPane({ submission: result.submission, storedReviewer: state.storedReviewer, publicReview: listenerReview });
-      elements.detailMeta.textContent = `Submitted ${formatDateTime(result.submission.submittedAt)} · ${formatStatus(result.submission.status)}.`;
+      elements.detail.innerHTML = renderDetailPane({
+        submission: result.submission,
+        storedReviewer: state.storedReviewer,
+        publicReview: listenerReview,
+        candidates: result.candidates || [],
+        history: result.history || [],
+        relatedSubmissions: result.relatedSubmissions || [],
+        potentialMatches: result.potentialMatches || [],
+        potentialSubmissionDuplicates: result.potentialSubmissionDuplicates || [],
+      });
+      elements.detailMeta.textContent = `Submitted ${formatDateTime(result.submission.submittedAt)} · Moderation ${formatStatus(result.submission.status)} · Processing ${formatStatus(result.submission.processingStatus)} · Resolution ${formatStatus(result.submission.resolutionStatus)}.`;
 
       const reviewForm = document.getElementById("maintainerReviewForm");
       reviewForm?.addEventListener("submit", async (event) => {
@@ -179,6 +191,70 @@ export async function initializeMaintainerPage() {
         onAuthError: showAuthentication,
         onComplete: () => loadDetail(),
         setStatus: (message) => { elements.detailMeta.textContent = message; },
+      });
+
+      const lifecycleActions = [
+        ["[data-submission-approve]", (button) => approveAndPublishMaintainerSubmission(selectedId, { reviewedBy: state.storedReviewer }), "Approval complete; the show was published."],
+        ["[data-submission-retry]", (button) => retryMaintainerSubmission(selectedId, { reviewedBy: state.storedReviewer }), "Preparation retry queued."],
+      ];
+      lifecycleActions.forEach(([selector, action, successMessage]) => {
+        const button = elements.detail.querySelector(selector);
+        button?.addEventListener("click", async () => {
+          await runMaintainerAction({
+            control: button,
+            region: elements.detail,
+            action: async () => {
+              try {
+                await action(button);
+                await loadQueue(true);
+                elements.detailMeta.textContent = successMessage;
+              } catch (error) {
+                if (error instanceof MaintainerAuthError) return showAuthentication(error);
+                elements.detailMeta.textContent = error instanceof Error ? error.message : "Submission action failed.";
+              }
+            },
+          });
+        });
+      });
+
+      elements.detail.querySelectorAll("[data-submission-resolve-match]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const showId = button.getAttribute("data-submission-resolve-match") || "";
+          await runMaintainerAction({
+            control: button,
+            region: elements.detail,
+            action: async () => {
+              try {
+                await resolveMaintainerSubmissionMatch(selectedId, { showId, reviewedBy: state.storedReviewer });
+                await loadQueue(true);
+                elements.detailMeta.textContent = "Submission resolved against the confirmed archive show.";
+              } catch (error) {
+                if (error instanceof MaintainerAuthError) return showAuthentication(error);
+                elements.detailMeta.textContent = error instanceof Error ? error.message : "Archive match resolution failed.";
+              }
+            },
+          });
+        });
+      });
+
+      elements.detail.querySelectorAll("[data-submission-resolve-duplicate]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const relatedSubmissionId = button.getAttribute("data-submission-resolve-duplicate") || "";
+          await runMaintainerAction({
+            control: button,
+            region: elements.detail,
+            action: async () => {
+              try {
+                await resolveMaintainerSubmissionDuplicate(selectedId, { relatedSubmissionId, reviewedBy: state.storedReviewer });
+                await loadQueue(true);
+                elements.detailMeta.textContent = "Submission resolved as a confirmed duplicate; both records remain in the history.";
+              } catch (error) {
+                if (error instanceof MaintainerAuthError) return showAuthentication(error);
+                elements.detailMeta.textContent = error instanceof Error ? error.message : "Duplicate resolution failed.";
+              }
+            },
+          });
+        });
       });
 
       const importButton = elements.detail.querySelector("[data-submission-import]");
@@ -229,7 +305,10 @@ export async function initializeMaintainerPage() {
     }
 
     try {
-      const response = await fetchMaintainerSubmissions(state.filters, { signal: controller.signal });
+      const [response, healthResult] = await Promise.all([
+        fetchMaintainerSubmissions(state.filters, { signal: controller.signal }),
+        fetchMaintainerSubmissionHealth({ signal: controller.signal }).catch(() => null),
+      ]);
       if (controller.signal.aborted) return;
       state.response = response;
       state.hasBeenReady = true;
@@ -237,6 +316,18 @@ export async function initializeMaintainerPage() {
       if (elements.refreshButton) elements.refreshButton.hidden = false;
       setMaintainerViewState(view, "ready");
       elements.summaryCards.innerHTML = renderSummaryCards(summarizeCounts(response.counts, response.total));
+      if (elements.queueHealth) {
+        const health = healthResult?.health;
+        if (!health) {
+          elements.queueHealth.textContent = "Queue health details are unavailable.";
+        } else {
+          const consistencyIssues = Number(health.missingCandidateLinks || 0) + Number(health.legacyLinkMismatches || 0) + Number(health.publishedCandidateOpenSubmissions || 0) + Number(health.publishedResolutionCandidateMismatch || 0);
+          const notificationState = !health.notifications?.enabled
+            ? "Discord notifications off"
+            : health.notifications.operational ? "Discord delivery available" : "Discord delivery needs attention";
+          elements.queueHealth.textContent = `Queue health · ${health.unresolved || 0} unresolved · oldest ${health.oldestUnresolvedAgeDays || 0} days · ${health.failedProcessing || 0} processing failures · ${consistencyIssues} link consistency issues · ${health.personalDataDueOrApproachingRetention || 0} at or within ${health.retentionWarningDays || 30} days of content retention · ${health.networkDataDueOrApproachingRetention || 0} at or within ${health.retentionWarningDays || 30} days of network-data retention · ${notificationState}.`;
+        }
+      }
       const requestedId = readSelectedSubmissionId() || (preserveSelection ? state.selectedId : "");
       state.selectedId = resolveSelectedSubmissionId(response.items, requestedId);
       syncSelectedSubmissionToUrl(state.selectedId);
@@ -292,6 +383,7 @@ export async function initializeMaintainerPage() {
     state.filters = {
       q: elements.search.value.trim(),
       status: elements.status.value,
+      lane: elements.lane.value,
       submissionType: elements.submissionType.value,
       priority: elements.priority.value,
       includeClosed: elements.includeClosed.checked,
@@ -302,7 +394,7 @@ export async function initializeMaintainerPage() {
     await runMaintainerAction({ control: event.submitter, region: elements.filterForm, action: async () => loadQueue() });
   });
   document.getElementById("maintainerResetFilters")?.addEventListener("click", () => {
-    state.filters = { q: "", status: "", submissionType: "", priority: "", includeClosed: false, page: 1, pageSize: 20 };
+    state.filters = { q: "", status: "", lane: "actionable", submissionType: "", priority: "", includeClosed: false, page: 1, pageSize: 20 };
     syncFiltersToUrl(state.filters, { selectedId: state.selectedId });
     window.location.reload();
   });
