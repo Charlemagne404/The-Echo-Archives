@@ -111,6 +111,56 @@ if ! IFS= read -r -t 10 -u "${snapshot_status_fd}" snapshot_status || [[ "${snap
 fi
 snapshot_worker_ready=true
 
+remove_copied_runtime_snapshot_journal() {
+  local source_staging="$1"
+  local target_staging="$2"
+  "${node_binary}" - "${source_staging}" "${target_staging}" <<'NODE'
+const fs = require("node:fs");
+const path = require("node:path");
+
+const [sourceStaging, targetStaging] = process.argv.slice(2);
+const journalName = ".echo-catalog-transaction";
+const sourceJournal = path.join(sourceStaging, journalName);
+const targetJournal = path.join(targetStaging, journalName);
+
+function assertDirectory(directory) {
+  if (fs.realpathSync(directory) !== path.resolve(directory)) throw new Error("snapshot staging path resolves through a symlink");
+}
+
+function readSnapshotJournal(directory) {
+  const directoryStat = fs.lstatSync(directory);
+  if (!directoryStat.isDirectory() || directoryStat.isSymbolicLink()) throw new Error("copied runtime snapshot journal is not a regular directory");
+  const entries = fs.readdirSync(directory);
+  if (entries.length !== 1 || entries[0] !== "manifest.json") throw new Error("runtime snapshot journal has unexpected contents");
+  const manifestPath = path.join(directory, "manifest.json");
+  const manifestStat = fs.lstatSync(manifestPath);
+  if (!manifestStat.isFile() || manifestStat.isSymbolicLink()) throw new Error("runtime snapshot manifest is not a regular file");
+  const bytes = fs.readFileSync(manifestPath);
+  const manifest = JSON.parse(bytes.toString("utf8"));
+  if (manifest.schema !== 1 || manifest.kind !== "runtime-snapshot" || manifest.phase !== "prepared" ||
+      !Number.isInteger(manifest.pid) || typeof manifest.instance !== "string" ||
+      !Array.isArray(manifest.files) || manifest.files.length !== 0 ||
+      !Array.isArray(manifest.absentDirectories) || manifest.absentDirectories.length !== 0 ||
+      manifest.recoveryData !== undefined) {
+    throw new Error("catalogue journal is not the temporary runtime snapshot lock");
+  }
+  return bytes;
+}
+
+assertDirectory(sourceStaging);
+assertDirectory(targetStaging);
+const sourceBytes = readSnapshotJournal(sourceJournal);
+const targetBytes = readSnapshotJournal(targetJournal);
+if (!sourceBytes.equals(targetBytes)) throw new Error("copied runtime snapshot journal does not match its active source lock");
+
+// This journal only excludes writers during the copy. Carrying its private
+// manifest into the new overlay makes service startup try to recover a lock
+// owned by the deployment process, so remove the verified copy while the
+// source lock is still held.
+fs.rmSync(targetJournal, { recursive: true });
+NODE
+}
+
 for relative_path in "${runtime_mutable_paths[@]}"; do
   source_path="${source_root}/${relative_path}"
   target_path="${target_root}/${relative_path}"
@@ -119,6 +169,10 @@ for relative_path in "${runtime_mutable_paths[@]}"; do
   assert_safe_parent_chain "${target_root}" "${relative_path}"
   /usr/bin/rm -rf -- "${target_path}" || fail "could not replace an inactive runtime path"
   /usr/bin/cp -a -- "${source_path}" "${target_path}" || fail "could not preserve runtime content"
+  if [[ "${relative_path}" == "import-staging" ]]; then
+    remove_copied_runtime_snapshot_journal "${source_path}" "${target_path}" ||
+      fail "could not remove the verified temporary runtime snapshot journal copy"
+  fi
 done
 
 if ! printf 'release\n' >&"${snapshot_control_fd}"; then
