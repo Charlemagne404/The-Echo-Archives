@@ -407,13 +407,13 @@ test("published catalog records require approved discovery signals instead of fi
 
 test("complete provisional indexed-only records retain the reviewed single-signal publication exception", async () => {
   const tempRoot = createTempSiteRoot();
-  const showId = "provisional-indexed-show";
+  const showId = "mina-an-audiobook-podcast-by-roo-bannister";
   const reviewedAt = "2026-11-04T21:00:00.000Z";
-  const sourceUrl = "https://feeds.example.org/provisional-show.xml";
+  const sourceUrl = "https://feeds.acast.com/public/shows/6a4264183fa89e333892b6ae";
   const show = createShowRecord({
     id: showId,
-    title: "Provisional Indexed Show",
-    description: "A source-backed indexed-only show with a single verified genre and no invented discovery metadata.",
+    title: "Mina - An Audiobook Podcast by Roo Bannister",
+    description: "A source-backed provisional audio fiction description long enough for normal publication validation.",
     genres: ["drama"],
     formats: [],
     tags: [],
