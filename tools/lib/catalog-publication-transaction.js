@@ -1,10 +1,12 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const { randomUUID } = require("node:crypto");
+const { createHash, randomUUID } = require("node:crypto");
 const { AsyncLocalStorage } = require("node:async_hooks");
 
 const JOURNAL = ".echo-catalog-transaction";
 const RUNTIME_SNAPSHOT_KIND = "runtime-snapshot";
+const LEGACY_SOURCE = "legacy-source.json";
+const LEGACY_MARKER = JOURNAL + "-legacy.json";
 const instance = randomUUID();
 const activeManifests = new Map();
 const activePublicationTokens = new Map();
@@ -24,6 +26,145 @@ function containedPath(root, relative) {
   return target;
 }
 
+function journalPaths(root) {
+  const realRoot = fs.realpathSync(root);
+  const stagingRoot = path.join(realRoot, "import-staging");
+  validateStagingRoot(stagingRoot);
+  return {
+    current: path.join(stagingRoot, JOURNAL),
+    legacy: path.join(realRoot, JOURNAL),
+    legacyMarker: path.join(stagingRoot, LEGACY_MARKER),
+    stagingRoot,
+  };
+}
+
+function validateStagingRoot(stagingRoot) {
+  const stagingStat = optionalLstat(stagingRoot);
+  if (!stagingStat) return false;
+  if (!stagingStat.isDirectory() || stagingStat.isSymbolicLink() || fs.realpathSync(stagingRoot) !== stagingRoot) {
+    throw new Error("Catalogue publication requires a regular import-staging directory.");
+  }
+  return true;
+}
+
+function ensureStagingRoot(paths) {
+  if (!validateStagingRoot(paths.stagingRoot)) {
+    try { fs.mkdirSync(paths.stagingRoot, { mode: 0o700 }); } catch (error) {
+      if (error.code !== "EEXIST") throw error;
+    }
+  }
+  validateStagingRoot(paths.stagingRoot);
+}
+
+function optionalLstat(filePath) {
+  try { return fs.lstatSync(filePath); } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
+function assertJournalDirectory(directory) {
+  const stat = optionalLstat(directory);
+  if (!stat) return false;
+  if (!stat.isDirectory() || stat.isSymbolicLink() || fs.realpathSync(directory) !== path.resolve(directory)) {
+    throw new Error("Catalogue publication journal must be a regular directory.");
+  }
+  return true;
+}
+
+function writePrivateFile(filePath, content) {
+  const descriptor = fs.openSync(filePath, "wx", 0o600);
+  try {
+    fs.writeFileSync(descriptor, content);
+    fs.fsyncSync(descriptor);
+  } finally { fs.closeSync(descriptor); }
+}
+
+function writePrivateJson(filePath, value) {
+  const temporary = `${filePath}.${randomUUID()}.tmp`;
+  try {
+    writePrivateFile(temporary, JSON.stringify(value));
+    const existing = optionalLstat(filePath);
+    if (existing && (!existing.isFile() || existing.isSymbolicLink())) throw new Error("Catalogue journal marker must be a regular file.");
+    fs.renameSync(temporary, filePath);
+  } finally { fs.rmSync(temporary, { force: true }); }
+}
+
+function legacyFingerprint(directory, manifest) {
+  const hash = createHash("sha256");
+  hash.update(fs.readFileSync(path.join(directory, "manifest.json")));
+  manifest.files.forEach((file, index) => {
+    const backupPath = path.join(directory, file.backup);
+    const stat = optionalLstat(backupPath);
+    hash.update(`\0${index}:${file.backup}\0`);
+    if (!stat) {
+      hash.update("missing");
+      return;
+    }
+    if (!stat.isFile() || stat.isSymbolicLink()) throw new Error("Catalogue recovery requires a regular backup file.");
+    hash.update(fs.readFileSync(backupPath));
+  });
+  return hash.digest("hex");
+}
+
+function readLegacyMarker(paths) {
+  const stat = optionalLstat(paths.legacyMarker);
+  if (!stat) return null;
+  if (!stat.isFile() || stat.isSymbolicLink()) throw new Error("Catalogue legacy journal marker must be a regular file.");
+  const marker = JSON.parse(fs.readFileSync(paths.legacyMarker, "utf8"));
+  if (marker.schema !== 1 || !/^[0-9a-f]{64}$/.test(marker.fingerprint || "")) throw new Error("Malformed catalogue legacy journal marker.");
+  return marker.fingerprint;
+}
+
+function legacyJournalIsRetired(root, paths, directory) {
+  const manifest = readManifest(root, directory);
+  return readLegacyMarker(paths) === legacyFingerprint(directory, manifest);
+}
+
+function migrateLegacyJournal(root, paths, legacyDirectory) {
+  const manifest = readManifest(root, legacyDirectory);
+  const fingerprint = legacyFingerprint(legacyDirectory, manifest);
+  const temporary = path.join(paths.stagingRoot, `${JOURNAL}-migrate-${randomUUID()}`);
+  fs.mkdirSync(temporary, { mode: 0o700 });
+  try {
+    for (const file of manifest.files) {
+      const source = path.join(legacyDirectory, file.backup);
+      const stat = optionalLstat(source);
+      if (!stat) continue;
+      if (!stat.isFile() || stat.isSymbolicLink()) throw new Error("Catalogue recovery requires a regular backup file.");
+      writePrivateFile(path.join(temporary, file.backup), fs.readFileSync(source));
+    }
+    writePrivateFile(path.join(temporary, LEGACY_SOURCE), JSON.stringify({ schema: 1, fingerprint }));
+    writeManifest(temporary, manifest);
+    try {
+      fs.renameSync(temporary, paths.current);
+    } catch (error) {
+      if (!new Set(["EEXIST", "ENOTEMPTY"]).has(error.code) || !assertJournalDirectory(paths.current)) throw error;
+      fs.rmSync(temporary, { recursive: true, force: true });
+    }
+    return paths.current;
+  } catch (error) {
+    fs.rmSync(temporary, { recursive: true, force: true });
+    throw error;
+  }
+}
+
+function existingJournal(root) {
+  const paths = journalPaths(root);
+  if (assertJournalDirectory(paths.current)) return { ...paths, directory: paths.current };
+  if (!assertJournalDirectory(paths.legacy)) return { ...paths, directory: null };
+  if (legacyJournalIsRetired(root, paths, paths.legacy)) return { ...paths, directory: null };
+  return { ...paths, directory: paths.legacy };
+}
+
+function recoverableJournal(root) {
+  const paths = journalPaths(root);
+  if (assertJournalDirectory(paths.current)) return { ...paths, directory: paths.current };
+  if (!assertJournalDirectory(paths.legacy) || legacyJournalIsRetired(root, paths, paths.legacy)) return { ...paths, directory: null };
+  ensureStagingRoot(paths);
+  return { ...paths, directory: migrateLegacyJournal(root, paths, paths.legacy) };
+}
+
 function writeManifest(directory, manifest) {
   const temporary = path.join(directory, `manifest-${randomUUID()}.tmp`);
   try {
@@ -35,7 +176,11 @@ function writeManifest(directory, manifest) {
 }
 
 function readManifest(root, directory) {
-  const manifest = JSON.parse(fs.readFileSync(path.join(directory, "manifest.json"), "utf8"));
+  if (!assertJournalDirectory(directory)) throw new Error("Catalogue publication recovery journal is missing.");
+  const manifestPath = path.join(directory, "manifest.json");
+  const manifestStat = fs.lstatSync(manifestPath);
+  if (!manifestStat.isFile() || manifestStat.isSymbolicLink()) throw new Error("Catalogue publication recovery manifest must be a regular file.");
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
   if (manifest.schema !== 1 || !Number.isInteger(manifest.pid) || manifest.pid < 1 || typeof manifest.instance !== "string" ||
       !["preparing", "prepared", "restored", "committed"].includes(manifest.phase) || !Array.isArray(manifest.files) || !Array.isArray(manifest.absentDirectories)) {
     throw new Error("Malformed catalogue publication recovery journal.");
@@ -85,8 +230,17 @@ function cleanupJournal(root, directory) {
   activePublicationTokens.delete(path.resolve(root));
   // Retire atomically before recursive deletion: interrupted cleanup must not
   // turn a committed journal into a malformed active one.
-  const retired = path.join(root, `${JOURNAL}-committed-${randomUUID()}`);
+  const retired = path.join(path.dirname(directory), `${JOURNAL}-committed-${randomUUID()}`);
   try {
+    const legacySourcePath = path.join(directory, LEGACY_SOURCE);
+    const legacySourceStat = optionalLstat(legacySourcePath);
+    if (legacySourceStat) {
+      if (!legacySourceStat.isFile() || legacySourceStat.isSymbolicLink()) throw new Error("Catalogue legacy journal source must be a regular file.");
+      const legacySource = JSON.parse(fs.readFileSync(legacySourcePath, "utf8"));
+      if (legacySource.schema !== 1 || !/^[0-9a-f]{64}$/.test(legacySource.fingerprint || "")) throw new Error("Malformed catalogue legacy journal source.");
+      const paths = journalPaths(root);
+      writePrivateJson(paths.legacyMarker, { schema: 1, fingerprint: legacySource.fingerprint });
+    }
     fs.renameSync(directory, retired);
     fs.rmSync(retired, { recursive: true });
   } catch (error) {
@@ -117,8 +271,8 @@ function recoverRuntimeSnapshot(root, directory, manifest) {
 }
 
 function recoverCatalogPublication(root) {
-  const directory = path.join(root, JOURNAL);
-  if (!fs.existsSync(directory)) { abandonedRoots.delete(path.resolve(root)); activeManifests.delete(path.resolve(root)); activePublicationTokens.delete(path.resolve(root)); return false; }
+  const { directory } = recoverableJournal(root);
+  if (!directory) { abandonedRoots.delete(path.resolve(root)); activeManifests.delete(path.resolve(root)); activePublicationTokens.delete(path.resolve(root)); return false; }
   const manifest = readManifest(root, directory);
   if (manifest.kind === RUNTIME_SNAPSHOT_KIND) return recoverRuntimeSnapshot(root, directory, manifest);
   if (manifest.phase === "committed") {
@@ -154,15 +308,15 @@ function recoverCatalogPublication(root) {
 }
 
 function ownsCatalogPublication(root) {
-  const directory = path.join(root, JOURNAL);
-  if (!fs.existsSync(directory)) return false;
+  const { directory } = existingJournal(root);
+  if (!directory) return false;
   const manifest = readManifest(root, directory);
   return manifest.kind !== RUNTIME_SNAPSHOT_KIND && manifest.phase === "prepared" && manifest.pid === process.pid && manifest.instance === instance && !abandonedRoots.has(path.resolve(root));
 }
 
 function assertCatalogPublicationReadable(root) {
-  const directory = path.join(root, JOURNAL);
-  if (!fs.existsSync(directory)) return;
+  const { directory } = existingJournal(root);
+  if (!directory) return;
   const manifest = readManifest(root, directory);
   if (manifest.kind === RUNTIME_SNAPSHOT_KIND) throw publicationInProgressError("A deployment runtime snapshot is in progress.");
   if (["committed", "restored"].includes(manifest.phase) || (manifest.pid === process.pid && manifest.instance === instance && !abandonedRoots.has(path.resolve(root)))) return;
@@ -230,7 +384,8 @@ function beginCatalogPublication(root, targets, { includeGenerated = false, incl
     error.statusCode = 503;
     throw error;
   }
-  const directory = path.join(root, JOURNAL);
+  const paths = journalPaths(root);
+  const directory = paths.current;
   const key = path.resolve(root);
   const activeToken = activePublicationTokens.get(key);
   // A live same-process journal alone cannot prove that a writer is nested;
@@ -241,6 +396,7 @@ function beginCatalogPublication(root, targets, { includeGenerated = false, incl
     extendSnapshots(root, directory, manifest, targets, { includeGenerated, includeSource });
     return { joined: true, publicationToken: activeToken, commit() {}, rollback() {} };
   }
+  ensureStagingRoot(paths);
   try { fs.mkdirSync(directory, { mode: 0o700 }); } catch (error) {
     if (error.code === "EEXIST") error.statusCode = 503;
     throw error;
@@ -293,8 +449,8 @@ function runWithCatalogPublication(publicationToken, operation) {
 }
 
 function completeCatalogPublicationRecovery(root) {
-  const directory = path.join(root, JOURNAL);
-  if (!fs.existsSync(directory)) return;
+  const { directory } = recoverableJournal(root);
+  if (!directory) return;
   const manifest = readManifest(root, directory);
   if (manifest.phase !== "restored") throw new Error("Catalogue files must be restored before completing database recovery.");
   manifest.phase = "committed";

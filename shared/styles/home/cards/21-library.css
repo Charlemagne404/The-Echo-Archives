@@ -120,6 +120,15 @@
   --library-card-quick-save-scale: 1.012;
 }
 
+.home-page:has(.podcast-card-shell.is-preview-expanded, .podcast-card-shell.is-preview-closing)
+  #podcast-grid .podcast-card-shell:not(.is-preview-expanded):not(.is-preview-closing)
+  > .library-card-quick-save,
+.home-page:has(.podcast-card-shell.is-preview-expanded, .podcast-card-shell.is-preview-closing)
+  #podcast-grid .podcast-card-shell:not(.is-preview-expanded):not(.is-preview-closing)
+  > .library-card-quick-save * {
+  pointer-events: none !important;
+}
+
 .home-page #podcast-grid .podcast-card-shell.library-card-host:hover > .library-card-quick-save,
 .home-page #podcast-grid .podcast-card-shell.library-card-host.preview-source-active > .library-card-quick-save,
 .home-page #podcast-grid .podcast-card-shell.library-card-host:has(:focus-visible) > .library-card-quick-save {
@@ -403,11 +412,15 @@
 }
 
 @media (max-width: 600px) {
+  .detail-actions > .library-detail-control[open] {
+    grid-column: 1 / -1;
+  }
+
   .library-detail-panel {
-    left: 0;
-    right: auto;
+    position: static;
     box-sizing: border-box;
-    width: min(270px, calc(100vw - 40px));
+    width: 100%;
+    margin-top: 6px;
   }
 }
 

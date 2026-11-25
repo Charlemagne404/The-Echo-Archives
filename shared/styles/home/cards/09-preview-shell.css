@@ -38,6 +38,11 @@
   z-index: 30;
 }
 
+.home-page .podcast-card-shell.is-preview-expanded,
+.home-page .podcast-card-shell.is-preview-closing {
+  z-index: 100;
+}
+
 .home-page .podcast-card-shell.preview-source-active .podcast-card,
 .home-page .podcast-card-shell.preview-source-active .podcast-card:hover,
 .home-page .podcast-card-shell.preview-source-active .podcast-card:focus-visible {

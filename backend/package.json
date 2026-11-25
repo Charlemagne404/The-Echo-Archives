@@ -67,7 +67,12 @@
     "test:production-bug-fixes": "node --test test/catalog.test.js test/home-page-prerender.test.js",
     "test:entity-candidates": "node --test test/entity-enrichment-candidates.test.js",
     "test:entity-attribution": "node --test test/entity-attribution.test.js",
-    "test:serial": "node --test --test-concurrency=1 test/*.test.js"
+    "test:serial": "node --test --test-concurrency=1 test/*.test.js",
+    "test:import-preparation": "node --test --test-concurrency=1 test/database-migration-recovery.test.js test/import-adapters.test.js test/import-resolution.test.js test/import-cover.test.js test/import-service.test.js test/import-store-v2.test.js test/submissions.test.js test/submission-draft-storage.test.js test/catalog-invariants.test.js test/catalog-integrity.test.js test/maintainer.test.js",
+    "test:echo-publisher": "node --test test/echo-publisher.test.js",
+    "test:read-only-browser": "node --test test/read-only-browser.test.js",
+    "echo-publisher": "node scripts/echo-publisher.js",
+    "test:database-migrations": "node --test --test-concurrency=1 test/database-migration-recovery.test.js"
   },
   "engines": {
     "node": ">=22.14.0"
@@ -86,6 +91,6 @@
   },
   "overrides": {
     "undici": "7.30.1",
-    "qs": "6.17.0"
+    "qs": "6.17.1"
   }
 }

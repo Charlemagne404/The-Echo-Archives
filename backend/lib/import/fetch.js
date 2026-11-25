@@ -391,12 +391,14 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
   let rejectDeadline;
   const deadline = new Promise((_resolve, reject) => { rejectDeadline = reject; });
   const withinDeadline = (operation) => Promise.race([Promise.resolve().then(operation), deadline]);
+  let timeoutError = null;
   const timeout = setTimeout(() => {
-    const error = createFetchLimitError(label, "timed out after " + timeoutMs + "ms.", { code: "IMPORT_TIMEOUT", retryable: true });
-    controller.abort(error);
-    rejectDeadline(error);
+    timeoutError = createFetchLimitError(label, "timed out after " + timeoutMs + "ms.", { code: "IMPORT_TIMEOUT", retryable: true });
+    controller.abort(timeoutError);
+    rejectDeadline(timeoutError);
   }, timeoutMs);
   let requestHeaders;
+  let requestController = null;
   try {
     const resolveOptions = { resolveDns, resolver: options.resolver, label };
     requestHeaders = new Headers(init.headers || {});
@@ -406,13 +408,15 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
       if (controller.signal.aborted) {
         throw controller.signal.reason || new DOMException("Aborted", "AbortError");
       }
-      const requestInit = { ...init, headers: requestHeaders, redirect: "manual", signal: controller.signal };
+      requestController = new AbortController();
+      const requestInit = { ...init, headers: requestHeaders, redirect: "manual", signal: AbortSignal.any([controller.signal, requestController.signal]) };
       const response = await withinDeadline(() => resolveDns
         ? (typeof fetchImpl.withNetworkRequest === "function"
           ? fetchImpl.withNetworkRequest(currentUrl, () => requestWithPinnedAddresses(currentUrl, requestInit, destination.addresses, { requestImpl: options.requestImpl }))
           : requestWithPinnedAddresses(currentUrl, requestInit, destination.addresses, { requestImpl: options.requestImpl }))
         : fetchImpl(currentUrl, requestInit));
       if (response.status >= 300 && response.status < 400) {
+        requestController.abort();
         await withinDeadline(() => cancelResponseBody(response));
         const location = response.headers?.get?.("location") || "";
         if (!location || redirectCount === maxRedirects) {
@@ -438,6 +442,7 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
       }
       if (response.url) {
         if (resolveDns && response.url !== currentUrl) {
+          requestController.abort();
           await withinDeadline(() => cancelResponseBody(response));
           throw createFetchLimitError(label, "changed its destination outside the validated redirect chain.", { code: "IMPORT_REDIRECT_FAILED", retryable: false });
         }
@@ -445,6 +450,7 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
       }
       const contentType = String(response.headers?.get?.("content-type") || "").toLowerCase();
       if (Array.isArray(options.allowedContentTypes) && options.allowedContentTypes.length > 0 && contentType && !options.allowedContentTypes.some((type) => contentType.includes(type))) {
+        requestController.abort();
         await withinDeadline(() => cancelResponseBody(response));
         throw createFetchLimitError(label, `returned unsupported content type ${contentType}.`, { code: "IMPORT_INVALID_MIME", retryable: false });
       }
@@ -454,8 +460,9 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
     throw createFetchLimitError(label, "exceeded its redirect limit.", { retryable: false });
   } catch (error) {
     if (error?.cause?.code === "IMPORT_UNSAFE_URL") error = error.cause;
-    if (controller.signal.aborted) {
-      throw createFetchLimitError(label, `timed out after ${timeoutMs}ms.`, { code: "IMPORT_TIMEOUT", retryable: true });
+    requestController?.abort(error);
+    if (timeoutError) {
+      throw timeoutError;
     }
     if (error && error.retryable === undefined) {
       const status = Number(error.upstreamStatus || error.status);

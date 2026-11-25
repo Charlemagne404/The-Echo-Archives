@@ -4,7 +4,8 @@ import { loadCollections, loadShows } from "../data.js";
 import { createPersonalDiscoveryPersonalizer } from "../discovery-personalization.js";
 import { formatRouteExpansion } from "../utils.js";
 import { announceStorageFailure, bindLibraryActions } from "./actions.js";
-import { STATE_LABELS, STATE_ORDER } from "./constants.js";
+import { STATE_LABELS } from "./constants.js";
+import { appendDetailStateOptions, createDetailControl } from "./detail-control.js";
 import {
   getLibraryService,
   getLibraryRuntimeState,
@@ -93,20 +94,6 @@ function createCardControl(showId, title, relationship = false) {
   return details;
 }
 
-function appendDetailStateOptions(select, currentState) {
-  select.replaceChildren();
-  const prompt = makeElement("option", "", currentState ? STATE_LABELS[currentState] : "Choose a state");
-  prompt.value = currentState || "";
-  prompt.disabled = !currentState;
-  prompt.selected = true;
-  select.append(prompt);
-  STATE_ORDER.forEach((state) => {
-    const option = makeElement("option", "", STATE_LABELS[state]);
-    option.value = state;
-    select.append(option);
-  });
-}
-
 function renderControlState(control, runtimeState) {
   const showId = control.dataset.libraryShowId;
   const entry = runtimeState.entriesById?.get(showId) || null;
@@ -131,7 +118,8 @@ function renderControlState(control, runtimeState) {
     return;
   }
 
-  if (control.dataset.libraryControl === "card") {
+  if (control.dataset.libraryControl === "card" || control.dataset.libraryControl === "detail") {
+    const isDetail = control.dataset.libraryControl === "detail";
     const summary = control.querySelector("summary");
     const statusText = !runtimeState.storageAvailable && !runtimeState.loading
       ? "Unavailable"
@@ -147,6 +135,20 @@ function renderControlState(control, runtimeState) {
     const stateSelect = control.querySelector("[data-library-state-select]");
     appendDetailStateOptions(stateSelect, entry?.state || "");
     stateSelect.disabled = unavailable;
+    if (isDetail) {
+      const ratingSelect = control.querySelector("[data-library-rating-select]");
+      if (ratingSelect) {
+        ratingSelect.value = entry && Object.hasOwn(entry, "rating") ? String(entry.rating) : "";
+        ratingSelect.disabled = unavailable;
+      }
+      const preference = control.querySelector("[data-library-discovery-preference]");
+      if (preference) {
+        preference.checked = pendingPersonalDiscoveryValue ?? runtimeState.personalContext?.enabled === true;
+        preference.disabled = unavailable;
+      }
+      const hiddenMeaning = control.querySelector(".library-hidden-meaning");
+      if (hiddenMeaning) hiddenMeaning.hidden = entry?.state !== "hidden";
+    }
     const remove = control.querySelector("[data-library-remove]");
     remove.hidden = !entry;
     remove.disabled = unavailable;
@@ -182,7 +184,7 @@ function ensureCardControls() {
   const runtimeState = getLibraryRuntimeState();
   findCardHosts().forEach((host) => {
     const showId = host.dataset.libraryShowId;
-    if (!showId || host.matches(".detail-similar-card") || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
+    if (!showId || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
     const title = getEntryTitle(host, showId);
     const control = createQuickSaveControl(showId, title);
     control.dataset.libraryTitle = title;
@@ -197,17 +199,25 @@ function ensureDetailControl() {
   const showId = getShowIdFromLocation();
   const actions = document.querySelector(".podcast-detail .detail-actions");
   if (!showId || !actions) return;
-  const saveHost = actions.querySelector(":scope > .detail-action-secondary-group") || actions;
-  let control = saveHost.querySelector(":scope > button.library-card-quick-save[data-library-control=detail]");
+  const title = document.querySelector(".podcast-detail .detail-title-group h1")?.textContent?.trim() || showId;
+  let control = actions.querySelector(`:scope > details.library-detail-control[data-library-show-id="${CSS.escape(showId)}"]`);
   if (!control) {
-    const title = document.querySelector(".podcast-detail .detail-title-group h1")?.textContent?.trim() || showId;
-    control = createQuickSaveControl(showId, title, {
-      controlType: "detail",
+    control = createDetailControl(showId, title);
+    actions.append(control);
+  }
+
+  const saveHost = actions.querySelector(":scope > .detail-action-secondary-group") || actions;
+  let quickSave = saveHost.querySelector(`:scope > button.library-card-quick-save[data-library-control="detail-quick-save"][data-library-show-id="${CSS.escape(showId)}"]`);
+  if (!quickSave) {
+    quickSave = createQuickSaveControl(showId, title, {
+      controlType: "detail-quick-save",
       className: "library-detail-quick-save",
     });
-    saveHost.append(control);
+    saveHost.append(quickSave);
   }
+  quickSave.dataset.libraryTitle = title;
   renderControlState(control, currentState);
+  renderControlState(quickSave, currentState);
 }
 
 function renderAllControls(runtimeState = getLibraryRuntimeState()) {

@@ -165,13 +165,15 @@ test("unpublished and incomplete review companions stay out of the public show p
 test("importer-origin catalogue entries retain their publication tier", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
-  const publicationTiers = new Set(importerOrigin.map((show) => show.reviewStatus));
+  const publicationTiers = new Set(importerOrigin.map((show) => show.metadata.import.publication?.tier || show.reviewStatus));
 
   assert.ok(importerOrigin.length > 0);
-  assert.deepEqual([...publicationTiers].sort(), ["full-review", "imported", "indexed-only"]);
+  assert.deepEqual([...publicationTiers].sort(), ["imported", "indexed-only"]);
   const editoriallyPromoted = importerOrigin.filter((show) => show.reviewStatus === "full-review");
   assert.equal(editoriallyPromoted.length, 1);
+  assert.equal(editoriallyPromoted[0].id, "tower-4");
   assert.ok(editoriallyPromoted.every((show) => [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((text) => String(text || "").trim())));
+  assert.equal(editoriallyPromoted[0].metadata.import.publication.tier, "indexed-only");
 });
 
 test("Imported source provenance exposes exact full-cast formats without copying keywords into tags", async () => {

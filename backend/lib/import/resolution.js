@@ -2,13 +2,14 @@ const { cleanDescription, mergeUniqueStrings, normalizeUrl, trimText } = require
 
 const SOURCE_BASE_CONFIDENCE = {
   rss: 0.95,
+  "amazon-music": 0.90,
   website: 0.95,
   apple: 0.75,
   "podcast-index": 0.75,
   inferred: 0.70,
   unstructured: 0.60,
 };
-const IDENTITY_FIELDS = new Set(["appleCollectionId", "appleUrl", "podcastIndexFeedId", "podcastGuid", "rssUrl"]);
+const IDENTITY_FIELDS = new Set(["amazonMusicId", "appleCollectionId", "appleUrl", "podcastIndexFeedId", "podcastGuid", "rssUrl"]);
 const WEBSITE_OFFICIAL_FIELDS = new Set([
   "websiteUrl", "appleUrl", "spotifyUrl", "youtubeMusicUrl", "amazonMusicUrl", "pocketCastsUrl",
   "patreonUrl", "koFiUrl", "discordUrl", "youtubeUrl", "socialUrls", "people", "funding", "supportUrl",
@@ -18,9 +19,10 @@ const MATERIAL_FIELDS = new Set(["title", "creatorName", "podcastGuid", "complet
 const SIMPLE_FIELDS = [
   "title", "subtitle", "creatorName", "ownerName", "networkName", "description",
   "rssUrl", "previousRssUrl", "appleUrl", "appleCollectionId", "websiteUrl", "artworkUrl",
+  "websiteFeedUrl",
   "spotifyUrl", "youtubeMusicUrl", "amazonMusicUrl", "pocketCastsUrl", "patreonUrl", "koFiUrl",
   "discordUrl", "youtubeUrl", "socialUrls", "language", "explicit", "copyright", "categories", "keywords",
-  "feedType", "medium", "complete", "podcastGuid", "podcastGuidIsValid", "podcastIndexFeedId",
+  "feedType", "medium", "complete", "podcastGuid", "podcastGuidIsValid", "podcastIndexFeedId", "amazonMusicId",
   "podcastIndexGuid", "episodeCount", "episodeCountObserved", "episodeCountExact", "episodeCounts",
   "scheduledReleaseCount", "firstPublicationDate", "latestPublicationDate", "latestAnyPublicationDate", "nextScheduledPublicationDate",
   "seasonCount", "seasonsObserved", "avgEpisodeMinutes", "medianEpisodeMinutes", "minEpisodeMinutes",
@@ -43,6 +45,7 @@ function stableValue(value) {
 }
 
 function sourceConfidence(source, fieldName) {
+  if (source.sourceType === "website" && source.normalized?.genericOrganizationTitle && fieldName === "title") return 0.60;
   if (source.sourceType === "website" && source.normalized?.isSecondaryPage && ["title", "subtitle", "description", "creatorName", "rssUrl", "websiteUrl", "artworkUrl"].includes(fieldName)) return 0.60;
   if (source.sourceType === "website" && source.normalized?.structured === false && !WEBSITE_OFFICIAL_FIELDS.has(fieldName)) return 0.60;
   if (source.sourceType === "apple" && ["appleCollectionId", "appleUrl"].includes(fieldName) && source.normalized?.identityExact !== false) return 0.90;
@@ -134,6 +137,8 @@ function resolveEvidence(evidence = []) {
   });
 
   if (objective.description) objective.description = cleanDescription(objective.description, 4_000);
+  if (typeof objective.title === "string") objective.title = objective.title.replace(/\s+/g, " ").trim();
+  if (typeof objective.creatorName === "string") objective.creatorName = objective.creatorName.replace(/\s+/g, " ").trim();
   objective.categories = mergeUniqueStrings(objective.categories || []);
   objective.keywords = mergeUniqueStrings(objective.keywords || []);
   objective.objectiveSources = mergeUniqueStrings(evidence.map((item) => item.sourceUrl).filter(Boolean));

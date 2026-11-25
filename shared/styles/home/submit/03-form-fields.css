@@ -389,3 +389,86 @@
 .submit-category-rating-slider:focus-visible::-moz-range-thumb {
   box-shadow: 0 0 0 3px #080a0c, 0 0 0 6px rgba(255, 122, 102, 0.82), 0 4px 10px rgba(0, 0, 0, 0.36);
 }
+
+.submit-disclosure {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(5, 8, 11, 0.56);
+  overflow: hidden;
+}
+
+.submit-disclosure-summary {
+  min-height: 58px;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.submit-disclosure-summary::-webkit-details-marker {
+  display: none;
+}
+
+.submit-disclosure-summary > span:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.submit-disclosure-summary strong {
+  font-size: 0.96rem;
+  line-height: 1.3;
+}
+
+.submit-disclosure-summary span span {
+  color: rgba(247, 247, 243, 0.7);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.submit-disclosure-summary:focus-visible {
+  outline: 3px solid rgba(255, 113, 96, 0.7);
+  outline-offset: -3px;
+}
+
+.submit-disclosure-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  color: rgba(247, 247, 243, 0.72);
+  transition: transform 180ms ease;
+}
+
+.submit-disclosure-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-disclosure[open] .submit-disclosure-icon {
+  transform: rotate(180deg);
+}
+
+.submit-disclosure-content,
+.submit-detailed-ratings .submit-category-ratings {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.submit-disclosure:not([open]) > .submit-disclosure-content,
+.submit-detailed-ratings:not([open]) > .submit-category-ratings {
+  display: none;
+}
+
+.submit-conditional-fields {
+  display: grid;
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(5, 8, 11, 0.42);
+}

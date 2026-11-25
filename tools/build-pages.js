@@ -95,6 +95,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/17-responsive-780-a.css",
     "shared/styles/home/cards/18-responsive-780-b.css",
     "shared/styles/home/cards/19-responsive-560.css",
+    "shared/styles/home/cards/19-filter-sheet.css",
     "shared/styles/home/cards/19-responsive-560-b.css",
     "shared/styles/base/responsive-robustness.css",
   ]),
@@ -905,7 +906,6 @@ function createPrecacheUrlSet(_manifest, versions) {
     "/apple-touch-icon.png",
     "/icon-192.png",
     "/icon-512.png",
-    "/echo-wordmark1.png",
     "/echo-wordmark-nosub1.svg",
     "/echo-wordmark-sub1.svg",
     "/images/submit-icons.svg",
@@ -1258,12 +1258,15 @@ async function main() {
   const homeConfig = await loadHomeConfig();
   const submitPrerender = await loadSubmitPrerender(parseBoolean(process.env.ARCHIVIST_ENABLED, false));
   const socialLinks = JSON.parse(readFile(SOCIAL_LINKS_PATH));
+  const backendPackage = JSON.parse(readFile(path.join(ROOT, "backend", "package.json")));
+  const publicVersion = `v${backendPackage.version}`;
   const partials = {
     head: readFile(path.join(PARTIALS_DIR, "head.html")).trim(),
     header: readFile(path.join(PARTIALS_DIR, "header.html")).trim(),
     floatingControls: readFile(path.join(PARTIALS_DIR, "floating-controls.html")).trim(),
     footer: renderTemplate(readFile(path.join(PARTIALS_DIR, "footer.html")).trim(), {
       socialLinks: renderSocialLinks(socialLinks),
+      publicVersion,
     }),
   };
 

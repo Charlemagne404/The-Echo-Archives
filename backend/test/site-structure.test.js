@@ -5,6 +5,7 @@ const path = require("node:path");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
+const backendPackage = JSON.parse(fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"));
 const runtimePages = [
   "index.html",
   "about.html",
@@ -56,6 +57,16 @@ test("public runtime pages load archive-search before the module entry script", 
       html.indexOf(searchScriptMatch[0]) < html.indexOf(runtimeScriptMatch[0]),
       `${pagePath} should load archive-search before the runtime entry.`,
     );
+  });
+});
+
+test("public footer version follows the application package version", () => {
+  const expectedVersion = `v${backendPackage.version}`;
+
+  runtimePages.forEach((pagePath) => {
+    const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
+    const match = html.match(/<p class="footer-version">([^<]+)<\/p>/);
+    assert.equal(match?.[1], expectedVersion, `${pagePath} should show the current public release version.`);
   });
 });
 
@@ -115,6 +126,7 @@ test("homepage discovery controls are present before hydration", () => {
 test("default new-show submission is present before hydration", () => {
   const html = fs.readFileSync(path.join(siteRoot, "submit.html"), "utf8");
 
+  assert.match(html, /<form[^>]*id="showSubmitForm"[^>]*method="post"/i, "submission fallback must never put entered fields in the URL");
   assert.match(html, /id="submitModeCards"[\s\S]*data-submission-mode="show"/);
   assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitShowTitle"/);
   assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitListenLinks"/);

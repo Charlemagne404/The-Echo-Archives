@@ -52,7 +52,7 @@ function createShowTemplate({ id, title = "", today = "" }) {
       logos: [],
       rightsNotes: "",
     },
-    cover: "images/TEA-Logo-S.png",
+    cover: "images/Circle2-Logo-S.png",
     coverAlt: `${resolvedTitle} cover art`,
     status: "draft",
     reviewStatus: "indexed-only",

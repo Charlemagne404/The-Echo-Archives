@@ -1321,6 +1321,10 @@ function createImportStore({ db }) {
     })();
   }
 
+  function withImmediateTransaction(callback) {
+    return db.transaction(callback).immediate();
+  }
+
   return {
     withTransaction,
     publicationSnapshot,
@@ -1372,6 +1376,7 @@ function createImportStore({ db }) {
     updateRun,
     upsertDiscoveryItem,
     withTransaction,
+    withImmediateTransaction,
   };
 }
 

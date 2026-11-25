@@ -1696,6 +1696,12 @@
   }
 }
 
+@media (max-width: 959px) {
+  .detail-similar-card > .detail-similar-artwork {
+    aspect-ratio: 16 / 9;
+  }
+}
+
 @media (max-width: 640px) {
   .detail-link-chip {
     min-height: 44px;
@@ -1957,8 +1963,8 @@
 
   .detail-similar-card > .detail-similar-artwork {
     width: 72px;
-    height: 72px;
-    aspect-ratio: 1 / 1;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .detail-similar-card {
@@ -3224,12 +3230,16 @@
   }
 
   .detail-review-carousel {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 8px;
   }
 
   .detail-review-carousel-arrow {
-    display: none;
+    width: 44px;
+    min-height: 44px;
+    align-self: center;
+    border-radius: 12px;
+    font-size: 1.55rem;
   }
 
   .detail-review-carousel-viewport {

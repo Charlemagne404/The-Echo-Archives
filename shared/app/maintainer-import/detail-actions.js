@@ -19,6 +19,7 @@ export function bindImportCandidateActions({
     button.addEventListener("click", async () => {
       if (!(button instanceof HTMLButtonElement)) return;
       const action = button.dataset.importAction || "";
+      const externalIdentityDescription = button.dataset.externalIdentityDescription || "";
       const confirmationCopy = {
         "publish-imported": "Publish this source-checked record as Imported?",
         "publish-indexed": "Publish this fact-reviewed record as indexed-only?",
@@ -27,7 +28,9 @@ export function bindImportCandidateActions({
         promote: "Promote this Imported entry to indexed-only?",
         reject: "Reject this import candidate?",
         duplicate: "Mark this import candidate as a duplicate?",
-      }[action];
+      }[action] || (action === "verify-amazon-music-identity"
+        ? `Check the official Amazon Music listing before continuing.\n\nListing: ${button.dataset.externalIdentityUrl || ""}\nTitle: ${button.dataset.externalIdentityTitle || ""}\nCreator: ${button.dataset.externalIdentityCreator || ""}${externalIdentityDescription ? `\nDescription: ${externalIdentityDescription}` : ""}\n\nContinue only if the listing matches the proposed title and creator${externalIdentityDescription ? ", and shows the proposed description" : ""}. This records the exact identity and the displayed fields as source evidence. It does not verify other facts, grant artwork permission, or approve publication.`
+        : "");
       if (confirmationCopy && !window.confirm(confirmationCopy)) return;
       const payload = reviewForm ? buildReviewPayload(reviewForm) : { reviewedBy: getReviewer() };
       setReviewer(payload.reviewedBy || "");
@@ -58,6 +61,19 @@ export function bindImportCandidateActions({
             else if (action === "promote") await api.promote(candidateId, { reviewedBy: payload.reviewedBy });
             else if (action === "reject") await api.review(candidateId, { ...payload, status: "rejected" });
             else if (action === "duplicate") await api.review(candidateId, { ...payload, status: "duplicate" });
+            else if (action === "verify-amazon-music-identity") {
+              const listingUrl = button.dataset.externalIdentityUrl || "";
+              const title = button.dataset.externalIdentityTitle || "";
+              const creator = button.dataset.externalIdentityCreator || "";
+              actionResult = await api.verifyExternalIdentity(candidateId, {
+                provider: "amazon-music",
+                url: listingUrl,
+                confirmedTitle: title,
+                confirmedCreator: creator,
+                confirmedMatch: true,
+                confirmedDescriptionMatch: Boolean(button.dataset.externalIdentityDescription),
+              });
+            }
             if (actionResult?.runId) await waitForRun(actionResult.runId);
             await reloadQueue();
             if (successMessage) setStatus(successMessage);

@@ -471,6 +471,7 @@ test("Personal Discovery refines existing search locally and restores public ord
     assert.equal(baselinePositions.get("midnight-burger"), "25+", "the personalization fixture begins after the public top 24");
 
     const kingFallsDetail = await context.newPage();
+    await kingFallsDetail.setViewportSize({ width: 390, height: 844 });
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
     const savedKingFalls = await callLibraryService(kingFallsDetail, "setState", "king-falls-am", "saved");
     const ratedKingFalls = await callLibraryService(kingFallsDetail, "setRating", "king-falls-am", 5);
@@ -528,8 +529,12 @@ test("Personal Discovery refines existing search locally and restores public ord
       assert.match(await home.locator("#personalDiscoveryReason").textContent(), /King Falls AM \(rated 5\/5\)/i);
     });
 
-    const disablePersonalDiscovery = await callLibraryService(kingFallsDetail, "setPersonalDiscoveryEnabled", false);
-    assert.equal(disablePersonalDiscovery.ok, true);
+    await kingFallsDetail.bringToFront();
+    await preference.uncheck();
+    await assertEventually(async () => {
+      assert.equal(await preference.isChecked(), false);
+      assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /Personal Discovery disabled/i);
+    });
     const disabledRows = await search("sci-fi");
     assert.deepEqual(disabledRows, baselineRows, "disabling restores exact public result IDs, order, and position buckets");
     assert.equal(await home.locator("#personalDiscoveryReason").isVisible(), false, "disabling clears the personal reason");
@@ -540,15 +545,18 @@ test("Personal Discovery refines existing search locally and restores public ord
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.equal(ids.includes("ars-paradoxica"), false);
     });
-    const removeArs = await callLibraryService(arsDetail, "removeEntry", "ars-paradoxica");
-    assert.equal(removeArs.ok, true);
+    await arsDetail.bringToFront();
+    await arsControl.locator("[data-library-remove]").click();
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.ok(ids.includes("ars-paradoxica"), "removing the Hidden entry restores that exact result while opt-in remains on");
     });
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
-    const removeKingFalls = await callLibraryService(kingFallsDetail, "removeEntry", "king-falls-am");
-    assert.equal(removeKingFalls.ok, true);
+    const kingFallsRemoveControl = kingFallsDetail.locator('[data-library-control="detail"]');
+    await kingFallsRemoveControl.waitFor();
+    await kingFallsDetail.bringToFront();
+    await kingFallsRemoveControl.locator("summary").click();
+    await kingFallsRemoveControl.locator("[data-library-remove]").click();
     await assertEventually(async () => {
       const homeRuntime = await home.evaluate(async () => {
         const { getLibraryRuntimeState } = await import("/shared/app/library/runtime.js");

@@ -44,11 +44,36 @@ function classifyOfficialUrl(url = "") {
     if (host === "ko-fi.com" || host.endsWith(".ko-fi.com")) return "koFi";
     if (host === "discord.gg" || host === "discord.com" || host.endsWith(".discord.com")) return "discord";
     if (host === "youtube.com" || host === "youtu.be" || host.endsWith(".youtube.com")) return "youtube";
+    if (host === "facebook.com" && /^\/(?:sharer(?:\/|$)|share(?:\/|$)|dialog\/share(?:\/|$))/i.test(path)) return "";
+    if ((host === "x.com" || host === "twitter.com") && /^\/intent(?:\/|$)/i.test(path)) return "";
+    if (host === "linkedin.com" && /^\/sharing(?:\/|$)/i.test(path)) return "";
     if (host === "instagram.com" || host === "facebook.com" || host === "threads.net" || host === "x.com" || host === "twitter.com" || host === "bsky.app" || host === "tiktok.com") return "social";
   } catch (_error) {
     return "";
   }
   return "";
+}
+
+function isPodcastPlatformHost(hostname = "") {
+  const host = String(hostname || "").replace(/^www\./i, "").toLowerCase();
+  const platformDomains = [
+    "acast.com",
+    "anchor.fm",
+    "buzzsprout.com",
+    "captivate.fm",
+    "libsyn.com",
+    "megaphone.fm",
+    "pinecast.com",
+    "podbean.com",
+    "podigee.io",
+    "redcircle.com",
+    "rss.com",
+    "simplecast.com",
+    "soundcloud.com",
+    "spreaker.com",
+    "transistor.fm",
+  ];
+  return platformDomains.some((domain) => host === domain || host.endsWith(`.${domain}`));
 }
 
 function jsonLdNodes($) {
@@ -81,6 +106,10 @@ function metaContent($, ...keys) {
   return "";
 }
 
+function isGenericArchiveTitle(value = "") {
+  return /^(?:archives?|categories?|tags?|search results?|アーカイブ|カテゴリー|タグ)\s*[:：]\s*\S/iu.test(String(value || "").trim());
+}
+
 function normalizePerson(value, role = "") {
   const name = readNodeText(value);
   if (!name) return null;
@@ -100,6 +129,8 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
   const officialLinks = {};
   const socialUrls = [];
   const sourceOrigin = (() => { try { return new URL(sourceUrl).origin; } catch (_error) { return ""; } })();
+  const sourceHost = (() => { try { return new URL(sourceUrl).hostname; } catch (_error) { return ""; } })();
+  const collectSocialLinks = !isPodcastPlatformHost(sourceHost);
 
   $("a[href]").each((_index, element) => {
     const href = resolveUrl($(element).attr("href") || "", sourceUrl);
@@ -107,7 +138,7 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
     const label = trimText($(element).text() || $(element).attr("aria-label") || $(element).attr("title") || "", 240);
     links.push({ url: href, label });
     const classification = classifyOfficialUrl(href);
-    if (classification === "social") socialUrls.push(href);
+    if (classification === "social" && collectSocialLinks) socialUrls.push(href);
     else if (classification && !officialLinks[classification]) officialLinks[classification] = href;
     try {
       const parsed = new URL(href);
@@ -120,7 +151,7 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
   nodes.flatMap((node) => [].concat(node.sameAs || [])).forEach((entry) => {
     const url = resolveUrl(typeof entry === "string" ? entry : entry?.url || "", sourceUrl);
     const classification = classifyOfficialUrl(url);
-    if (classification === "social") socialUrls.push(url);
+    if (classification === "social" && collectSocialLinks) socialUrls.push(url);
     else if (classification && !officialLinks[classification]) officialLinks[classification] = url;
   });
 
@@ -136,18 +167,25 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
   const dedupedPeople = [...new Map(people.map((person) => [`${person.name.toLowerCase()}|${person.role}`, person])).values()];
   const feedLink = $('link[rel~="alternate"][type*="rss"], link[rel~="alternate"][type*="atom"]').first().attr("href") || "";
   const image = primaryNode?.image?.url || primaryNode?.image || metaContent($, "og:image", "twitter:image");
-  const title = readNodeText(primaryNode?.name) || metaContent($, "og:title", "twitter:title") || trimText($("title").first().text(), 240);
+  const sourceTitle = readNodeText(primaryNode?.name) || metaContent($, "og:title", "twitter:title") || trimText($("title").first().text(), 240);
+  const genericArchiveTitle = isGenericArchiveTitle(sourceTitle);
+  const title = genericArchiveTitle ? "" : sourceTitle;
   const creatorName = readNodeText(primaryNode?.author) || readNodeText(primaryNode?.creator) || metaContent($, "author");
   const networkName = readNodeText(primaryNode?.publisher) || readNodeText(primaryNode?.provider) || metaContent($, "og:site_name");
+  const structuredType = nodeTypes(primaryNode)[0] || "";
+  const comparableName = (value) => String(value || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+  const genericOrganizationTitle = structuredType === "organization" && Boolean(title) && comparableName(title) === comparableName(networkName);
   const evidenceText = $("main, article").first().find("h1, h2, p").map((_index, element) => cleanDescription($(element).text(), 500)).get().filter(Boolean).slice(0, 8);
 
   return {
     title: trimText(title, 240),
+    archiveTitle: genericArchiveTitle ? trimText(sourceTitle, 240) : "",
+    genericArchiveTitle,
     creatorName: trimText(creatorName, 240),
     description: cleanDescription(readNodeText(primaryNode?.description) || metaContent($, "og:description", "description", "twitter:description"), 4_000),
     websiteUrl: normalizeUrl(sourceUrl),
     artworkUrl: resolveUrl(image, sourceUrl),
-    rssUrl: resolveUrl(feedLink, sourceUrl),
+    websiteFeedUrl: resolveUrl(feedLink, sourceUrl),
     language: trimText(readNodeText(primaryNode?.inLanguage) || $("html").attr("lang") || "", 40).toLowerCase(),
     networkName: trimText(networkName, 240),
     people: dedupedPeople,
@@ -164,6 +202,8 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
     socialUrls: mergeUniqueStrings(socialUrls),
     crawlUrls: mergeUniqueStrings(crawlUrls).slice(0, 4),
     structured: Boolean(primaryNode),
+    structuredType,
+    genericOrganizationTitle,
     evidenceText,
     labeledLinks: links.filter((link) => link.label).slice(0, 100),
   };
@@ -178,7 +218,7 @@ function mergeWebsitePages(results = []) {
       ? [...new Map(values.map((entry) => [JSON.stringify(entry), entry])).values()]
       : mergeUniqueStrings(values);
   });
-  const linkFields = ["appleUrl", "spotifyUrl", "youtubeMusicUrl", "amazonMusicUrl", "pocketCastsUrl", "patreonUrl", "koFiUrl", "discordUrl", "youtubeUrl", "rssUrl", "artworkUrl"];
+  const linkFields = ["appleUrl", "spotifyUrl", "youtubeMusicUrl", "amazonMusicUrl", "pocketCastsUrl", "patreonUrl", "koFiUrl", "discordUrl", "youtubeUrl", "websiteFeedUrl", "artworkUrl"];
   linkFields.forEach((field) => {
     normalized[field] = results.map((result) => result.normalized?.[field]).find(Boolean) || normalized[field] || "";
   });
@@ -226,4 +266,4 @@ function createWebsiteAdapter({ fetchImpl = globalThis.fetch, userAgent, timeout
   return { crawlByUrl, fetchByUrl, mergeWebsitePages, parseWebsiteHtml };
 }
 
-module.exports = { classifyOfficialUrl, createWebsiteAdapter, mergeWebsitePages, parseWebsiteHtml };
+module.exports = { classifyOfficialUrl, createWebsiteAdapter, isGenericArchiveTitle, mergeWebsitePages, parseWebsiteHtml };
