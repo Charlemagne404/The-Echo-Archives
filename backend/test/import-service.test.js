@@ -844,7 +844,7 @@ test("pending editorial recommendations stay separate from objective metadata an
   }
 });
 
-test("provisional indexed-only publication accepts unknown description, no discovery taxonomy, and the Echo placeholder", async () => {
+test("missing or unlicensed artwork blocks provisional indexed-only publication", async () => {
   const feedUrl = "https://example.com/provisional-feed.xml";
   const fetchImpl = async (url, init) => {
     if (String(url) === feedUrl) {
@@ -860,9 +860,6 @@ test("provisional indexed-only publication accepts unknown description, no disco
   };
   const context = createTempImportContext({ fetchImpl });
   try {
-    const placeholderPath = path.join(context.siteRoot, "images", "Circle2-Logo-S.png");
-    fs.mkdirSync(path.dirname(placeholderPath), { recursive: true });
-    fs.copyFileSync(path.join(repositoryRoot, "images", "Circle2-Logo-S.png"), placeholderPath);
     const seeded = await context.service.seedCandidates({ searchResults: [{
       sourceType: "submission",
       sourceKey: "provisional-no-artwork",
@@ -879,7 +876,7 @@ test("provisional indexed-only publication accepts unknown description, no disco
     }], autoHydrate: true });
     const candidateId = seeded.candidateIds[0];
     const candidate = context.service.getForMaintainer(candidateId);
-    assert.equal(candidate.status, "ready", JSON.stringify(candidate.readiness.blockers));
+    assert.equal(candidate.status, "needs-review");
     assert.equal(candidate.preparedRecord.description, "");
     assert.deepEqual(candidate.preparedRecord.genres, []);
     assert.deepEqual(candidate.preparedRecord.formats, []);
@@ -887,22 +884,22 @@ test("provisional indexed-only publication accepts unknown description, no disco
     assert.equal(candidate.preparedRecord.releaseStatus, "unknown");
     assert.equal(candidate.preparedRecord.completionStatus, "unclear");
     assert.equal(candidate.coverStage.omittedForRights, true);
-    assert.equal(candidate.preparedRecord.cover, "images/Circle2-Logo-S.png");
+    assert.equal(candidate.coverStage.status, "permission-not-established");
+    assert.match(candidate.coverStage.missingReason, /not publishable until its use is authorized/i);
+    assert.equal(candidate.preparedRecord.cover, "");
+    assert.equal(candidate.preparedRecord.coverAlt, "");
     assert.equal(candidate.preparedRecord.metadata.import.artworkDisposition.status, "omitted-rights-not-established");
+    assert.equal(candidate.preparedRecord.metadata.import.artworkDisposition.publishedCover, null);
     assert.equal(candidate.readiness.publicationEligibility.indexedOnly.eligible, false);
+    assert.ok(candidate.readiness.blockers.some((blocker) => blocker.code === "cover-not-ready"));
 
-    context.service.markFactsReviewedForMaintainer(candidateId, "test-maintainer");
-    assert.equal(context.service.getForMaintainer(candidateId).readiness.publicationEligibility.indexedOnly.eligible, true);
-    const published = await context.service.publishForMaintainer(candidateId, "test-maintainer", "indexed-only");
-    const record = readShowsFile(context.siteRoot).find((show) => show.id === published.showId);
-    assert.equal(record.reviewStatus, "indexed-only");
-    assert.equal(record.metadata.import.publication.provisional, true);
-    assert.equal(record.metadata.import.factualReview.reviewedBy, "test-maintainer");
-    assert.equal(record.metadata.import.scopeReview.status, "in-scope");
-    assert.equal(record.description, "");
-    assert.deepEqual(record.genres, []);
-    assert.equal(record.cover, "images/Circle2-Logo-S.png");
-    assert.equal(fs.existsSync(path.join(context.siteRoot, record.cover)), true);
+    assert.throws(
+      () => context.service.markFactsReviewedForMaintainer(candidateId, "test-maintainer"),
+      /only be confirmed for a ready or published candidate/i,
+    );
+    assert.equal(context.service.getForMaintainer(candidateId).readiness.publicationEligibility.indexedOnly.eligible, false);
+    await assert.rejects(context.service.publishForMaintainer(candidateId, "test-maintainer", "indexed-only"), /not ready|cover/i);
+    assert.deepEqual(readShowsFile(context.siteRoot), []);
   } finally {
     cleanup(context);
   }

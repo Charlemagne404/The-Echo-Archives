@@ -26,6 +26,7 @@ const {
 } = require("../../deploy/echo-publisher-runner");
 
 const REPO_ROOT = path.resolve(__dirname, "../..");
+const TEST_COVER_BYTES = fs.readFileSync(path.join(REPO_ROOT, "images/covers/archive-81.jpg"));
 const BATCH_SOURCE_IDS = [
   "3184620d-551e-40dd-bdd4-ee36be3236e2",
   "336e8b27-a795-42e0-a3e6-cef6f933b642",
@@ -107,6 +108,9 @@ function createTempContext({ shows = [], failFirstRefresh = false } = {}) {
 
 function fakeFetch(url) {
   const value = String(url);
+  if (value.endsWith("/cover.jpg")) {
+    return Promise.resolve(new Response(TEST_COVER_BYTES, { status: 200, headers: { "content-type": "image/jpeg" } }));
+  }
   if (value.startsWith("https://itunes.apple.com/search")) {
     return Promise.resolve(new Response(JSON.stringify({ resultCount: 0, results: [] }), {
       status: 200,
@@ -126,7 +130,7 @@ function fakeFetch(url) {
     };
     const title = facts.title;
     const guid = crypto.createHash("sha256").update(host).digest("hex").slice(0, 36).replace(/(.{8})(.{4})(.{4})(.{4})(.{12})/, "$1-$2-$3-$4-$5");
-    const xml = `<?xml version="1.0"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0"><channel><title>${title}</title><link>https://${host}.example.test/</link><description>A serialized fiction audio drama about a distant signal.</description><itunes:author>${facts.creator}</itunes:author><itunes:summary>A serialized fiction audio drama about a distant signal.</itunes:summary><language>en</language><itunes:category text="Fiction"><itunes:category text="Drama" /></itunes:category><itunes:type>serial</itunes:type><itunes:keywords>mystery, science fiction, audio drama</itunes:keywords><podcast:guid>${guid}</podcast:guid><item><guid>episode-1</guid><title>Episode One</title><pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate></item></channel></rss>`;
+    const xml = `<?xml version="1.0"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0"><channel><title>${title}</title><link>https://${host}.example.test/</link><description>A serialized fiction audio drama about a distant signal.</description><itunes:author>${facts.creator}</itunes:author><itunes:summary>A serialized fiction audio drama about a distant signal.</itunes:summary><itunes:image href="https://${host}.example.test/cover.jpg" /><language>en</language><itunes:category text="Fiction"><itunes:category text="Drama" /></itunes:category><itunes:type>serial</itunes:type><itunes:keywords>mystery, science fiction, audio drama</itunes:keywords><podcast:guid>${guid}</podcast:guid><item><guid>episode-1</guid><title>Episode One</title><pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate></item></channel></rss>`;
     return Promise.resolve(new Response(xml, { status: 200, headers: { "content-type": "application/rss+xml" } }));
   }
   if (match) {
@@ -138,7 +142,7 @@ function fakeFetch(url) {
   throw new Error(`Unexpected test fetch URL: ${value}`);
 }
 
-function packageEntry({ title, creatorName, submissionId, feedUrl, artworkUse = "echo-placeholder", externalArtwork = false, preserveExistingFields = [] }) {
+function packageEntry({ title, creatorName, submissionId, feedUrl, artworkUse = "source-cover", artworkPermissionStatus = "established", externalArtwork = false, preserveExistingFields = [] }) {
   const host = new URL(feedUrl).hostname.split(".")[0];
   return {
     sourceType: "submission",
@@ -154,7 +158,7 @@ function packageEntry({ title, creatorName, submissionId, feedUrl, artworkUse = 
       podcastGuid: "",
       sourceSubmissionIds: [submissionId],
       artworkUse,
-      artworkPermissionStatus: "not-established",
+      artworkPermissionStatus,
       ...(externalArtwork ? { artworkUrl: `https://${host}.example.test/external-cover.jpg` } : {}),
       manualReleaseState: "unknown",
       ...(preserveExistingFields.length ? { preserveExistingFields } : {}),
@@ -233,7 +237,7 @@ test("Echo Publisher validates the existing importer staging directory without c
   }
 });
 
-test("Echo Publisher plans and atomically publishes a reviewed new-show batch with unknown fields and placeholder art", async () => {
+test("Echo Publisher plans and atomically publishes a reviewed new-show batch with unknown fields and approved show art", async () => {
   const context = createTempContext();
   try {
     const entries = [
@@ -250,7 +254,7 @@ test("Echo Publisher plans and atomically publishes a reviewed new-show batch wi
     assert.deepEqual(readShowsFile(context.siteRoot), before, "planning must not write public catalogue content");
     assert.ok(plan.entries.every((entry) => entry.action === "new-listing"));
     assert.ok(plan.entries.every((entry) => entry.fields.unknownOptional.includes("releaseStatus")));
-    assert.ok(plan.entries.every((entry) => entry.fields.record.cover === "images/Circle2-Logo-S.png"));
+    assert.ok(plan.entries.every((entry) => entry.fields.record.cover.startsWith("images/covers/")));
     assert.ok(plan.entries.every((entry) => !entry.blockers.some((blocker) => blocker.code === "artwork-rights-missing")));
     await assert.rejects(context.publisher.applyPlan({ planId: plan.planId, approveSha256: approvalSha256, actor: "operator:test-user" }), { code: "ECHO_PUBLISHER_FACTS_REVIEW_REQUIRED" });
     await assert.rejects(context.publisher.applyPlan({ planId: plan.planId, approveSha256: "0".repeat(64), reviewFacts: true, actor: "operator:test-user" }), { code: "ECHO_PUBLISHER_APPROVAL_HASH_MISMATCH" });
@@ -278,6 +282,38 @@ test("Echo Publisher plans and atomically publishes a reviewed new-show batch wi
       assert.equal(candidate.factsReviewedBy, "delegate:codex");
       assert.ok(candidate.events.some((event) => event.eventType === "facts-reviewed" && event.actor === "operator:test-user" && event.payload?.method === "echo-publisher-batch-review" && event.payload?.reviewedBy === "delegate:codex" && event.payload.planId === plan.planId));
     }
+  } finally {
+    context.cleanup();
+  }
+});
+
+test("Echo Publisher blocks branding placeholders and artwork without publication permission", async () => {
+  const context = createTempContext();
+  try {
+    const unlicensed = packageEntry({
+      title: "Signal Gamma",
+      creatorName: "Gamma Studio",
+      submissionId: "0c201001-1001-4001-8001-000000000003",
+      feedUrl: "https://signal-gamma.example.test/feed.xml",
+      artworkPermissionStatus: "not-established",
+    });
+    const placeholder = packageEntry({
+      title: "Signal Delta",
+      creatorName: "Delta Studio",
+      submissionId: "0d201001-1001-4001-8001-000000000004",
+      feedUrl: "https://signal-delta.example.test/feed.xml",
+      artworkUse: "echo-placeholder",
+      artworkPermissionStatus: "not-established",
+    });
+    await seedPrepared(context, [unlicensed, placeholder]);
+    const { plan } = await createPlan(context, makePackage([unlicensed, placeholder]));
+    const gamma = plan.entries.find((entry) => entry.title === "Signal Gamma");
+    const delta = plan.entries.find((entry) => entry.title === "Signal Delta");
+    assert.equal(gamma.action, "blocked");
+    assert.ok(gamma.blockers.some((blocker) => blocker.code === "artwork-rights-missing"));
+    assert.equal(delta.action, "blocked");
+    assert.ok(delta.blockers.some((blocker) => blocker.code === "cover-not-ready"));
+    assert.deepEqual(readShowsFile(context.siteRoot), []);
   } finally {
     context.cleanup();
   }

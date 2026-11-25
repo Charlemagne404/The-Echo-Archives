@@ -62,11 +62,11 @@ Basic candidate readiness requires:
 - in-scope audio-fiction classification
 - no blocking source conflict or duplicate ambiguity
 
-Description, credits, genres, formats, discovery tags, artwork, and lifecycle status are optional for provisional `indexed-only` publication. Missing values stay blank or `unknown`/`unclear`; pending recommendations remain under importer provenance. If cover usage rights are not established, the candidate can explicitly use the bundled Echo logo placeholder. The placeholder path prevents cover recovery from fetching artwork from an external source during publication.
+Description, credits, genres, formats, discovery tags, and lifecycle status are optional for provisional `indexed-only` publication. Missing values stay blank or `unknown`/`unclear`; pending recommendations remain under importer provenance. A verified, show-specific cover with established publication rights is required for every new listing. If the rights are unknown, or the only image is Echo branding, the candidate remains private until an eligible cover is available; the bundled logo is an in-memory display fallback only and cannot be published as show artwork.
 
 `indexed-only` provisional publication requires a current authenticated factual-review stamp plus recorded in-scope evidence, source provenance, and a stable identity. Its catalogue validation permits empty descriptions and discovery metadata only when that review record is valid. Any re-preparation increments the candidate revision and makes an earlier stamp stale. Imported publication retains the stricter automated gate: high-confidence title/description and exact identity, sufficient source-backed discovery metadata, and no manually selected core metadata.
 
-Apple's 1400-3000px JPG/PNG artwork target is reported as a quality warning. Credits, description, artwork rights, tags, release/completion/explicit status, exact episode totals, and other optional facts may remain absent with explicit warnings for provisional entries.
+Apple's 1400-3000px JPG/PNG artwork target is reported as a quality warning. Credits, description, tags, release/completion/explicit status, exact episode totals, and other optional facts may remain absent with explicit warnings for provisional entries. Artwork rights cannot be waived for publication.
 When available sources provide no episode count, the prepared record uses `countQualifier: "unknown"` and omits the numeric episode breakdown rather than reporting zero.
 
 ## Persistence And Scale
@@ -121,8 +121,9 @@ private importer state, but it never writes public catalogue content. The
 immutable plan records the exact candidate revision and content hash, source
 evidence, readiness, known fields, unknown optional fields, duplicate
 matches, update target/diff, and existing record hash. Artwork without
-republishing permission stays reference-only; the new record uses the bundled
-Echo placeholder. Unknown optional fields remain unknown.
+publication permission stays reference-only and blocks the new listing; the
+bundled Echo placeholder is never written as show artwork. Unknown optional
+fields remain unknown.
 
 Apply requires the exact plan SHA-256 and one local operator authorization.
 `--review-facts` is an explicit attestation for the exact eligible candidate

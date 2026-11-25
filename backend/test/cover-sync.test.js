@@ -9,6 +9,7 @@ const { PLACEHOLDER_COVER } = require("../lib/cover-sync");
 const { validateSiteData } = require("../scripts/review-helpers");
 
 const siteRoot = path.resolve(__dirname, "../..");
+const echoLogoBytes = fs.readFileSync(path.join(siteRoot, "images/Circle2-Logo-S.png"));
 
 async function loadCatalogAfterCoverSync(siteRoot, options = {}) {
   await syncCatalogCovers(siteRoot, options);
@@ -209,6 +210,37 @@ test("blank cover with RSS source downloads a managed local cover and persists i
   assert.equal(persistedShows[0].coverAlt, "Demo Show cover art");
   assert.ok(fs.existsSync(path.join(tempRoot, "images", "covers", "demo-show.jpg")));
 
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("Echo branding artwork is rejected during managed cover recovery", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  seedAssets(tempRoot);
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({
+    listenLinks: { rss: "https://example.com/branding-feed.xml", apple: "", website: "" },
+  })]);
+  const fetchStub = createFetchStub(new Map([
+    ["https://example.com/branding-feed.xml", createResponse({
+      url: "https://example.com/branding-feed.xml",
+      headers: { "content-type": "application/rss+xml" },
+      body: `<?xml version="1.0"?><rss><channel><itunes:image href="https://cdn.example.com/show-art.png" /></channel></rss>`,
+    })],
+    ["https://cdn.example.com/show-art.png", createResponse({
+      url: "https://cdn.example.com/show-art.png",
+      headers: { "content-type": "image/png" },
+      body: echoLogoBytes,
+    })],
+  ]));
+  const logger = createLogger();
+
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger });
+  const persistedShow = readJson(path.join(dataRoot, "shows.json"))[0];
+  assert.equal(show.cover, PLACEHOLDER_COVER);
+  assert.equal(persistedShow.cover, "");
+  assert.equal(fs.existsSync(path.join(tempRoot, "images/covers/demo-show.png")), false);
+  assert.equal(logger.warnings.length, 1);
+  assert.match(logger.warnings[0], /Echo branding assets cannot be used/i);
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 

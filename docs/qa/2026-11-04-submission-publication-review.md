@@ -68,3 +68,7 @@ release review.
 - The local package reports nine technically ready candidates and one `needs-review` candidate, but its `factsReviewedAt` values are blank and it has no production candidate IDs. A local `ready` status is not a production eligibility result.
 - The prepared package contains ten entries. Before applying, the restricted plan must show the nine source-reviewed entries above as eligible actions (eight new listings and one Polybius update to `polybius-protocol`) and OPTOg as blocked for its unresolved external identity. It must show no duplicate catalogue matches, no other identity conflicts, and only the documented optional unknowns. Stop and re-review if targets, status, or prepared fields differ.
 - A production apply must record the current factual review through the restricted publisher, preserve its exact plan hash, write an immutable receipt/journal, and pass post-publication public-site verification. No publication has occurred yet.
+
+## Follow-up — 2026-11-25
+
+The artwork decision above was superseded by the importer publication guard. An Echo logo is a display fallback, not show artwork. These candidate identities remain documented as source-reviewed, but entries without a show-specific cover whose publication rights are established are blocked from publication. No production plan or apply was run as part of this follow-up.

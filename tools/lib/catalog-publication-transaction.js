@@ -174,8 +174,7 @@ function readLegacyMarker(paths) {
   return marker.fingerprint;
 }
 
-function legacyJournalIsRetired(root, paths, directory) {
-  const manifest = readManifest(root, directory);
+function legacyJournalIsRetired(root, paths, directory, manifest = readManifest(root, directory)) {
   return readLegacyMarker(paths) === legacyFingerprint(directory, manifest);
 }
 
@@ -211,14 +210,18 @@ function existingJournal(root) {
   const paths = journalPaths(root);
   if (assertJournalDirectory(paths.current)) return { ...paths, directory: paths.current };
   if (!assertJournalDirectory(paths.legacy)) return { ...paths, directory: null };
-  if (legacyJournalIsRetired(root, paths, paths.legacy)) return { ...paths, directory: null };
+  const manifest = readManifest(root, paths.legacy);
+  if (manifest.kind !== RUNTIME_SNAPSHOT_KIND && legacyJournalIsRetired(root, paths, paths.legacy, manifest)) return { ...paths, directory: null };
   return { ...paths, directory: paths.legacy };
 }
 
 function recoverableJournal(root) {
   const paths = journalPaths(root);
   if (assertJournalDirectory(paths.current)) return { ...paths, directory: paths.current };
-  if (!assertJournalDirectory(paths.legacy) || legacyJournalIsRetired(root, paths, paths.legacy)) return { ...paths, directory: null };
+  if (!assertJournalDirectory(paths.legacy)) return { ...paths, directory: null };
+  const manifest = readManifest(root, paths.legacy);
+  if (manifest.kind === RUNTIME_SNAPSHOT_KIND) return { ...paths, directory: paths.legacy };
+  if (legacyJournalIsRetired(root, paths, paths.legacy, manifest)) return { ...paths, directory: null };
   ensureStagingRoot(paths);
   return { ...paths, directory: migrateLegacyJournal(root, paths, paths.legacy) };
 }

@@ -13,7 +13,6 @@ const { buildDedupeMatches } = require("../import/dedupe");
 const { buildPreparedShowRecord, evaluateReadiness } = require("../import/draft");
 const { mergePreparedWithExisting } = require("../import/managed-fields");
 const { candidateContentHash } = require("../import/publisher-hash");
-const { PLACEHOLDER_COVER } = require("../cover-sync");
 const { resolveSourceFacts } = require("../import/resolution");
 const {
   DEFAULT_IMPORT_USER_AGENT,
@@ -1094,9 +1093,9 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         ready: false,
         omittedForRights: true,
         status: "permission-not-established",
+        missingReason: "Official artwork is not publishable until its use is authorized.",
         sourceUrl: normalizeUrl(objective.artworkUrl || artworkSource?.normalized?.artworkUrl || ""),
         sourceType: artworkSource?.sourceType || "",
-        placeholder: PLACEHOLDER_COVER,
       };
     } else if (existingCoverPath && fs.existsSync(existingCoverPath)) {
       try {
@@ -1113,6 +1112,13 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         candidateId, coverSources, stagingRoot, fetchImpl: limitedFetch, userAgent,
         timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS, maxBytes: config.IMPORT_COVER_MAX_BYTES,
       });
+      if (!coverStage.ready) {
+        coverStage = {
+          ...coverStage,
+          status: "missing-or-invalid",
+          missingReason: "No verified, publishable local podcast artwork was found.",
+        };
+      }
     }
     candidate = store.updateCandidate(candidateId, { coverStage });
     let preparedRecord = buildPreparedShowRecord({ candidate, shows: readCatalogRecords() });

@@ -298,16 +298,16 @@ Authoring can now leave `cover` blank when the show has at least one usable sour
 - `officialLinks.website`
 - `listenLinks.website`
 
-Normal catalog reads and validation are provider-free and side-effect-free. `loadCatalog()`, server startup and reload, reports, link checks, tests, smoke setup, and the default `validate:data` path do not fetch remote covers, write `images/covers/`, or rewrite authored catalog source. An incomplete record receives the shared local placeholder in memory for that read.
+Normal catalog reads and validation are provider-free and side-effect-free. `loadCatalog()`, server startup and reload, reports, link checks, tests, smoke setup, and the default `validate:data` path do not fetch remote covers, write `images/covers/`, or rewrite authored catalog source. An incomplete record receives the shared local placeholder in memory for that read; the placeholder is not persisted or accepted as show artwork.
 
-Cover recovery is reserved for explicit write-capable workflows. `npm run build:catalog` calls `syncCatalogCovers()` before generating catalog artifacts. The review and import publication entry points (`npm --prefix backend run review:new -- <show-id>`, `npm --prefix backend run review:publish -- <show-id>`, `npm --prefix backend run import:publish -- <candidate-id> --tier <imported|indexed-only>`, and `npm --prefix backend run import:promote -- <candidate-id> --reviewer <name>`) and protected maintainer elevation workflows opt into the same recovery while already writing catalogue state. Successful recovery stores a managed local cover and updates the authored record; an unsuccessful recovery keeps the placeholder for that build.
+Cover recovery is reserved for explicit write-capable workflows. `npm run build:catalog` calls `syncCatalogCovers()` before generating catalog artifacts. The review and import publication entry points (`npm --prefix backend run review:new -- <show-id>`, `npm --prefix backend run review:publish -- <show-id>`, `npm --prefix backend run import:publish -- <candidate-id> --tier <imported|indexed-only>`, and `npm --prefix backend run import:promote -- <candidate-id> --reviewer <name>`) and protected maintainer elevation workflows opt into the same recovery while already writing catalogue state. Successful recovery stores a managed local cover and updates the authored record; an unsuccessful recovery keeps the placeholder in memory for that build and leaves the authored cover blank.
 
 ## Required Fields
 
 - `id`
 - `title`
 - `description` for normal published records; authenticated provisional `indexed-only` entries may leave it blank
-- `cover` in the resolved catalog; a provisional entry may use the bundled Echo logo placeholder when third-party artwork rights are not established
+- `cover` in the resolved catalog; new listings require a show-specific local cover whose publication rights are established. The bundled Echo logo may appear only as an in-memory fallback for incomplete existing records.
 - `coverAlt`
 - `status`
 - `reviewStatus`
@@ -481,7 +481,7 @@ generate or rewrite `similarTo` relationships.
 - Discovery tags must use canonical sentence casing and aliases such as `Analog horror`, `Alternate history`, `Found audio`, `Full cast`, and `Folk horror`.
 - Do not use redundant show-type or directory tags, including plural variants, such as `Drama`, `Audio drama`, `Fiction`, `Podcast`, `Arts`, or `Performing Arts`.
 - A show title cannot also be used as one of its own discovery tags.
-- Normal published shows require a source-backed description of at least 40 characters and at least one canonical genre. Authenticated provisional `indexed-only` records are exempt from minimum description/genre/discovery counts and may retain an Echo placeholder cover.
+- Normal published shows require a source-backed description of at least 40 characters and at least one canonical genre. Authenticated provisional `indexed-only` records are exempt from minimum description/genre/discovery counts, but still require show-specific artwork with established publication rights.
 - Website fields cannot point to social/support profiles, and imported Apple links must match their stored Apple collection id.
 - `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
 - Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
