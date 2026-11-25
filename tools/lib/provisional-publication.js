@@ -63,4 +63,15 @@ function isCompleteProvisionalIndexedEntry(record = {}) {
   );
 }
 
-module.exports = { isCompleteProvisionalIndexedEntry };
+function isLegacyPublishedProvisionalIndexedEntry(record = {}) {
+  const publication = record.metadata?.import?.publication || {};
+  return Boolean(
+    record.status === "published" &&
+    record.reviewStatus === "indexed-only" &&
+    publication.provisional === true &&
+    publication.tier === "indexed-only" &&
+    isValidReviewDate(publication.publishedAt),
+  );
+}
+
+module.exports = { isCompleteProvisionalIndexedEntry, isLegacyPublishedProvisionalIndexedEntry };
