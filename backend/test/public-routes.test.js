@@ -916,6 +916,9 @@ test("undated review drafts stay out of public catalog, show, and review routes"
     for (const name of fs.readdirSync(siteRoot)) {
       if (["catalog-src", "data"].includes(name)) {
         fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
+      } else if (name === "import-staging") {
+        // Runtime publication metadata must be isolated per fixture, never symlinked from the checkout.
+        continue;
       } else if (!name.startsWith(".")) {
         fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
       }

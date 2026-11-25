@@ -13,7 +13,11 @@ function writeJson(filePath, value) {
 }
 
 function createTempSiteRoot() {
-  return fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-review-workflow-"));
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-review-workflow-"));
+  const coverPath = path.join(tempRoot, "images", "Circle-S-Logo.png");
+  fs.mkdirSync(path.dirname(coverPath), { recursive: true });
+  fs.copyFileSync(path.join(projectRoot, "..", "images", "Circle-S-Logo.png"), coverPath);
+  return tempRoot;
 }
 
 function createShowRecord(overrides = {}) {
@@ -124,12 +128,13 @@ test("review:new creates a review file and moves indexed-only shows into planned
   assert.equal(result.code, 0, result.stderr);
 
   const shows = JSON.parse(fs.readFileSync(path.join(dataRoot, "shows.json"), "utf8"));
-  const reviewFile = JSON.parse(fs.readFileSync(path.join(dataRoot, "reviews", "demo-show.json"), "utf8"));
+  const reviewFile = JSON.parse(fs.readFileSync(path.join(tempRoot, "catalog-src", "reviews", "demo-show.json"), "utf8"));
 
   assert.equal(shows[0].reviewStatus, "planned");
   assert.match(shows[0].updatedAt, /^\d{4}-\d{2}-\d{2}$/);
   assert.equal(reviewFile.archiveTake, "Worth indexing.");
   assert.deepEqual(reviewFile.spoilerFreeReview, []);
+  assert.equal(fs.existsSync(path.join(dataRoot, "reviews", "demo-show.json")), false, "unpublished review drafts stay out of public artifacts");
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
@@ -189,8 +194,11 @@ test("review:publish promotes a show to full-review when the companion file is c
   assert.equal(result.code, 0, result.stderr);
 
   const shows = JSON.parse(fs.readFileSync(path.join(dataRoot, "shows.json"), "utf8"));
+  const publishedReview = JSON.parse(fs.readFileSync(path.join(dataRoot, "reviews", "demo-show.json"), "utf8"));
   assert.equal(shows[0].reviewStatus, "full-review");
   assert.match(shows[0].updatedAt, /^\d{4}-\d{2}-\d{2}$/);
+  assert.match(publishedReview.publishedAt, /^\d{4}-\d{2}-\d{2}$/);
+  assert.deepEqual(publishedReview.spoilerFreeReview, ["Paragraph one.", "Paragraph two."]);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
