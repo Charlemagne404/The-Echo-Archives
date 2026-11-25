@@ -72,7 +72,8 @@
     "test:echo-publisher": "node --test test/echo-publisher.test.js",
     "test:read-only-browser": "node --test test/read-only-browser.test.js",
     "echo-publisher": "node scripts/echo-publisher.js",
-    "test:database-migrations": "node --test --test-concurrency=1 test/database-migration-recovery.test.js"
+    "test:database-migrations": "node --test --test-concurrency=1 test/database-migration-recovery.test.js",
+    "submission:reconcile-dry-run": "node scripts/submission-reconciliation-dry-run.js"
   },
   "engines": {
     "node": ">=22.14.0"

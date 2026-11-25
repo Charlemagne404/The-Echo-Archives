@@ -28,6 +28,9 @@ const REQUIRED_TABLES = [
   "rating_events",
   "community_abuse_events",
   "show_submissions",
+  "submission_candidate_links",
+  "submission_relations",
+  "submission_lifecycle_events",
   "published_listener_reviews",
   "listener_review_helpful_votes",
   "catalog_import_candidates",
@@ -66,6 +69,11 @@ const REQUIRED_INDEXES = [
   "idx_rating_events_podcast",
   "idx_show_submissions_status",
   "idx_show_submissions_import_candidate",
+  "idx_show_submissions_intake_key",
+  "idx_show_submissions_lifecycle",
+  "idx_submission_candidate_links_candidate",
+  "idx_submission_relations_related",
+  "idx_submission_lifecycle_events_timeline",
   "idx_catalog_import_candidates_status",
   "idx_catalog_import_candidates_scope",
   "idx_catalog_import_candidates_source",
@@ -81,6 +89,9 @@ const REQUIRED_FTS_TRIGGERS = [
   "catalog_import_candidates_fts_insert",
   "catalog_import_candidates_fts_delete",
   "catalog_import_candidates_fts_update",
+];
+const REQUIRED_MIGRATION_TRIGGERS = [
+  "protect_open_show_submissions_from_legacy_retention_delete",
 ];
 
 // Snapshot of the real 9f17ec21 state: device voting exists, but import-v2,
@@ -386,6 +397,7 @@ function assertCurrentSchema(db) {
   for (const index of REQUIRED_INDEXES) assert.ok(indexes.has(index), `missing index ${index}`);
   const triggers = sqliteNames(db, "trigger");
   for (const trigger of REQUIRED_FTS_TRIGGERS) assert.ok(triggers.has(trigger), `missing trigger ${trigger}`);
+  for (const trigger of REQUIRED_MIGRATION_TRIGGERS) assert.ok(triggers.has(trigger), `missing trigger ${trigger}`);
   assertDatabaseIntegrity(db);
 }
 
@@ -406,6 +418,9 @@ function seedLegacyPreImportV2(dbPath, { incompatibleFts = false } = {}) {
   const db = new Database(dbPath);
   db.pragma("foreign_keys = ON");
   db.exec(LEGACY_PRE_IMPORT_V2_SCHEMA);
+  // The current production schema also has the legacy handoff field; model it
+  // here so migration can prove a mismatched linked-candidate source is held open.
+  db.exec("ALTER TABLE show_submissions ADD COLUMN import_candidate_id TEXT NOT NULL DEFAULT ''");
   db.prepare("INSERT INTO app_migrations (id, applied_at) VALUES (?, ?)").run(
     RESET_MIGRATION,
     "2026-06-21T20:00:00.000Z",
@@ -508,6 +523,36 @@ function seedLegacyPreImportV2(dbPath, { incompatibleFts = false } = {}) {
     JSON.stringify({ historical: true }),
     "2026-06-30T09:08:00.000Z",
   );
+  db.prepare(`
+    INSERT INTO show_submissions (id, status, show_title, creator_name, contact_email, submitted_at)
+    VALUES (?, 'new', ?, ?, ?, ?), (?, 'accepted', ?, ?, ?, ?), (?, 'new', ?, ?, ?, ?)
+  `).run(
+    "legacy-linked-ready",
+    "Ready Candidate Submission",
+    "Ready Creator",
+    "ready@example.test",
+    "2026-06-30T09:10:00.000Z",
+    "legacy-linked-published",
+    "Published Candidate Submission",
+    "Published Creator",
+    "published@example.test",
+    "2026-06-30T09:11:00.000Z",
+    "legacy-linked-mismatched",
+    "Unrelated Candidate Submission",
+    "Unrelated Creator",
+    "unrelated@example.test",
+    "2026-06-30T09:11:30.000Z",
+  );
+  db.prepare(`
+    INSERT INTO catalog_import_candidates (
+      id, status, title, primary_source_type, primary_source_key, updated_at
+    ) VALUES
+      ('legacy-submission-ready', 'ready', 'Ready Candidate', 'submission', 'legacy-linked-ready', '2026-06-30T09:12:00.000Z'),
+      ('legacy-submission-published', 'published', 'Published Candidate', 'submission', 'legacy-linked-published', '2026-06-30T09:13:00.000Z'),
+      ('legacy-submission-mismatched', 'published', 'Unrelated Candidate', 'submission', 'different-submission-id', '2026-06-30T09:13:30.000Z')
+  `).run();
+  db.prepare("UPDATE catalog_import_candidates SET published_show_id = 'published-show' WHERE id IN ('legacy-submission-published', 'legacy-submission-mismatched')").run();
+  db.prepare("UPDATE show_submissions SET import_candidate_id = 'legacy-submission-mismatched' WHERE id = 'legacy-linked-mismatched'").run();
   db.prepare(`
     INSERT INTO catalog_import_runs (id, run_type, status, input_json, summary_json, created_at)
     VALUES (?, 'seed', 'completed', ?, ?, ?)
@@ -680,7 +725,7 @@ test("historical pre-import-v2 schema migrates, preserves records, and rebuilds 
   try {
     db = openDatabase(dbPath);
     assertCurrentSchema(db);
-    assertMigrationMarkers(db, [RESET_MIGRATION, STATUS_MIGRATION, FTS_MIGRATION, ANALYTICS_MIGRATION]);
+    assertMigrationMarkers(db, [RESET_MIGRATION, STATUS_MIGRATION, FTS_MIGRATION, ANALYTICS_MIGRATION, "submission-lifecycle-v1-2026-11-25"]);
 
     assert.deepEqual(db.prepare(`
       SELECT id, title, created_at, updated_at, metadata_json
@@ -703,6 +748,50 @@ test("historical pre-import-v2 schema migrates, preserves records, and rebuilds 
     });
     assert.equal(db.prepare("SELECT status FROM catalog_import_candidates WHERE id = ?").get("legacy-candidate").status, "queued");
     assert.equal(db.prepare("SELECT notes FROM show_submissions WHERE id = ?").get("legacy-submission").notes, "Preserve this moderation record.");
+    assert.deepEqual(db.prepare("SELECT import_candidate_id, processing_status, resolution_status FROM show_submissions WHERE id = ?").get("legacy-linked-ready"), {
+      import_candidate_id: "legacy-submission-ready",
+      processing_status: "ready-for-review",
+      resolution_status: "open",
+    });
+    assert.deepEqual(db.prepare("SELECT import_candidate_id, processing_status, resolution_status, import_resolved_show_id FROM show_submissions WHERE id = ?").get("legacy-linked-published"), {
+      import_candidate_id: "legacy-submission-published",
+      processing_status: "completed",
+      resolution_status: "published",
+      import_resolved_show_id: "published-show",
+    });
+    assert.deepEqual(db.prepare("SELECT import_candidate_id, resolution_status, import_resolved_show_id FROM show_submissions WHERE id = ?").get("legacy-linked-mismatched"), {
+      import_candidate_id: "legacy-submission-mismatched",
+      resolution_status: "open",
+      import_resolved_show_id: "",
+    });
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_candidate_links WHERE submission_id = ?").get("legacy-linked-ready").count, 1);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_lifecycle_events WHERE submission_id = ? AND event_type = 'received'").get("legacy-linked-ready").count, 1);
+
+    db.prepare("UPDATE show_submissions SET submitted_at = '2020-01-01T00:00:00.000Z' WHERE id = 'legacy-linked-ready'").run();
+    const legacyRetentionDelete = db.prepare(`
+      DELETE FROM show_submissions
+      WHERE datetime(COALESCE(reviewed_at, submitted_at)) <= datetime(@cutoff)
+        AND NOT EXISTS (
+          SELECT 1 FROM published_listener_reviews
+          WHERE published_listener_reviews.submission_id = show_submissions.id
+            AND published_listener_reviews.is_published = 1
+        )
+    `).run({ cutoff: "2020-06-30T00:00:00.000Z" });
+    assert.equal(legacyRetentionDelete.changes, 0, "the previous release retention DELETE must not remove an unresolved show row");
+    assert.deepEqual(db.prepare(`
+      SELECT status, show_title, contact_email, notes, resolution_status, processing_status
+      FROM show_submissions WHERE id = 'legacy-linked-ready'
+    `).get(), {
+      status: "new",
+      show_title: "",
+      contact_email: "",
+      notes: "",
+      resolution_status: "open",
+      processing_status: "needs-investigation",
+    });
+    assert.ok(db.prepare("SELECT content_redacted_at FROM show_submissions WHERE id = 'legacy-linked-ready'").get().content_redacted_at);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_lifecycle_events WHERE submission_id = 'legacy-linked-ready' AND event_key = 'retention:legacy-cleanup'").get().count, 1);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_candidate_links WHERE submission_id = 'legacy-linked-ready'").get().count, 1);
 
     assert.deepEqual(db.prepare(`
       SELECT mode, pipeline_version, input_revision
@@ -752,7 +841,8 @@ test("historical pre-import-v2 schema migrates, preserves records, and rebuilds 
     db.close();
     db = openDatabase(dbPath);
     assertCurrentSchema(db);
-    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM catalog_import_candidates_fts").get().count, 2);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM catalog_import_candidates_fts").get().count, 5);
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM submission_candidate_links WHERE submission_id = 'legacy-linked-ready'").get().count, 1);
   } finally {
     db?.close();
     cleanupRoot(root);

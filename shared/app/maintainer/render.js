@@ -109,6 +109,93 @@ function renderSubmissionBasics(submission) {
   return renderDetailRows(basics);
 }
 
+function renderSubmissionLifecycle({ submission, candidates = [], history = [], relatedSubmissions = [], potentialMatches = [], potentialSubmissionDuplicates = [] }) {
+  if (submission.submissionType !== "show") return "";
+  const candidate = candidates[0] || null;
+  const readiness = candidate?.readiness || {};
+  const blockers = readiness.blockers || [];
+  const warnings = readiness.warnings || [];
+  const sources = candidate?.sources || [];
+  const jobs = candidate?.jobs || [];
+  const timeline = [...history].slice(-12).reverse();
+  const action = submission.resolutionStatus !== "open"
+    ? `Resolved as ${formatStatus(submission.resolutionStatus)}${submission.resolutionReason ? ` · ${submission.resolutionReason}` : ""}.`
+    : submission.processingStatus === "ready-for-review"
+      ? "Review the prepared metadata, then approve and publish."
+      : submission.processingStatus === "needs-investigation" || submission.processingStatus === "failed"
+        ? "Inspect the match evidence or processing error and choose a next step."
+        : submission.processingStatus === "processing" || submission.processingStatus === "received"
+          ? "Automatic preparation is in progress. No publication occurs without approval."
+          : "Review the submitted details and missing information.";
+  const matchCards = potentialMatches.map((match) => `
+    <li class="maintainer-match-item">
+      <span><strong>${escapeHtml(match.title)}</strong> · ${escapeHtml(match.matchType)} · ${Math.round(Number(match.confidence || 0) * 100)}% title evidence</span>
+      <div class="maintainer-toolbar-actions">
+        ${renderLabeledLink("Open archive show", `/shows/${encodeURIComponent(match.id)}`)}
+        ${submission.resolutionStatus === "open" ? `<button type="button" class="maintainer-ghost-button" data-submission-resolve-match="${escapeHtml(match.id)}">Confirm already listed</button>` : ""}
+      </div>
+    </li>
+  `).join("");
+  const relatedCards = relatedSubmissions.map((related) => `
+    <li>${escapeHtml(related.relationshipType)} · <a href="/maintainer/submissions.html?item=${encodeURIComponent(related.submissionId)}">${escapeHtml(related.showTitle || "Redacted submission")}</a> · ${escapeHtml(formatStatus(related.resolutionStatus))}</li>
+  `).join("");
+  const duplicateCards = potentialSubmissionDuplicates.map((related) => `
+    <li class="maintainer-match-item">
+      <span><strong>${escapeHtml(related.showTitle)}</strong> · ${escapeHtml(related.creatorName || "Creator not supplied")} · same title; verify before resolving.</span>
+      <div class="maintainer-toolbar-actions">
+        <a class="maintainer-ghost-button" href="/maintainer/submissions.html?item=${encodeURIComponent(related.id)}">Inspect submission</a>
+        <button type="button" class="maintainer-ghost-button" data-submission-resolve-duplicate="${escapeHtml(related.id)}">Confirm duplicate</button>
+      </div>
+    </li>
+  `).join("");
+  const sourceRows = sources.map((source) => [
+    `${source.sourceType} · ${source.fetchStatus}${source.httpStatus ? ` · HTTP ${source.httpStatus}` : ""}`,
+    source.sourceUrl,
+  ]);
+  const issueList = (entries) => entries.length ? `<ul class="maintainer-issue-list">${entries.map((entry) => `<li>${escapeHtml(typeof entry === "string" ? entry : entry.message || JSON.stringify(entry))}</li>`).join("")}</ul>` : "";
+  return `
+    <section class="maintainer-detail-section" aria-labelledby="submissionLifecycleHeading">
+      <h3 id="submissionLifecycleHeading">Submission lifecycle</h3>
+      <div class="maintainer-detail-badges">
+        ${renderBadge(`Processing: ${formatStatus(submission.processingStatus)}`, getStatusTone(submission.processingStatus))}
+        ${renderBadge(`Resolution: ${formatStatus(submission.resolutionStatus)}`, getStatusTone(submission.resolutionStatus))}
+        ${candidate ? renderBadge(`Importer: ${formatStatus(candidate.status)}`, getStatusTone(candidate.status)) : ""}
+      </div>
+      <p class="maintainer-panel-meta"><strong>Recommended next action:</strong> ${escapeHtml(action)}</p>
+      ${submission.processingError ? `<p class="maintainer-error-copy">${escapeHtml(submission.processingError)}</p>` : ""}
+      ${candidate ? `
+        <div class="maintainer-detail-section">
+          <h4>Prepared importer record</h4>
+          ${renderDetailRows([
+            ["Candidate", candidate.id],
+            ["Prepared title", candidate.preparedRecord?.title || candidate.title],
+            ["Creator", candidate.preparedRecord?.credits?.creatorName || candidate.creatorName],
+            ["Publication readiness", readiness.ready ? "Ready for editorial approval" : "Needs more work"],
+            ["Readiness score", readiness.completenessScore ?? ""],
+            ["Last importer error", candidate.lastError || ""],
+          ])}
+          ${blockers.length ? `<h4>Validation issues and missing information</h4>${issueList(blockers)}` : ""}
+          ${warnings.length ? `<h4>Readiness warnings</h4>${issueList(warnings)}` : ""}
+          ${candidate.dedupe?.allMatches?.length ? `<h4>Potential duplicate matches</h4>${issueList(candidate.dedupe.allMatches.slice(0, 6).map((match) => `${match.title} · ${match.matchType} · ${Math.round((match.confidence || 0) * 100)}%`))}` : ""}
+          ${sourceRows.length ? `<h4>Retrieved source provenance</h4>${renderDetailRows(sourceRows)}` : ""}
+          ${jobs.length ? `<h4>Processing and retry history</h4>${issueList(jobs.slice(0, 8).map((job) => `${job.status} · attempt ${job.attemptCount}/${job.maxAttempts}${job.error ? ` · ${job.error}` : ""}`))}` : ""}
+          <div class="maintainer-toolbar-actions">
+            ${renderLabeledLink("Open candidate workspace", `/maintainer/imports.html?q=${encodeURIComponent(candidate.id)}`)}
+            ${candidate.publishedShowId ? renderLabeledLink("Open published show", `/shows/${encodeURIComponent(candidate.publishedShowId)}`) : ""}
+            ${candidate.status === "ready" && submission.resolutionStatus === "open" ? `<button type="button" class="maintainer-primary-button" data-submission-approve="true">Approve and publish</button>` : ""}
+            ${["failed", "needs-review"].includes(candidate.status) && submission.resolutionStatus === "open" ? `<button type="button" class="maintainer-ghost-button" data-submission-retry="true">Retry preparation</button>` : ""}
+          </div>
+        </div>
+      ` : ""}
+      ${matchCards ? `<h4>Potential archive matches</h4><ul class="maintainer-match-list">${matchCards}</ul>` : ""}
+      ${duplicateCards ? `<h4>Possible duplicate submissions</h4><ul class="maintainer-match-list">${duplicateCards}</ul>` : ""}
+      ${relatedCards ? `<h4>Related submissions</h4><ul class="maintainer-issue-list">${relatedCards}</ul>` : ""}
+      ${submission.contentRedactedAt ? `<p class="maintainer-panel-meta">Submission content was redacted on ${escapeHtml(formatDateTime(submission.contentRedactedAt))} under the retention policy. The operational record remains.</p>` : ""}
+      ${timeline.length ? `<details class="maintainer-history"><summary>Lifecycle history (${timeline.length})</summary><ol>${timeline.map((event) => `<li><strong>${escapeHtml(formatStatus(event.eventType))}</strong> · ${escapeHtml(formatDateTime(event.createdAt))}${event.reason ? ` · ${escapeHtml(event.reason)}` : ""}</li>`).join("")}</ol></details>` : ""}
+    </section>
+  `;
+}
+
 function renderPublishedListenerReviewEditor(submission, publicReview = null) {
   if (submission.submissionType !== "listener-review") return "";
   const payload = submission.payload || {};
@@ -174,7 +261,7 @@ export function renderQueueList({ items = [], selectedId = "" }) {
   return items.map((submission) => renderListItem(submission, submission.id === selectedId)).join("");
 }
 
-export function renderDetailPane({ submission = null, storedReviewer = "", publicReview = null }) {
+export function renderDetailPane({ submission = null, storedReviewer = "", publicReview = null, candidates = [], history = [], relatedSubmissions = [], potentialMatches = [], potentialSubmissionDuplicates = [] }) {
   if (!submission) {
     return `
       <div class="maintainer-empty-state">
@@ -193,7 +280,7 @@ export function renderDetailPane({ submission = null, storedReviewer = "", publi
     <div class="maintainer-detail-stack">
       <div class="maintainer-detail-header">
         <div>
-          <h3>${escapeHtml(submission.showTitle)}</h3>
+          <h3>${escapeHtml(submission.showTitle || "Submission details redacted")}</h3>
           <p>${escapeHtml(buildSubmissionPreview(submission))}</p>
         </div>
         <div class="maintainer-detail-badges">
@@ -205,6 +292,7 @@ export function renderDetailPane({ submission = null, storedReviewer = "", publi
 
       ${showLink ? `<div class="maintainer-link-list">${showLink}</div>` : ""}
       ${renderSubmissionBasics(submission)}
+      ${renderSubmissionLifecycle({ submission, candidates, history, relatedSubmissions, potentialMatches, potentialSubmissionDuplicates })}
 
       <form id="maintainerReviewForm" class="maintainer-review-form" data-submission-id="${escapeHtml(submission.id)}">
         <div class="maintainer-review-grid">
@@ -239,23 +327,11 @@ export function renderDetailPane({ submission = null, storedReviewer = "", publi
         </div>
       </form>
 
-      ${submission.submissionType === "show" && submission.status !== "rejected" ? `
+      ${submission.submissionType === "show" && submission.status !== "rejected" && !submission.importCandidateId ? `
         <section class="maintainer-detail-section">
-          <h3>Import preparation</h3>
-          <p class="maintainer-panel-meta">Send this submitted factual information into the protected import lane. It will still be enriched, deduplicated, and require separate publication approval.</p>
-          ${submission.importCandidateId ? `
-            <p class="maintainer-panel-meta">Linked candidate: <strong>${escapeHtml(submission.importCandidateId)}</strong>${submission.importCandidateStatus ? ` · ${escapeHtml(formatStatus(submission.importCandidateStatus))}` : ""}${submission.importResolvedShowId ? ` · Resolved to ${escapeHtml(submission.importResolvedShowId)}` : ""}</p>
-            <div class="maintainer-toolbar-actions">
-              ${renderLabeledLink("Open candidate in Catalog imports", `/maintainer/imports.html?q=${encodeURIComponent(submission.importCandidateId)}`)}
-              ${submission.importResolvedShowId ? renderLabeledLink("Open published show", `/shows/${encodeURIComponent(submission.importResolvedShowId)}`) : ""}
-            </div>
-          ` : submission.importHandoffStartedAt ? `
-            <p class="maintainer-panel-meta">Import preparation is being started. Refresh the submission shortly to see its candidate.</p>
-          ` : `
-            <div class="maintainer-toolbar-actions">
-              <button class="maintainer-ghost-button" type="button" data-submission-import="true">Prepare import candidate</button>
-            </div>
-          `}
+          <h3>Automatic preparation</h3>
+          <p class="maintainer-panel-meta">The submission is in the durable intake queue. Preparation runs automatically when submission automation is enabled.</p>
+          <div class="maintainer-toolbar-actions"><button class="maintainer-ghost-button" type="button" data-submission-import="true">Start preparation now</button></div>
         </section>
       ` : ""}
 

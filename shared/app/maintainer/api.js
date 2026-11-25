@@ -85,10 +85,42 @@ export async function fetchMaintainerSubmission(id, options = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}`, { signal: options.signal });
 }
 
+export async function fetchMaintainerSubmissionHealth(options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/health`, { signal: options.signal });
+}
+
 export async function patchMaintainerSubmission(id, updates) {
   return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}`, {
     method: "PATCH",
     body: JSON.stringify(updates),
+  });
+}
+
+export async function retryMaintainerSubmission(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/retry`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function approveAndPublishMaintainerSubmission(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/approve-and-publish`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function resolveMaintainerSubmissionMatch(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/resolve-match`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function resolveMaintainerSubmissionDuplicate(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/resolve-duplicate`, {
+    method: "POST",
+    body: JSON.stringify(payload),
   });
 }
 

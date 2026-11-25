@@ -26,6 +26,7 @@ const statefulSmokeFiles = [
   "test/community-rating-flow.smoke.js",
   "test/discovery-analytics.smoke.js",
   "test/listener-library-product.smoke.js",
+  "test/submission-queue.smoke.js",
 ];
 
 const browserTypes = { chromium, firefox, webkit };

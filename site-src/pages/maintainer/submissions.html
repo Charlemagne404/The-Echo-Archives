@@ -44,6 +44,7 @@
 
   <section id="maintainerAppShell" class="maintainer-app-shell" hidden>
     <div id="maintainerSummaryCards" class="maintainer-summary-grid"></div>
+    <p id="maintainerQueueHealth" class="maintainer-panel-meta" role="status">Loading queue health…</p>
 
     <section class="page-card maintainer-toolbar-card">
       <div class="maintainer-toolbar-heading">
@@ -61,6 +62,10 @@
         <label class="maintainer-field">
           <span>Status</span>
           <select id="maintainerStatusFilter" name="status"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Queue lane</span>
+          <select id="maintainerLaneFilter" name="lane"></select>
         </label>
         <label class="maintainer-field">
           <span>Type</span>

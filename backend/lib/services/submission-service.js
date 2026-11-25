@@ -1,3 +1,5 @@
+const { createHash } = require("node:crypto");
+
 const SUBMISSION_TYPES = ["show", "correction", "listener-review", "creator-verification"];
 const SUBMISSION_TYPE_SET = new Set(SUBMISSION_TYPES);
 const SPOILER_LEVELS = new Set(["spoiler-free", "light-spoilers", "full-spoilers"]);
@@ -416,6 +418,12 @@ function normalizeCommonFields(rawBody = {}, requestContext = {}) {
   const honeypot = trimString(rawBody?.website, 200);
   const legalAcknowledged = rawBody?.legalAcknowledged === true;
   const legalVersion = trimString(rawBody?.legalVersion, 40);
+  const idempotencyKey = trimString(requestContext?.idempotencyKey, 128);
+  if (idempotencyKey && !/^[A-Za-z0-9._:-]{8,128}$/.test(idempotencyKey)) {
+    const error = new Error("Idempotency key must be 8 to 128 safe characters.");
+    error.statusCode = 400;
+    throw error;
+  }
 
   return {
     intakeVersion: normalizeIntakeVersion(rawBody),
@@ -434,6 +442,9 @@ function normalizeCommonFields(rawBody = {}, requestContext = {}) {
     sourceIp,
     legalAcknowledged,
     legalVersion,
+    intakeKeyHash: idempotencyKey
+      ? createHash("sha256").update(`${submissionType}:${idempotencyKey}`).digest("hex")
+      : "",
     honeypot,
     showTitle: resolveShowTitle(rawBody, existingShowId),
   };
@@ -468,6 +479,7 @@ function toMaintainerSubmission(submission) {
   return {
     id: submission.id,
     status: submission.status,
+    moderationStatus: submission.status,
     priority: submission.priority || "normal",
     submissionType: submission.submission_type,
     existingShowId: submission.existing_show_id,
@@ -489,6 +501,16 @@ function toMaintainerSubmission(submission) {
     importCandidateStatus: submission.import_candidate_status || "",
     importPublishedShowId: submission.import_published_show_id || "",
     importResolvedShowId: submission.import_resolved_show_id || "",
+    processingStatus: submission.processing_status || (submission.submission_type === "show" ? "received" : "not-required"),
+    resolutionStatus: submission.resolution_status || "open",
+    resolutionReason: submission.resolution_reason || "",
+    resolutionEvidence: submission.resolution_evidence_json || {},
+    resolvedAt: submission.resolved_at || null,
+    processingError: submission.processing_error || "",
+    processingAttempts: Number(submission.processing_attempts || 0),
+    processingStartedAt: submission.processing_started_at || null,
+    processingNextAttemptAt: submission.processing_next_attempt_at || null,
+    contentRedactedAt: submission.content_redacted_at || null,
     sourceIp: submission.source_ip,
     userAgent: submission.user_agent,
   };
@@ -499,6 +521,12 @@ function normalizeListFilters(filters = {}) {
   const submissionType = trimString(filters.submissionType, 80);
   const priority = trimString(filters.priority, 40);
   const q = trimString(filters.q, 200);
+  const lane = trimString(filters.lane || "actionable", 40);
+  if (!new Set(["actionable", "processing", "investigation", "resolved", "all"]).has(lane)) {
+    const error = new Error("Unknown submission queue lane.");
+    error.statusCode = 400;
+    throw error;
+  }
 
   if (status && !MODERATION_STATUS_SET.has(status)) {
     const error = new Error("Unknown maintainer status filter.");
@@ -523,7 +551,9 @@ function normalizeListFilters(filters = {}) {
     submissionType,
     priority,
     q,
-    includeClosed: filters.includeClosed === true,
+    lane: lane === "all" ? "" : lane,
+    includeReceived: filters.includeReceived !== false,
+    includeClosed: filters.includeClosed === true || lane === "resolved" || lane === "all",
     page: Math.max(1, Number.parseInt(String(filters.page || "1"), 10) || 1),
     pageSize: Math.min(200, Math.max(1, Number.parseInt(String(filters.pageSize || "20"), 10) || 20)),
     openStatuses: OPEN_MODERATION_STATUSES,
@@ -627,6 +657,7 @@ function createShowSubmissionHandler({ store }) {
         provenance: withLegalAcknowledgement(common, {
           sourceLinks: [...new Set([derivedOfficialSite, primaryListenLink, ...listenLinks.map((row) => row.url)].filter(Boolean))],
         }),
+        intakeKeyHash: common.intakeKeyHash,
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -708,6 +739,7 @@ function createCorrectionSubmissionHandler({ store }) {
         provenance: withLegalAcknowledgement(common, {
           sourceLinks,
         }),
+        intakeKeyHash: common.intakeKeyHash,
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -771,6 +803,7 @@ function createListenerReviewSubmissionHandler({ store }) {
           notes: common.notes,
         },
         provenance: withLegalAcknowledgement(common),
+        intakeKeyHash: common.intakeKeyHash,
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -895,6 +928,7 @@ function createCreatorVerificationSubmissionHandler({ store }) {
         notes: common.notes,
         payload,
         provenance: withLegalAcknowledgement(common, provenance),
+        intakeKeyHash: common.intakeKeyHash,
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -933,8 +967,20 @@ function createSubmissionService({
       return createFilteredResult();
     }
 
-    rateLimiter?.check("submissions", common.sourceIp);
     validateCommonSubmissionFields(common, { requireLegalAcknowledgement });
+    if (common.intakeKeyHash) {
+      const existing = store.getSubmissionByIntakeKeyHash?.(common.intakeKeyHash);
+      if (existing) {
+        return {
+          accepted: true,
+          filtered: false,
+          idempotent: true,
+          submission: existing,
+        };
+      }
+    }
+
+    rateLimiter?.check("submissions", common.sourceIp);
 
     const creatorPageCorrectionWithoutShow = common.submissionType === "correction"
       && trimString(rawBody?.correctionType, 80) === "creator-page"
@@ -991,12 +1037,38 @@ function createSubmissionService({
     }
 
     const updates = normalizeReviewUpdates(rawUpdates);
+    const before = store.getShowSubmission(trimmedId);
+    if (!before) throw createMaintainerNotFoundError();
+    if (before.resolution_status && before.resolution_status !== "open" && Object.hasOwn(updates, "status") && updates.status !== before.status) {
+      const error = new Error("A resolved submission cannot be reopened through moderation status alone.");
+      error.statusCode = 409;
+      throw error;
+    }
     const submission = store.updateShowSubmissionReview(trimmedId, updates);
     if (!submission) {
       throw createMaintainerNotFoundError();
     }
 
-    return toMaintainerSubmission(submission);
+    const actor = updates.reviewedBy || "authenticated-maintainer";
+    store.recordLifecycleEvent?.({
+      submissionId: trimmedId,
+      eventType: "moderation-updated",
+      eventKey: `moderation:${submission.status}:${submission.reviewed_at || "updated"}`,
+      actor,
+      reason: "maintainer-updated-moderation-state",
+      evidence: { status: submission.status, priority: submission.priority },
+      createdAt: submission.reviewed_at || new Date().toISOString(),
+    });
+    if (updates.status === "rejected") {
+      store.resolveSubmission?.(trimmedId, {
+        status: "rejected",
+        reason: "maintainer-rejected",
+        evidence: { moderationStatus: "rejected" },
+        actor,
+      });
+    }
+
+    return toMaintainerSubmission(store.getShowSubmission(trimmedId) || submission);
   }
 
   function getShowContext(showId = "") {

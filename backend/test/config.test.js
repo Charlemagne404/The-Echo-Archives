@@ -74,6 +74,22 @@ test("Archivist is disabled by default and can be explicitly enabled", () => {
   assert.equal(enabled.stdout, "true");
 });
 
+test("submission automation is disabled by default and can be explicitly enabled", () => {
+  const disabled = runConfig(
+    { SUBMISSION_AUTOMATION_ENABLED: undefined },
+    "const c=require('./lib/config'); c.validateConfig(c); process.stdout.write(String(c.SUBMISSION_AUTOMATION_ENABLED));",
+  );
+  assert.equal(disabled.status, 0, disabled.stderr);
+  assert.equal(disabled.stdout, "false");
+
+  const enabled = runConfig(
+    { SUBMISSION_AUTOMATION_ENABLED: "true" },
+    "const c=require('./lib/config'); c.validateConfig(c); process.stdout.write(String(c.SUBMISSION_AUTOMATION_ENABLED));",
+  );
+  assert.equal(enabled.status, 0, enabled.stderr);
+  assert.equal(enabled.stdout, "true");
+});
+
 test("production configuration rejects non-origin SITE_URL and incomplete maintainer auth", () => {
   const invalidOrigin = runConfig({ SITE_URL: "https://echo.example.com/archive?preview=1" });
   assert.equal(invalidOrigin.status, 1);

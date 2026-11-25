@@ -45,6 +45,128 @@ const DISCOVERY_SOURCE_TYPES = new Set(["apple-search", "podcast-index-search"])
 const SUPPRESSED_CANDIDATE_STATUSES = new Set(["duplicate", "rejected"]);
 const BATCH_PREPARATION_STATUSES = ["ready", "needs-review", "failed"];
 const PUBLICATION_TIERS = new Set(["imported", "indexed-only"]);
+const STRONG_SUBMISSION_IDENTITY_TYPES = new Set([
+  "podcast-guid",
+  "rss-url",
+  "apple-id",
+  "podcast-index-id",
+  "amazon-music-id",
+  "youtube-playlist-id",
+]);
+
+function youtubePlaylistId(value = "") {
+  try {
+    const url = new URL(String(value || ""));
+    if (!/(^|\.)youtube\.com$/i.test(url.hostname) && url.hostname !== "youtu.be") return "";
+    const playlistId = url.searchParams.get("list") || "";
+    return /^(?:PL|UU|OLAK5uy|LL)[A-Za-z0-9_-]{5,}$/.test(playlistId) ? playlistId : "";
+  } catch (_error) {
+    return "";
+  }
+}
+
+function submissionLinkRows(submission = {}) {
+  const payload = submission.payload || submission.payload_json || {};
+  const rows = Array.isArray(payload.listenLinks) ? payload.listenLinks : [];
+  const normalized = rows.map((row) => ({
+    label: trimText(row?.label, 80),
+    url: normalizeUrl(row?.url || ""),
+  })).filter((row) => row.url);
+  const direct = normalizeUrl(submission.rssOrListenLink || submission.rss_or_listen_link || "");
+  if (direct && !normalized.some((row) => row.url === direct)) normalized.unshift({ label: "Submitted link", url: direct });
+  const site = normalizeUrl(submission.officialSite || submission.official_site || "");
+  if (site && !normalized.some((row) => row.url === site)) normalized.unshift({ label: "Official Website", url: site });
+  return normalized;
+}
+
+function buildSubmissionObjective(submission = {}) {
+  const payload = submission.payload || submission.payload_json || {};
+  const links = submissionLinkRows(submission);
+  const findLink = (pattern, urlPattern = null) => links.find((row) => pattern.test(row.label) || (urlPattern && urlPattern.test(row.url)))?.url || "";
+  const rssUrl = findLink(/rss|feed/i, /(?:\.xml(?:$|\?)|\/rss(?:[/?]|$)|\/feed(?:[/?]|$)|feeds\.)/i);
+  const appleUrl = findLink(/apple|itunes/i, /(?:podcasts|itunes)\.apple\.com/i);
+  const appleCollectionId = extractAppleCollectionId(appleUrl);
+  const spotifyUrl = findLink(/spotify/i, /open\.spotify\.com/i);
+  const amazonMusicUrl = findLink(/amazon/i, /music\.amazon\.com/i);
+  const podcastIndexUrl = findLink(/podcast\s*index/i, /podcastindex\.org/i);
+  const websiteCandidate = normalizeUrl(submission.officialSite || submission.official_site || "") || findLink(/official|website|site/i);
+  const websiteUrl = websiteCandidate && websiteCandidate !== rssUrl && websiteCandidate !== appleUrl ? websiteCandidate : "";
+  const listeningLinks = Object.fromEntries(links.map((row) => {
+    const key = trimText(row.label.toLowerCase().replace(/[^a-z0-9]+/g, "-"), 64) || "link";
+    return [key, row.url];
+  }).slice(0, 16));
+  const podcastIndexId = podcastIndexUrl.match(/\/podcast\/(\d+)/i)?.[1] || "";
+  return {
+    title: trimText(submission.showTitle || submission.show_title || "", 240),
+    creatorName: trimText(submission.creatorName || submission.creator_name || "", 240),
+    description: cleanDescription(payload.shortDescription || "", 4_000),
+    rssUrl,
+    appleUrl,
+    appleCollectionId,
+    podcastIndexFeedId: podcastIndexId,
+    websiteUrl,
+    spotifyUrl,
+    amazonMusicUrl,
+    youtubeUrl: findLink(/youtube/i, /(?:youtube\.com|youtu\.be)/i),
+    pocketCastsUrl: findLink(/pocket\s*casts/i, /pocketcasts\.com/i),
+    tagHints: Array.isArray(payload.selectedTags) ? payload.selectedTags.slice(0, 4) : [],
+    suggestedDescriptors: trimText(payload.suggestedDescriptors || "", 500),
+    completionStatus: trimText(payload.completionStatus || "", 80),
+    listeningLinks,
+    objectiveSources: mergeUniqueStrings(links.map((row) => row.url)),
+  };
+}
+
+function providerIdentityPairs(objective = {}) {
+  const pairs = identityPairs(objective).filter(([type, value]) => STRONG_SUBMISSION_IDENTITY_TYPES.has(type) && value);
+  const spotifyId = String(objective.spotifyUrl || "").match(/open\.spotify\.com\/(?:show|episode)\/([A-Za-z0-9]+)/i)?.[1];
+  if (spotifyId) pairs.push(["spotify-show-id", spotifyId]);
+  const playlistId = youtubePlaylistId(objective.youtubeUrl);
+  if (playlistId) pairs.push(["youtube-playlist-id", playlistId]);
+  return pairs;
+}
+
+function normalizeStrongIdentityValue(type, value) {
+  const raw = trimText(value, 1_000);
+  if (!raw) return "";
+  if (type === "apple-id") return extractAppleCollectionId(raw) || raw;
+  if (type === "spotify-show-id") return raw.match(/open\.spotify\.com\/(?:show|episode)\/([A-Za-z0-9]+)/i)?.[1] || raw;
+  if (type === "youtube-playlist-id") return youtubePlaylistId(raw) || raw;
+  if (type.endsWith("-url")) {
+    const normalized = normalizeUrl(raw);
+    if (!normalized) return "";
+    try {
+      const url = new URL(normalized);
+      url.hash = "";
+      for (const key of [...url.searchParams.keys()]) {
+        if (/^(utm_.+|fbclid|gclid|si|ref|source)$/i.test(key)) url.searchParams.delete(key);
+      }
+      url.searchParams.sort();
+      if (!/\.(?:xml|rss|atom)$/i.test(url.pathname)) url.pathname = url.pathname.replace(/\/+$/, "") || "/";
+      return url.href;
+    } catch (_error) {
+      return normalized;
+    }
+  }
+  return raw.toLowerCase();
+}
+
+function submissionIdentityKeys(submission = {}) {
+  return providerIdentityPairs(buildSubmissionObjective(submission)).map(([type, value]) => ({
+    type,
+    value: normalizeStrongIdentityValue(type, value),
+  })).filter((entry) => entry.value);
+}
+
+function archiveIdentityKeys(show = {}) {
+  const pairs = showIdentityPairs(show);
+  const spotifyId = String(show.listenLinks?.spotify || "").match(/open\.spotify\.com\/(?:show|episode)\/([A-Za-z0-9]+)/i)?.[1];
+  if (spotifyId) pairs.push(["spotify-show-id", spotifyId]);
+  return pairs
+    .filter(([type]) => STRONG_SUBMISSION_IDENTITY_TYPES.has(type) || type === "spotify-show-id")
+    .map(([type, value]) => ({ type, value: normalizeStrongIdentityValue(type, value) }))
+    .filter((entry) => entry.value);
+}
 
 function ensurePublicationTier(value = "") {
   const tier = trimText(value, 80);
@@ -185,6 +307,7 @@ function showIdentityPairs(show = {}) {
     ["podcast-index-id", identifiers.podcastIndexFeedId],
     ["amazon-music-id", identifiers.amazonMusicId],
     ["website-url", show.officialLinks?.website || show.listenLinks?.website],
+    ["youtube-playlist-id", youtubePlaylistId(show.listenLinks?.start || show.listenLinks?.youtube || show.listenLinks?.playlist || show.officialLinks?.youtube)],
     ...(identifiers.feedRedirects || []).map((value) => ["rss-url", value]),
   ].filter(([, value]) => value);
 }
@@ -419,10 +542,64 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return catalogCache;
   }
 
+  function hasArchiveShow(showId) {
+    const normalizedShowId = trimText(showId, 160);
+    return Boolean(normalizedShowId && readCatalogRecords(true).some((show) => show.id === normalizedShowId));
+  }
+
   function registerCatalogIdentities() {
     readCatalogRecords().forEach((show) => showIdentityPairs(show).forEach(([type, value]) => {
       store.claimIdentity(type, value, { existingShowId: show.id });
     }));
+  }
+
+  function getSubmissionIdentityKeys(submission = {}) {
+    return submissionIdentityKeys(submission);
+  }
+
+  function findSubmissionIdentityMatch(submission = {}) {
+    const submitted = getSubmissionIdentityKeys(submission);
+    if (submitted.length === 0) return null;
+    const submittedKeys = new Map(submitted.map((entry) => [`${entry.type}:${entry.value}`, entry]));
+    const matches = [];
+    readCatalogRecords(true).forEach((show) => {
+      archiveIdentityKeys(show).forEach(({ type, value: normalized }) => {
+        const evidence = submittedKeys.get(`${type}:${normalized}`);
+        if (evidence) matches.push({
+          showId: show.id,
+          showTitle: show.title,
+          identityType: type,
+          identityValue: normalized,
+          confidence: type === "rss-url" ? 1 : 0.99,
+        });
+      });
+    });
+    matches.sort((left, right) => right.confidence - left.confidence || left.showId.localeCompare(right.showId));
+    const distinctShowIds = [...new Set(matches.map((match) => match.showId))];
+    return matches.length ? {
+      ...matches[0],
+      conflictingShowIds: distinctShowIds.filter((id) => id !== matches[0].showId),
+      evidence: matches.filter((match) => match.showId === matches[0].showId).map(({ identityType, identityValue, confidence }) => ({ identityType, identityValue, confidence })),
+    } : null;
+  }
+
+  function findPotentialSubmissionMatches(submission = {}) {
+    const title = trimText(submission.showTitle || submission.show_title || "", 240);
+    const titleKey = slugify(title);
+    if (!titleKey) return [];
+    const creator = slugify(submission.creatorName || submission.creator_name || "");
+    return readCatalogRecords().flatMap((show) => {
+      const aliases = [show.title, ...(Array.isArray(show.aliases) ? show.aliases : [])].filter(Boolean);
+      const exactAlias = aliases.some((value) => slugify(value) === titleKey);
+      const creatorNames = [show.credits?.creatorName, show.creatorName, ...(Array.isArray(show.creators) ? show.creators : [])].map(slugify).filter(Boolean);
+      const creatorMatch = !creator || creatorNames.length === 0 || creatorNames.includes(creator);
+      return exactAlias && creatorMatch ? [{ id: show.id, title: show.title, matchType: "title-and-creator-review", confidence: 0.75 }] : [];
+    }).slice(0, 10);
+  }
+
+  function submissionHasSupportedPreparationSource(submission = {}) {
+    const objective = buildSubmissionObjective(submission);
+    return Boolean(objective.rssUrl || objective.appleUrl || objective.podcastIndexFeedId || objective.websiteUrl);
   }
 
   function getCandidate(id) {
@@ -1312,24 +1489,18 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     }
     const payload = submission.payload || {};
     try {
+      const objective = buildSubmissionObjective(submission);
       const result = await seedCandidates({
         actor: actor || "authenticated-maintainer",
         origin: "submission",
         searchResults: [{
           sourceType: "submission",
           sourceKey: submission.id,
-          sourceUrl: submission.rssOrListenLink || submission.officialSite || "",
+          sourceUrl: objective.rssUrl || objective.appleUrl || objective.websiteUrl || objective.objectiveSources[0] || "",
           title: submission.showTitle,
           creatorName: submission.creatorName,
           objective: {
-            title: submission.showTitle,
-            creatorName: submission.creatorName,
-            description: payload.shortDescription || "",
-            rssUrl: submission.rssOrListenLink || "",
-            websiteUrl: submission.officialSite || "",
-            tagHints: payload.selectedTags || [],
-            suggestedDescriptors: payload.suggestedDescriptors || "",
-            objectiveSources: [submission.rssOrListenLink, submission.officialSite].filter(Boolean),
+            ...objective,
           },
         }],
       });
@@ -2280,7 +2451,11 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     enqueueForMaintainer: enqueueCandidate,
     enqueueDiscoverySource,
     getForMaintainer: getCandidate,
+    findPotentialSubmissionMatches,
+    findSubmissionIdentityMatch,
+    hasArchiveShow,
     getPublishedCandidateForShow,
+    getSubmissionIdentityKeys,
     getDiscoveryRun: (id) => store.getDiscoveryRun(id),
     getRun: (id) => store.getRun(id),
     hydrateForMaintainer,
@@ -2302,6 +2477,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     searchExternalSources,
     seedCandidates,
     seedSubmissionForMaintainer,
+    submissionHasSupportedPreparationSource,
     selectEvidenceForMaintainer,
     stop,
     updateDiscoverySourceForMaintainer,
@@ -2311,4 +2487,10 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
   };
 }
 
-module.exports = { PIPELINE_VERSION, createImportService, inferScopeStatus };
+module.exports = {
+  PIPELINE_VERSION,
+  archiveIdentityKeys,
+  createImportService,
+  inferScopeStatus,
+  submissionIdentityKeys,
+};

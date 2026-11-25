@@ -324,12 +324,19 @@ function createImportStore({ db }) {
     ORDER BY datetime(created_at) DESC, id DESC
   `);
   const getSubmissionHandoffRow = db.prepare(`
-    SELECT id, status, import_candidate_id, import_handoff_started_at, import_resolved_show_id
-    FROM show_submissions WHERE id = ?
+    SELECT s.id, s.status, s.import_candidate_id, s.import_handoff_started_at, s.import_resolved_show_id,
+      s.processing_status, s.resolution_status,
+      COALESCE(NULLIF(s.import_candidate_id, ''), (
+        SELECT candidate_id FROM submission_candidate_links WHERE submission_id = s.id ORDER BY created_at LIMIT 1
+      )) AS linked_candidate_id
+    FROM show_submissions s WHERE s.id = ?
   `);
   const listLinkedSubmissionsForCandidate = db.prepare(`
-    SELECT id, status, reviewed_by, reviewed_at, import_resolved_show_id
-    FROM show_submissions WHERE import_candidate_id = ? ORDER BY submitted_at, id
+    SELECT s.id, s.status, s.reviewed_by, s.reviewed_at, s.import_resolved_show_id,
+      s.resolution_status
+    FROM submission_candidate_links l
+    JOIN show_submissions s ON s.id = l.submission_id
+    WHERE l.candidate_id = ? ORDER BY datetime(s.submitted_at), s.id
   `);
 
   function getSubmissionHandoff(submissionId) {
@@ -337,9 +344,11 @@ function createImportStore({ db }) {
     return row ? {
       id: row.id,
       status: row.status,
-      candidateId: row.import_candidate_id || "",
+      candidateId: row.linked_candidate_id || "",
       startedAt: row.import_handoff_started_at || "",
       resolvedShowId: row.import_resolved_show_id || "",
+      processingStatus: row.processing_status,
+      resolutionStatus: row.resolution_status,
     } : null;
   }
 
@@ -355,13 +364,30 @@ function createImportStore({ db }) {
 
   function linkSubmissionToCandidate(submissionId, candidateId) {
     if (!getCandidate(candidateId)) return false;
-    const result = db.prepare(`
+    const normalizedSubmissionId = trimText(submissionId, 80);
+    const normalizedCandidateId = trimText(candidateId, 80);
+    return db.transaction(() => {
+      const result = db.prepare(`
       UPDATE show_submissions
-      SET import_candidate_id = ?, import_handoff_started_at = NULL
+      SET import_candidate_id = ?, import_handoff_started_at = NULL,
+          processing_status = CASE WHEN resolution_status = 'open' THEN 'processing' ELSE processing_status END
       WHERE id = ? AND submission_type = 'show' AND status <> 'rejected'
         AND (import_candidate_id = '' OR import_candidate_id = ?)
-    `).run(candidateId, trimText(submissionId, 80), candidateId);
-    return result.changes === 1 || getSubmissionHandoff(submissionId)?.candidateId === candidateId;
+      `).run(normalizedCandidateId, normalizedSubmissionId, normalizedCandidateId);
+      const linked = db.prepare(`
+        INSERT OR IGNORE INTO submission_candidate_links
+          (submission_id, candidate_id, relationship_type, evidence_json)
+        SELECT id, ?, 'source', '{"source":"import-preparation"}' FROM show_submissions
+        WHERE id = ? AND submission_type = 'show' AND status <> 'rejected'
+      `).run(normalizedCandidateId, normalizedSubmissionId);
+      const event = db.prepare(`
+        INSERT OR IGNORE INTO submission_lifecycle_events
+          (id, submission_id, event_type, event_key, actor, reason, evidence_json)
+        SELECT ?, id, 'candidate-linked', ?, 'submission-worker', 'import-candidate-prepared', ?
+        FROM show_submissions WHERE id = ? AND submission_type = 'show'
+      `).run(randomUUID(), `candidate-linked:${normalizedCandidateId}`, JSON.stringify({ candidateId: normalizedCandidateId }), normalizedSubmissionId);
+      return result.changes === 1 || linked.changes === 1 || event.changes === 1 || getSubmissionHandoff(normalizedSubmissionId)?.candidateId === normalizedCandidateId;
+    })();
   }
 
   function releaseSubmissionHandoff(submissionId) {
@@ -372,20 +398,38 @@ function createImportStore({ db }) {
   }
 
   function resolveSubmissionLinksForCandidate(candidateId, showId, actor = "", reviewedAt = new Date().toISOString()) {
+    const candidate = getCandidateRow.get(candidateId);
+    if (candidate?.primary_source_type !== "submission") return [];
     const linked = listLinkedSubmissionsForCandidate.all(candidateId);
     const update = db.prepare(`
       UPDATE show_submissions
       SET status = 'accepted', import_resolved_show_id = ?, import_handoff_started_at = NULL,
-          reviewed_by = ?, reviewed_at = ?
-      WHERE id = ? AND import_candidate_id = ? AND status <> 'rejected'
+          reviewed_by = ?, reviewed_at = ?, resolution_status = 'published',
+          resolution_reason = 'candidate-published', resolution_evidence_json = ?, resolved_at = ?,
+          processing_status = 'completed', processing_error = '', processing_started_at = NULL,
+          processing_next_attempt_at = NULL
+      WHERE id = ? AND resolution_status = 'open' AND status <> 'rejected'
     `);
-    return linked.flatMap((submission) => update.run(
-      showId,
-      trimText(actor, 160) || "authenticated-maintainer",
-      reviewedAt,
-      submission.id,
-      candidateId,
-    ).changes === 1 ? [submission.id] : []);
+    const insertEvent = db.prepare(`
+      INSERT OR IGNORE INTO submission_lifecycle_events
+        (id, submission_id, event_type, event_key, actor, reason, evidence_json, created_at)
+      VALUES (?, ?, 'published', 'resolution:published', ?, 'candidate-published', ?, ?)
+    `);
+    return db.transaction(() => linked.flatMap((submission) => {
+      if (candidate.primary_source_key !== submission.id) return [];
+      const evidence = JSON.stringify({ candidateId, showId, publication: "explicit-editorial-approval" });
+      const result = update.run(
+        showId,
+        trimText(actor, 160) || "authenticated-maintainer",
+        reviewedAt,
+        evidence,
+        reviewedAt,
+        submission.id,
+      );
+      if (result.changes !== 1) return [];
+      insertEvent.run(randomUUID(), submission.id, trimText(actor, 160) || "authenticated-maintainer", evidence, reviewedAt);
+      return [submission.id];
+    }))();
   }
 
   function buildListFilters(filters = {}) {

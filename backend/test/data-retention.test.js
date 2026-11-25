@@ -111,12 +111,29 @@ function createPublishedReview(db, submissionId) {
   return id;
 }
 
-test("retention cleanup deletes, redacts, and preserves data according to the published policy", () => {
+test("retention cleanup redacts personal content while preserving submission operations and history", () => {
   const context = createContext();
 
   try {
     const expired = createSubmission(context.submissionStore);
     setSubmissionDates(context.db, expired.id, OLD_SUBMISSION_DATE, OLD_SUBMISSION_DATE);
+    const related = createSubmission(context.submissionStore, { showTitle: "Related operational row" });
+    context.submissionStore.recordLifecycleEvent({
+      submissionId: expired.id,
+      eventType: "manual-review",
+      eventKey: "manual-review-private-evidence",
+      actor: "reviewer@example.com",
+      reason: "maintainer-confirmed-match",
+      evidence: { submittedContact: "creator@example.com", sourceUrl: "https://example.com/?email=creator@example.com" },
+    });
+    context.submissionStore.relateSubmissions(expired.id, related.id, {
+      relationshipType: "related-to",
+      evidence: { submittedContact: "creator@example.com" },
+    });
+    context.db.prepare("UPDATE show_submissions SET processing_error = ? WHERE id = ?")
+      .run("fetch failed for https://example.test/feed?token=private-value", expired.id);
+    context.db.prepare("UPDATE show_submissions SET resolution_evidence_json = ? WHERE id = ?")
+      .run(JSON.stringify({ submittedContact: "creator@example.com" }), expired.id);
 
     const published = createSubmission(context.submissionStore, {
       status: "accepted",
@@ -133,6 +150,14 @@ test("retention cleanup deletes, redacts, and preserves data according to the pu
     const recent = createSubmission(context.submissionStore, {
       showTitle: "Recent submission",
     });
+    const personalApproaching = createSubmission(context.submissionStore, {
+      showTitle: "Personal retention approaching",
+    });
+    setSubmissionDates(context.db, personalApproaching.id, new Date(NOW.getTime() - (160 * 24 * 60 * 60 * 1000)).toISOString());
+    const networkApproaching = createSubmission(context.submissionStore, {
+      showTitle: "Network retention approaching",
+    });
+    setSubmissionDates(context.db, networkApproaching.id, new Date(NOW.getTime() - (10 * 24 * 60 * 60 * 1000)).toISOString());
 
     context.db.prepare(`
       INSERT INTO rate_limit_events (scope, client_ip, created_at_ms)
@@ -179,7 +204,21 @@ test("retention cleanup deletes, redacts, and preserves data according to the pu
 
     const result = context.retention.run({ now: NOW });
 
-    assert.equal(context.submissionStore.getShowSubmission(expired.id), null);
+    const redactedUnresolved = context.submissionStore.getShowSubmission(expired.id);
+    assert.equal(redactedUnresolved.contact_email, "");
+    assert.equal(redactedUnresolved.show_title, "");
+    assert.equal(redactedUnresolved.resolution_status, "open");
+    assert.equal(redactedUnresolved.processing_status, "needs-investigation");
+    assert.equal(redactedUnresolved.processing_error, "Submission details were redacted under the configured retention policy.");
+    assert.ok(redactedUnresolved.content_redacted_at);
+    assert.ok(context.submissionStore.getLifecycleDetails(expired.id).events.some((event) => event.eventType === "content-redacted"));
+    const scrubbedEvent = context.db.prepare("SELECT actor, evidence_json FROM submission_lifecycle_events WHERE submission_id = ? AND event_key = 'manual-review-private-evidence'").get(expired.id);
+    assert.equal(scrubbedEvent.actor, "historical-actor-redacted");
+    assert.deepEqual(JSON.parse(scrubbedEvent.evidence_json), { retentionRedacted: true });
+    assert.deepEqual(context.db.prepare("SELECT resolution_evidence_json FROM show_submissions WHERE id = ?").get(expired.id), {
+      resolution_evidence_json: JSON.stringify({ retentionRedacted: true }),
+    });
+    assert.deepEqual(JSON.parse(context.db.prepare("SELECT evidence_json FROM submission_relations WHERE submission_id = ?").get(expired.id).evidence_json), { retentionRedacted: true });
 
     const retainedNetworkOnly = context.submissionStore.getShowSubmission(networkOnly.id);
     assert.equal(retainedNetworkOnly.contact_email, "keep-contact@example.com");
@@ -208,9 +247,16 @@ test("retention cleanup deletes, redacts, and preserves data according to the pu
     assert.equal(context.db.prepare("SELECT COUNT(*) AS count FROM community_abuse_events WHERE abuse_hash = ?").get("old-abuse-event").count, 0);
     assert.equal(context.db.prepare("SELECT COUNT(*) AS count FROM community_abuse_events WHERE abuse_hash = ?").get("recent-abuse-event").count, 1);
 
-    assert.ok(result.submissions.submissionsDeleted >= 1);
+    assert.equal(result.submissions.submissionsDeleted, 0);
+    assert.ok(result.submissions.submissionContentRedacted >= 2);
     assert.ok(result.submissions.networkRowsRedacted >= 1);
-    assert.ok(result.submissions.publishedSubmissionRowsRedacted >= 1);
+    const retentionHealth = context.submissionStore.getQueueHealth({
+      now: NOW,
+      personalRetentionDays: 180,
+      networkRetentionDays: 30,
+    });
+    assert.equal(retentionHealth.personalDataDueOrApproachingRetention, 1);
+    assert.equal(retentionHealth.networkDataDueOrApproachingRetention, 1);
     assert.equal(result.rateLimitRowsPruned.submissions, 1);
     assert.equal(result.community.ratingAbuseHashesRedacted, 1);
     assert.equal(result.community.orphanProfilesDeleted, 1);
