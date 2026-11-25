@@ -32,5 +32,8 @@ jobs:
 
       - name: Confirm clean checkout remains reproducible
         run: |
-          test -z "$(git status --porcelain --untracked-files=all)"
+          if test -n "$(git status --porcelain --untracked-files=all)"; then
+            git status --short --untracked-files=all
+            exit 1
+          fi
           git diff --exit-code
