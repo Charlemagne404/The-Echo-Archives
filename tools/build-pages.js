@@ -1213,7 +1213,7 @@ async function loadSubmitPrerender(archivistEnabled) {
 }
 
 async function main() {
-  await generateStaticImageVariants(ROOT);
+  if (!process.env.ECHO_DIAG_SKIP_GENERATED_IMAGES) await generateStaticImageVariants(ROOT);
   buildEntryAssets();
 
   const cssVersions = new Map(
@@ -1253,7 +1253,7 @@ async function main() {
   const collections = readJsonIfExists(path.join(ROOT, "data", "collections.json"), []);
   const archiveStats = readJsonIfExists(path.join(ROOT, "data", "archive-stats.json"), {});
   const entities = publicEntityRecords(loadEntities(ROOT, catalog), catalog);
-  await generateSocialCards(ROOT, { shows: catalog, collections, entities });
+  if (!process.env.ECHO_DIAG_SKIP_GENERATED_IMAGES) await generateSocialCards(ROOT, { shows: catalog, collections, entities });
   const seoContext = { siteUrl, catalog, collections, archiveStats };
   const homeConfig = await loadHomeConfig();
   const submitPrerender = await loadSubmitPrerender(parseBoolean(process.env.ARCHIVIST_ENABLED, false));
