@@ -129,6 +129,20 @@
   box-shadow: none;
 }
 
+.detail-summary-source-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--detail-text-secondary);
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.detail-summary-source-link:hover,
+.detail-summary-source-link:focus-visible {
+  color: var(--text-primary);
+}
+
 .detail-review-section {
   display: grid;
   gap: 18px;

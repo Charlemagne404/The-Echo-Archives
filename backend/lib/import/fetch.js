@@ -388,6 +388,7 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
   const isNetworkFetch = fetchImpl.isNetworkFetch ?? fetchImpl === globalThis.fetch;
   const resolveDns = isNetworkFetch ? true : options.resolveDns ?? false;
   const controller = new AbortController();
+  let activeRequestController;
   let rejectDeadline;
   const deadline = new Promise((_resolve, reject) => { rejectDeadline = reject; });
   const withinDeadline = (operation) => Promise.race([Promise.resolve().then(operation), deadline]);
@@ -406,13 +407,21 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
       if (controller.signal.aborted) {
         throw controller.signal.reason || new DOMException("Aborted", "AbortError");
       }
-      const requestInit = { ...init, headers: requestHeaders, redirect: "manual", signal: controller.signal };
+      activeRequestController = new AbortController();
+      const requestInit = {
+        ...init,
+        headers: requestHeaders,
+        redirect: "manual",
+        signal: AbortSignal.any([controller.signal, activeRequestController.signal]),
+      };
       const response = await withinDeadline(() => resolveDns
         ? (typeof fetchImpl.withNetworkRequest === "function"
           ? fetchImpl.withNetworkRequest(currentUrl, () => requestWithPinnedAddresses(currentUrl, requestInit, destination.addresses, { requestImpl: options.requestImpl }))
           : requestWithPinnedAddresses(currentUrl, requestInit, destination.addresses, { requestImpl: options.requestImpl }))
         : fetchImpl(currentUrl, requestInit));
       if (response.status >= 300 && response.status < 400) {
+        activeRequestController.abort();
+        activeRequestController = null;
         await withinDeadline(() => cancelResponseBody(response));
         const location = response.headers?.get?.("location") || "";
         if (!location || redirectCount === maxRedirects) {
@@ -464,6 +473,7 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
     throw error;
   } finally {
     clearTimeout(timeout);
+    activeRequestController?.abort();
     if (!controller.signal.aborted) controller.abort();
   }
 }

@@ -4265,8 +4265,8 @@ img.is-image-fallback {
   .home-page .preview-close-button {
     top: 9px;
     right: 9px;
-    width: 28px;
-    height: 28px;
+    width: 44px;
+    height: 44px;
   }
 
   .podcast-card-grid {
@@ -4858,6 +4858,11 @@ img.is-image-fallback {
   --library-card-quick-save-scale: 1.012;
 }
 
+.home-page:has(#podcast-grid .podcast-card-shell.is-preview-expanded, #podcast-grid .podcast-card-shell.is-preview-closing) .library-card-quick-save {
+  display: none;
+  pointer-events: none;
+}
+
 .home-page #podcast-grid .podcast-card-shell.library-card-host:hover > .library-card-quick-save,
 .home-page #podcast-grid .podcast-card-shell.library-card-host.preview-source-active > .library-card-quick-save,
 .home-page #podcast-grid .podcast-card-shell.library-card-host:has(:focus-visible) > .library-card-quick-save {
@@ -5090,7 +5095,14 @@ img.is-image-fallback {
 }
 
 .library-detail-control {
+  position: relative;
+  z-index: 1;
   flex: 0 0 auto;
+}
+
+.detail-actions > .library-detail-control > summary {
+  min-height: 44px;
+  padding-inline: 13px;
 }
 
 .library-detail-panel {
@@ -5141,6 +5153,10 @@ img.is-image-fallback {
 }
 
 @media (max-width: 600px) {
+  .detail-actions > .library-detail-control {
+    grid-column: 1 / -1;
+  }
+
   .library-detail-panel {
     left: 0;
     right: auto;

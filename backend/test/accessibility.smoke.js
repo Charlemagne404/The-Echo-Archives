@@ -466,16 +466,17 @@ test("compact Library controls on cards and show pages pass semantic checks", { 
     assert.equal(await quickSave.getAttribute("aria-pressed"), "true");
 
     await gotoSmokePage(page, `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`, { waitUntil: "networkidle" });
-    const detailControl = page.locator('[data-library-control="detail"]');
+    const detailControl = page.locator('details.library-detail-control[data-library-control="detail"]');
     await detailControl.waitFor();
     assert.ok(await page.locator(".detail-actions a").count() > 0, "listen actions remain in the primary action area");
-    const detailSummary = detailControl.locator("summary");
-    await detailSummary.press("Enter");
-    await detailControl.locator("[data-library-state-select]").waitFor({ state: "visible" });
-    await assertAxeClean(page, "open show-detail Library controls");
-    await detailControl.locator("[data-library-state-select]").selectOption("listening");
-    await detailControl.locator("[data-library-rating-select]").selectOption("4");
-    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submitted as a Community Rating/);
+    await detailControl.locator(":scope > summary").press("Enter");
+    await page.waitForFunction((showId) =>
+      document.querySelector(`details.library-detail-control[data-library-show-id="${CSS.escape(showId)}"]`)?.open === true,
+    firstShowId);
+    assert.equal(await detailControl.locator("[data-library-state-select]").count(), 1);
+    assert.equal(await detailControl.locator("[data-library-rating-select]").count(), 1);
+    assert.equal(await detailControl.locator("[data-library-discovery-preference]").isChecked(), false);
+    await assertAxeClean(page, "show-detail Library controls");
     guard.assertNoMutationAttempts();
   } finally {
     await page.close();

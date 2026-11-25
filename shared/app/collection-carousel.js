@@ -243,6 +243,7 @@ export function initializeCollectionCarousel({
       return;
     }
 
+    pauseCarousel();
     setInteractionCard(card);
   };
   const handleCardPointerOut = (event) => {

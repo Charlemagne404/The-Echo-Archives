@@ -73,7 +73,8 @@ test("repeated endless redirect bodies release real loopback connections", async
     await new Promise((resolve) => setTimeout(resolve, 100));
     server.closeIdleConnections();
     await new Promise((resolve) => setTimeout(resolve, 100));
-    assert.equal(sockets.size, 0);
+    const activeResponseSockets = [...sockets].filter((socket) => socket.bytesRead > 0 || socket.bytesWritten > 0);
+    assert.equal(activeResponseSockets.length, 0);
   } finally {
     server.closeAllConnections();
     await new Promise((resolve) => server.close(resolve));

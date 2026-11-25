@@ -351,7 +351,7 @@ async function getCollectionCarouselFocusState(page) {
           clone: card.dataset.collectionClone === "true",
           focusValue: Number.parseFloat(card.style.getPropertyValue("--collection-focus")) || 0,
           focusWeight: Number.parseFloat(card.style.getPropertyValue("--collection-focus-weight")) || 0,
-          scale: transform.scale,
+          scale: Number.isFinite(Number.parseFloat(styles.scale)) ? Number.parseFloat(styles.scale) : transform.scale,
           translateY: transform.translateY,
           transform: styles.transform,
           boosted: card.classList.contains("is-interaction-boosted"),

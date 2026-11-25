@@ -1,23 +1,13 @@
 import {
   createMaintainerSession,
   batchPublishMaintainerImports,
-  confirmMaintainerImportFactualReview,
   destroyMaintainerSession,
-  draftMaintainerImportCandidate,
   fetchMaintainerImportCandidate,
   fetchMaintainerImportRun,
   fetchMaintainerImports,
-  hydrateMaintainerImportCandidate,
   MaintainerAuthError,
-  patchMaintainerImportCandidateReview,
-  promoteMaintainerElevationDraft,
-  promoteMaintainerImportCandidate,
-  publishMaintainerImportCandidate,
   rerunAllMaintainerImportPreparation,
-  retryMaintainerImportCandidate,
-  reopenMaintainerImportCandidate,
   searchMaintainerImportSources,
-  selectMaintainerImportEvidence,
   seedMaintainerImportCandidates,
 } from "../maintainer/api.js";
 import {
@@ -45,6 +35,7 @@ import {
 import { bindDiscoveryWorkspace } from "../maintainer-import/discovery-workspace.js";
 import { bindImportBatchActions } from "../maintainer-import/batch-actions.js";
 import { bindImportCandidateActions } from "../maintainer-import/detail-actions.js";
+import { maintainerImportCandidateApi } from "../maintainer-import/candidate-api.js";
 import { buildReviewPayload, collectSeedEntries, revealCompactDetail, waitForManagedImportRun } from "../maintainer-import/workflow.js";
 import { bindElevationDesk } from "../maintainer-import/elevation.js";
 import { initializeMaintainerImportsReportPage } from "./maintainer-import-report.js";
@@ -255,18 +246,7 @@ export async function initializeMaintainerImportsPage() {
         isAbortError,
         isAuthError: (error) => error instanceof MaintainerAuthError,
         showAuthentication,
-        api: {
-          hydrate: hydrateMaintainerImportCandidate,
-          draft: draftMaintainerImportCandidate,
-          retry: retryMaintainerImportCandidate,
-          reopen: reopenMaintainerImportCandidate,
-          publish: publishMaintainerImportCandidate,
-          factualReview: confirmMaintainerImportFactualReview,
-          promoteElevation: promoteMaintainerElevationDraft,
-          promote: promoteMaintainerImportCandidate,
-          review: patchMaintainerImportCandidateReview,
-          selectEvidence: selectMaintainerImportEvidence,
-        },
+        api: maintainerImportCandidateApi,
       });
 
       if (focusDetail) revealCompactDetail(elements);

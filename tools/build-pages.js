@@ -908,7 +908,6 @@ function createPrecacheUrlSet(_manifest, versions) {
     "/echo-wordmark1.png",
     "/echo-wordmark-nosub1.svg",
     "/echo-wordmark-sub1.svg",
-    "/images/submit-icons.svg",
     `/style.css?v=${versions.style}`,
     `/public-heroes.css?v=${versions.extra.get("public-heroes.css")}`,
     `/info.css?v=${versions.extra.get("info.css")}`,

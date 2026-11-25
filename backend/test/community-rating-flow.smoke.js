@@ -503,9 +503,10 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     await page.waitForFunction(() => document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 2"));
     await assertAxeClean(page, "listener review carousel after keyboard navigation");
 
+    await page.setViewportSize({ width: 390, height: 844 });
     await carousel.locator("[data-review-carousel-viewport]").evaluate((node) => {
-      node.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, clientX: 320 }));
-      node.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, clientX: 80 }));
+      node.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, pointerType: "touch", isPrimary: true, pointerId: 1, clientX: 320 }));
+      node.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, pointerType: "touch", isPrimary: true, pointerId: 1, clientX: 80 }));
     });
     await page.waitForFunction(
       () =>
@@ -519,6 +520,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     assert.equal(dotState.dots, 7);
     assert.equal(dotState.hasEllipsis, true);
 
+    await page.setViewportSize({ width: 1440, height: 1200 });
     await carousel.locator("[data-review-helpful]").click();
     await page.waitForFunction(() => document.querySelector("[data-review-helpful]")?.getAttribute("aria-pressed") === "true");
     assert.deepEqual(helpfulRequests, [{ method: "PUT", body: {} }]);
@@ -533,13 +535,19 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     const mobile = await carousel.evaluate((node) => ({
       width: node.getBoundingClientRect().width,
       overflow: document.documentElement.scrollWidth - window.innerWidth,
-      previousWidth: node.querySelector("[data-review-carousel-previous]")?.getBoundingClientRect().width || 0,
-      nextWidth: node.querySelector("[data-review-carousel-next]")?.getBoundingClientRect().width || 0,
+      arrowsHidden: Array.from(node.querySelectorAll(".detail-review-carousel-arrow")).every(
+        (arrow) => window.getComputedStyle(arrow).display === "none",
+      ),
+      dotTargets: Array.from(node.querySelectorAll("[data-review-carousel-dot]")).map((dot) => {
+        const bounds = dot.getBoundingClientRect();
+        return { width: bounds.width, height: bounds.height };
+      }),
     }));
     assert.ok(mobile.width > 0);
     assert.ok(mobile.overflow <= 1);
-    assert.ok(mobile.previousWidth >= 40);
-    assert.ok(mobile.nextWidth >= 40);
+    assert.equal(mobile.arrowsHidden, true);
+    assert.ok(mobile.dotTargets.length > 0);
+    assert.ok(mobile.dotTargets.every((target) => target.width >= 40 && target.height >= 40));
   } finally {
     await context.close();
   }

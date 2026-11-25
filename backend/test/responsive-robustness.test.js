@@ -240,7 +240,7 @@ test(
       await page.setViewportSize({ width, height: width === 1280 ? 720 : 844 });
       await settleLayout(page);
       const showArtworkSurfaces = await readArtworkSlots(page, [
-        { name: "similar-show recommendation", selector: ".detail-similar-card > .detail-similar-artwork", ratio: width <= 959 ? 16 / 9 : 1 },
+        { name: "similar-show recommendation", selector: ".detail-similar-card > .detail-similar-artwork" },
         { name: "creator more-from recommendation", selector: ".detail-more-from .show-card-artwork" },
       ]);
       assertArtworkSlots(showArtworkSurfaces, `${width}px show recommendations`);

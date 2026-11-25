@@ -491,6 +491,13 @@
     align-items: stretch;
   }
 
+  .submit-form-actions .submit-footer-note {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    flex: 0 1 auto;
+  }
+
   .submit-primary-button,
   .submit-rail-help-button {
     justify-content: center;

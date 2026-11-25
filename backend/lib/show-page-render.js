@@ -188,7 +188,7 @@ function formatDate(value) {
 function formatPublishedDate(value) {
   const publishedAt = String(value || "").trim();
   return publishedAt && !Number.isNaN(new Date(publishedAt).getTime())
-    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(new Date(publishedAt))
+    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(publishedAt))
     : "";
 }
 
@@ -479,15 +479,17 @@ function renderOfficialSummarySection(show) {
   if (!summary) {
     return "";
   }
+  const sourceUrl = /^https?:\/\//i.test(summary.sourceUrl || "") ? summary.sourceUrl : "";
 
   return `
     <section class="detail-section detail-official-summary-section">
-      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : ""}</div></div>
+      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2><p>${escapeHtml(summary.description)}</p></div></div>
       <article class="detail-summary detail-summary-official">
         <div class="detail-mobile-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="320" data-mobile-expand-label="Read full description" data-mobile-collapse-label="Show less">
           <div id="detail-official-summary-${escapeHtml(show.id)}" data-mobile-expandable-content><p>${escapeHtml(summary.text)}</p></div>
           <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-official-summary-${escapeHtml(show.id)}" hidden>Read full description</button>
         </div>
+        ${sourceUrl ? `<a class="detail-summary-source-link" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">View source</a>` : ""}
       </article>
     </section>
   `;
@@ -552,12 +554,12 @@ function renderListenerReviewCard(review) {
     <article class="detail-authored-review detail-listener-review" data-listener-review-id="${escapeHtml(review?.id || "")}">
       <header class="detail-authored-review-header">
         <div><span class="detail-review-kind">Listener review</span><h3>${escapeHtml(review?.title || "Listener review")}</h3><p class="detail-review-byline">${escapeHtml(review?.authorName || "Anonymous listener")}</p></div>
-        <div class="detail-review-header-meta"><span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span>${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}</div>
+        <div class="detail-review-header-meta"><span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span></div>
       </header>
       <span class="detail-spoiler-label${hasSpoilers ? " is-warning" : ""}">${escapeHtml(toDisplayTag(spoilerLevel))}</span>
       ${hasSpoilers ? `<details class="detail-listener-spoilers"><summary>Reveal spoilers</summary>${reviewBody}</details>` : reviewBody}
       ${context ? `<div class="detail-review-context">${context}</div>` : ""}
-      <div class="detail-review-community-actions"><button class="detail-review-helpful${review?.viewerMarkedHelpful ? " is-active" : ""}" type="button" data-review-helpful="${escapeHtml(review?.id || "")}" aria-pressed="${String(Boolean(review?.viewerMarkedHelpful))}">Helpful <span data-review-helpful-count>${Number(review?.helpfulCount || 0)}</span></button></div>
+      <div class="detail-review-community-actions"><button class="detail-review-helpful${review?.viewerMarkedHelpful ? " is-active" : ""}" type="button" data-review-helpful="${escapeHtml(review?.id || "")}" aria-pressed="${String(Boolean(review?.viewerMarkedHelpful))}">Helpful <span data-review-helpful-count>${Number(review?.helpfulCount || 0)}</span></button>${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}</div>
     </article>
   `;
 }

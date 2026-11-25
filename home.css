@@ -188,6 +188,20 @@
   display: none;
 }
 
+body.filter-sheet-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.filter-sheet-backdrop,
+.filter-sheet-close {
+  display: none;
+}
+
+.filter-sheet-backdrop[hidden] {
+  display: none;
+}
+
 #filterDropdown[hidden] {
   display: none;
 }
@@ -504,6 +518,58 @@
   color: var(--text-muted);
   font-size: 0.8rem;
   line-height: 1.35;
+}
+
+@media (max-width: 959px) {
+  .filter-sheet-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1190;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: rgba(3, 5, 8, 0.82);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
+  .filter-sheet-close {
+    display: inline-flex;
+    align-self: flex-end;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  .filter-sheet-close svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  #filterDropdown[data-filter-presentation="sheet"],
+  #stickyFilterDropdown[data-filter-presentation="sheet"] {
+    position: fixed;
+    top: calc(var(--visual-viewport-offset-top) + max(8px, var(--safe-area-top)));
+    right: max(8px, var(--safe-area-right));
+    bottom: max(8px, var(--safe-area-bottom));
+    left: max(8px, var(--safe-area-left));
+    width: auto;
+    max-height: none;
+    z-index: 1200;
+  }
+
+  #filterDropdown[data-filter-presentation="sheet"]::before,
+  #stickyFilterDropdown[data-filter-presentation="sheet"]::before {
+    display: none;
+  }
 }
 
 /* Source: shared/styles/home/cards/03a-filter-detail-controls.css */
@@ -1686,10 +1752,13 @@
 }
 
 .home-page .podcast-card-shell.preview-source-active,
-.home-page .podcast-card-shell.is-preview-expanded,
-.home-page .podcast-card-shell.is-preview-closing,
 .home-page .podcast-card-shell.is-preview-measuring {
   z-index: 30;
+}
+
+.home-page .podcast-card-shell.is-preview-expanded,
+.home-page .podcast-card-shell.is-preview-closing {
+  z-index: 100;
 }
 
 .home-page .podcast-card-shell.preview-source-active .podcast-card,
@@ -1709,7 +1778,7 @@
 .home-page .podcast-card-shell[data-preview-card="true"] .home-card-preview-layer {
   position: absolute;
   inset: 0;
-  z-index: 4;
+  z-index: 20;
   overflow: visible;
   pointer-events: none;
 }
@@ -3439,8 +3508,8 @@
   .home-page .preview-close-button {
     top: 9px;
     right: 9px;
-    width: 28px;
-    height: 28px;
+    width: 44px;
+    height: 44px;
   }
 
   .podcast-card-grid {

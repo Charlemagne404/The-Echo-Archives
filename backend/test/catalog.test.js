@@ -78,7 +78,7 @@ test("importer-origin catalogue entries retain their publication tier", () => {
   const publicationTiers = new Set(importerOrigin.map((show) => show.reviewStatus));
 
   assert.ok(importerOrigin.length > 0);
-  assert.deepEqual([...publicationTiers].sort(), ["imported", "indexed-only"]);
+  assert.deepEqual([...publicationTiers].sort(), ["full-review", "imported", "indexed-only"]);
 });
 
 test("Imported source provenance exposes exact full-cast formats without copying keywords into tags", async () => {

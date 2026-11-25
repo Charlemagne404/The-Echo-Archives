@@ -263,7 +263,9 @@
 
 .detail-review-community-actions {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  gap: 12px;
 }
 
 .detail-review-published {
@@ -386,6 +388,18 @@
 
   .detail-review-carousel-arrow {
     display: none;
+  }
+
+  .detail-review-carousel-dots {
+    gap: 2px;
+  }
+
+  .detail-review-carousel-dot {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    flex-basis: 44px;
   }
 
   .detail-review-carousel-viewport {

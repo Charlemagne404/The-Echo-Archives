@@ -32,10 +32,13 @@
 }
 
 .home-page .podcast-card-shell.preview-source-active,
-.home-page .podcast-card-shell.is-preview-expanded,
-.home-page .podcast-card-shell.is-preview-closing,
 .home-page .podcast-card-shell.is-preview-measuring {
   z-index: 30;
+}
+
+.home-page .podcast-card-shell.is-preview-expanded,
+.home-page .podcast-card-shell.is-preview-closing {
+  z-index: 100;
 }
 
 .home-page .podcast-card-shell.preview-source-active .podcast-card,
@@ -55,7 +58,7 @@
 .home-page .podcast-card-shell[data-preview-card="true"] .home-card-preview-layer {
   position: absolute;
   inset: 0;
-  z-index: 4;
+  z-index: 20;
   overflow: visible;
   pointer-events: none;
 }

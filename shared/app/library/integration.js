@@ -65,30 +65,63 @@ function createQuickSaveControl(showId, title, { controlType = "card", className
   return button;
 }
 
-function createCardControl(showId, title, relationship = false) {
-  const details = makeElement("details", `library-card-control${relationship ? " is-relationship-control" : ""}`);
+function createDetailControl(showId, title) {
+  const details = makeElement("details", "library-detail-control");
   details.dataset.libraryShowId = showId;
-  details.dataset.libraryControl = "card";
-  const summary = makeElement("summary", "library-card-summary", "Save");
-  summary.setAttribute("aria-label", `Manage ${title} in your Library`);
+  details.dataset.libraryControl = "detail";
+  details.dataset.libraryTitle = title;
+  const summary = makeElement("summary", "library-detail-summary", "Library");
+  summary.setAttribute("aria-label", `Manage ${title} in your local Library`);
   details.append(summary);
 
-  const panel = makeElement("div", "library-card-panel");
-  const stateLabel = makeElement("label", "library-card-field");
-  stateLabel.append(makeElement("span", "", "Library status"));
-  const stateSelect = makeElement("select", "library-card-state");
+  const panel = makeElement("div", "library-detail-panel");
+  const stateField = makeElement("label", "library-detail-field");
+  stateField.append(makeElement("span", "", "Library status"));
+  const stateSelect = makeElement("select", "library-detail-state");
   stateSelect.dataset.libraryStateSelect = showId;
   stateSelect.setAttribute("aria-label", `Library status for ${title}`);
   appendDetailStateOptions(stateSelect, "");
-  stateLabel.append(stateSelect);
-  const remove = makeElement("button", "library-card-remove", "Remove from Library");
+  stateField.append(stateSelect);
+
+  const ratingField = makeElement("label", "library-detail-field");
+  ratingField.append(makeElement("span", "", "Private rating"));
+  const ratingSelect = makeElement("select", "library-detail-rating");
+  ratingSelect.dataset.libraryRatingSelect = showId;
+  ratingSelect.setAttribute("aria-label", `Private rating for ${title}`);
+  const noRating = makeElement("option", "", "No private rating");
+  noRating.value = "";
+  ratingSelect.append(noRating);
+  for (let rating = 1; rating <= 5; rating += 1) {
+    const option = makeElement("option", "", `${rating} of 5`);
+    option.value = String(rating);
+    ratingSelect.append(option);
+  }
+  ratingField.append(ratingSelect);
+
+  const ratingNote = makeElement("p", "library-detail-rating-note", "This rating stays in this browser and is never submitted as a Community Rating.");
+  const hiddenMeaning = makeElement("p", "library-hidden-meaning", "Hidden keeps this show out of personalized broad discovery. It remains available in ordinary browse and exact-title searches.");
+  hiddenMeaning.hidden = true;
+
+  const preferenceId = `library-personal-discovery-${encodeURIComponent(showId)}`;
+  const preferenceHelpId = `${preferenceId}-help`;
+  const preferenceField = makeElement("label", "library-personal-discovery-setting");
+  const preference = document.createElement("input");
+  preference.type = "checkbox";
+  preference.dataset.libraryDiscoveryPreference = "true";
+  preference.setAttribute("aria-label", "Use my Library in discovery");
+  preference.setAttribute("aria-describedby", preferenceHelpId);
+  preferenceField.append(preference, makeElement("span", "", "Use my Library in discovery"));
+  const preferenceHelp = makeElement("p", "library-personal-discovery-help", "Uses your Library states and private ratings to refine discovery on this browser only. It is off until you enable it.");
+  preferenceHelp.id = preferenceHelpId;
+
+  const remove = makeElement("button", "library-detail-remove", "Remove from Library");
   remove.type = "button";
   remove.dataset.libraryRemove = showId;
   remove.hidden = true;
   const status = makeStatusNode();
   status.setAttribute("role", "status");
   status.setAttribute("aria-live", "polite");
-  panel.append(stateLabel, remove, status);
+  panel.append(stateField, ratingField, ratingNote, hiddenMeaning, preferenceField, preferenceHelp, remove, status);
   details.append(panel);
   return details;
 }
@@ -105,6 +138,43 @@ function appendDetailStateOptions(select, currentState) {
     option.value = state;
     select.append(option);
   });
+}
+
+function syncDetailControl(control, runtimeState, { unavailable, entry, title }) {
+  const summary = control.querySelector(":scope > summary");
+  const stateSelect = control.querySelector("[data-library-state-select]");
+  const ratingSelect = control.querySelector("[data-library-rating-select]");
+  const remove = control.querySelector("[data-library-remove]");
+  const preference = control.querySelector("[data-library-discovery-preference]");
+  const hiddenMeaning = control.querySelector(".library-hidden-meaning");
+  const status = control.querySelector(".library-control-status");
+
+  summary.textContent = entry ? STATE_LABELS[entry.state] : "Library";
+  summary.setAttribute("aria-label", entry
+    ? `Manage ${title} in your local Library. Current status: ${STATE_LABELS[entry.state]}.`
+    : `Add ${title} to your local Library.`);
+  appendDetailStateOptions(stateSelect, entry?.state || "");
+  stateSelect.disabled = unavailable;
+  ratingSelect.value = entry && Object.hasOwn(entry, "rating") ? String(entry.rating) : "";
+  ratingSelect.disabled = unavailable || !entry;
+  remove.hidden = !entry;
+  remove.disabled = unavailable;
+  preference.checked = pendingPersonalDiscoveryValue ?? runtimeState.personalContext?.enabled === true;
+  preference.disabled = unavailable;
+  hiddenMeaning.hidden = entry?.state !== "hidden";
+
+  if (unavailable && !runtimeState.loading) {
+    status.textContent = runtimeState.error?.message
+      ? `Local Library unavailable: ${runtimeState.error.message}`
+      : "Local Library saving is unavailable in this browser.";
+    status.dataset.tone = "error";
+  } else if (unavailable && runtimeState.loading) {
+    status.textContent = "Checking local Library storage.";
+    status.dataset.tone = "";
+  } else {
+    status.textContent = "";
+    status.dataset.tone = "";
+  }
 }
 
 function renderControlState(control, runtimeState) {
@@ -128,6 +198,11 @@ function renderControlState(control, runtimeState) {
           : `Save ${title} for later to your local Library`;
     control.setAttribute("aria-label", label);
     control.title = label;
+    return;
+  }
+
+  if (control.matches("details.library-detail-control")) {
+    syncDetailControl(control, runtimeState, { unavailable, entry, title });
     return;
   }
 
@@ -182,7 +257,7 @@ function ensureCardControls() {
   const runtimeState = getLibraryRuntimeState();
   findCardHosts().forEach((host) => {
     const showId = host.dataset.libraryShowId;
-    if (!showId || host.matches(".detail-similar-card") || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
+    if (!showId || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`) || host.querySelector(`:scope > button.library-card-quick-save[data-library-show-id="${CSS.escape(showId)}"]`)) return;
     const title = getEntryTitle(host, showId);
     const control = createQuickSaveControl(showId, title);
     control.dataset.libraryTitle = title;
@@ -193,21 +268,16 @@ function ensureCardControls() {
 }
 
 function ensureDetailControl() {
-  const currentState = getLibraryRuntimeState();
   const showId = getShowIdFromLocation();
   const actions = document.querySelector(".podcast-detail .detail-actions");
   if (!showId || !actions) return;
-  const saveHost = actions.querySelector(":scope > .detail-action-secondary-group") || actions;
-  let control = saveHost.querySelector(":scope > button.library-card-quick-save[data-library-control=detail]");
+  let control = actions.querySelector(":scope > details.library-detail-control[data-library-control=detail]");
   if (!control) {
     const title = document.querySelector(".podcast-detail .detail-title-group h1")?.textContent?.trim() || showId;
-    control = createQuickSaveControl(showId, title, {
-      controlType: "detail",
-      className: "library-detail-quick-save",
-    });
-    saveHost.append(control);
+    control = createDetailControl(showId, title);
+    actions.append(control);
   }
-  renderControlState(control, currentState);
+  renderControlState(control, getLibraryRuntimeState());
 }
 
 function renderAllControls(runtimeState = getLibraryRuntimeState()) {
