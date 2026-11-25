@@ -2,7 +2,21 @@
 
 **Date:** 2026-11-24
 
-**Outcome:** Repository baseline stabilized; production remediation remains gated on the separate privileged storage and backup work.
+**Outcome at initial assessment:** Repository baseline stabilized; production remediation remained gated on the separate privileged storage and backup work.
+
+## Post-deployment closeout — 2026-11-25
+
+Consolidated candidate `092faa604982ffd229fe0686157c4d275818e303` was deployed to production and merged into canonical `main` at `9f2a95ccd795eb589b96e3ad4c2b1120b0a9f430`. GitHub comparison confirmed the merge tree matched the deployed candidate at merge time. Production and staging are reported healthy; production retains 760 shows and 54 collections, Discord has zero pending or failed deliveries, and manual visual inspection found no apparent regressions.
+
+The failed staging attempt at `ac008445` was rolled back automatically to `7ad109f0`. Its startup failure was caused by copying the private runtime snapshot journal into the candidate overlay. The deployed fix removes only that verified temporary copy while preserving publisher/importer runtime state. No production rollback or data repair was needed.
+
+### Non-blocking infrastructure maintenance items
+
+These items remain outside the application release and are not blockers to active product development. Their current state was not re-audited during this closeout.
+
+1. **Offsite backup recovery:** prior evidence records an inactive offsite schedule and no recent verified offsite restore. The infrastructure owner should confirm the schedule and complete the documented recovery rehearsal.
+2. **Disk monitoring:** the local monitor recorded 82% filesystem use against its 80% threshold during the deployment window. Review capacity and monitoring thresholds separately.
+3. **Shell DNS:** direct shell access to GitHub failed DNS resolution during this work, while the authenticated GitHub integration remained available. Repair the development shell's DNS/network path separately.
 
 ## Completed
 
@@ -13,7 +27,7 @@
 
 To resume the preserved WIP from its original base in a separate working tree, use `git stash branch codex/preserved-importer-publisher-wip 'stash@{0}'`. Keep the clean `main` checkout as the canonical baseline.
 
-## Current host state
+## Host state at the original 2026-11-24 assessment
 
 - Disk is now about 85% used with 66.75 GiB available. The five-minute monitor timer is active, but its service still fails because usage exceeds its 80% threshold. No further cleanup was attempted while the separate privileged storage/backup migration was underway.
 - At the latest resource sample, about 3.5 GiB RAM was available and memory PSI was low (10- and 60-second averages zero). All 4 GiB swap remained occupied; no swap reset or service restart was attempted.
@@ -21,7 +35,7 @@ To resume the preserved WIP from its original base in a separate working tree, u
 - The offsite timer remains inactive/disabled. A root-owned readiness marker records a successful isolated restore and Restic check on 2026-08-11, but no offsite run appeared in the last 24 hours; this is historical recovery evidence, not a current offsite recovery point. The other session's backup migration owner should confirm the intended schedule and a new successful marker.
 - The operations runbook documents a guarded offsite restore drill that restores into an isolated temporary directory, validates the database, and starts an isolated application. It requires administrator-owned configuration and privileges; it was not run here.
 
-## Release decision and remaining work
+## Release decision at the original 2026-11-24 assessment
 
 **Production promotion did not occur.** The 66.75 GiB free space provides useful release headroom, but the monitor still fails at 85% use. The staging workflow is blocked at its installed-unit permission check because non-interactive administrator authorization is unavailable. Production remains on `55e761be` with the known dependency advisories. Candidate `7ad109f0` is fully verified and its application code matches current `main`; the later CI failure was a single timing-sensitive carousel assertion on a documentation-only commit.
 

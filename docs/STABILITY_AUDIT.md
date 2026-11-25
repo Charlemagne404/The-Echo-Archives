@@ -4,6 +4,8 @@
 
 **Readiness:** **RED — not suitable for three to six months of unattended operation**
 
+**Post-deployment update (2026-11-25):** This audit remains a historical snapshot of the 2026-11-24 host state. Consolidated candidate `092faa604982ffd229fe0686157c4d275818e303` has since been deployed to production and staging; both are reported healthy. Production retains 760 shows and 54 collections, Discord notifications have zero pending or failed deliveries, and manual visual inspection found no apparent regressions. The unattended-recovery and monitoring concerns below remain separate infrastructure follow-ups; see [`STABILITY_REMEDIATION.md`](STABILITY_REMEDIATION.md) for the closeout status.
+
 ## Executive summary
 
 The deployed application is serving successfully and its current release passes the full project verification suite. The database reports WAL mode with FULL synchronous durability, the daily local backup passed SQLite integrity and foreign-key checks, production and staging services are active, and bounded live requests returned expected responses.
