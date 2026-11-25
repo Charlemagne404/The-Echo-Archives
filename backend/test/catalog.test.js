@@ -311,6 +311,59 @@ test("published catalog records require approved discovery signals instead of fi
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
+test("complete provisional indexed-only publication bypasses the discovery threshold only while published", async () => {
+  const tempRoot = createTempSiteRoot();
+  const showId = "mina-an-audiobook-podcast-by-roo-bannister";
+  const reviewedAt = "2026-11-04T21:00:00.000Z";
+  const sourceUrl = "https://feeds.acast.com/public/shows/6a4264183fa89e333892b6ae";
+  const show = createShowRecord({
+    id: showId,
+    title: "Mina - An Audiobook Podcast by Roo Bannister",
+    description: "A source-backed provisional audio fiction description long enough for normal publication validation.",
+    genres: ["drama"],
+    formats: [],
+    tags: [],
+    status: "published",
+    reviewStatus: "indexed-only",
+    metadata: {
+      objectiveSources: [sourceUrl],
+      import: {
+        publication: { provisional: true },
+        identifiers: { rssUrl: sourceUrl },
+        selectedSources: [{ sourceType: "rss", sourceUrl, fetchedAt: reviewedAt, payloadHash: "a".repeat(64) }],
+        factualReview: { reviewedBy: "operator:test", reviewedAt, inputRevision: 1 },
+        scopeReview: {
+          status: "in-scope",
+          reviewedBy: "operator:test",
+          reviewedAt,
+          inputRevision: 1,
+          evidenceSources: [sourceUrl],
+        },
+      },
+    },
+  });
+  const showDirectory = path.join(tempRoot, "catalog-src", "shows");
+  const collectionDirectory = path.join(tempRoot, "catalog-src", "collections");
+  writeJson(path.join(showDirectory, "_order.json"), [showId]);
+  writeJson(path.join(showDirectory, `${showId}.json`), show);
+  writeJson(path.join(collectionDirectory, "_order.json"), []);
+
+  try {
+    await assert.doesNotReject(loadCatalog(tempRoot));
+
+    show.metadata.import.publication.provisional = false;
+    writeJson(path.join(showDirectory, `${showId}.json`), show);
+    await assert.rejects(loadCatalog(tempRoot), /needs at least 2 approved discovery signals/i);
+
+    show.metadata.import.publication.provisional = true;
+    show.status = "draft";
+    writeJson(path.join(showDirectory, `${showId}.json`), show);
+    await assert.rejects(loadCatalog(tempRoot), /incomplete provisional publication review record/i);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("published imported records may retain one genre after unsupported RSS narrative inference is removed", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
