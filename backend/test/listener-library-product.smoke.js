@@ -487,6 +487,10 @@ test("Personal Discovery refines existing search locally and restores public ord
     const kingFallsDetail = await context.newPage();
     await kingFallsDetail.setViewportSize({ width: 390, height: 844 });
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
+    const kingFallsControl = kingFallsDetail.locator('details[data-library-control="detail"]');
+    await kingFallsControl.waitFor();
+    const preference = kingFallsControl.locator("[data-library-discovery-preference]");
+    await preference.waitFor({ state: "attached" });
     const savedKingFalls = await callLibraryService(kingFallsDetail, "setState", "king-falls-am", "saved");
     const ratedKingFalls = await callLibraryService(kingFallsDetail, "setRating", "king-falls-am", 5);
     const enablePersonalDiscovery = await callLibraryService(kingFallsDetail, "setPersonalDiscoveryEnabled", true);
@@ -526,6 +530,8 @@ test("Personal Discovery refines existing search locally and restores public ord
     const arsDetail = await context.newPage();
     await arsDetail.goto(`${baseUrl}/shows/ars-paradoxica`);
     await arsDetail.waitForFunction(() => document.body.dataset.appReady === "true", undefined, { timeout: 15_000 });
+    const arsControl = arsDetail.locator('details[data-library-control="detail"]');
+    await arsControl.waitFor();
     const hideArs = await callLibraryService(arsDetail, "setState", "ars-paradoxica", "hidden");
     assert.equal(hideArs.ok, true);
     await assertEventually(async () => {
@@ -544,6 +550,7 @@ test("Personal Discovery refines existing search locally and restores public ord
     });
 
     await kingFallsDetail.bringToFront();
+    await kingFallsControl.locator("summary").click();
     await preference.uncheck();
     await assertEventually(async () => {
       assert.equal(await preference.isChecked(), false);
@@ -560,6 +567,7 @@ test("Personal Discovery refines existing search locally and restores public ord
       assert.equal(ids.includes("ars-paradoxica"), false);
     });
     await arsDetail.bringToFront();
+    await arsControl.locator("summary").click();
     await arsControl.locator("[data-library-remove]").click();
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
