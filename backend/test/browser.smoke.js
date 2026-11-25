@@ -1588,6 +1588,14 @@ test("homepage collection carousels keep rounded cover art and stay stable durin
 
 test("homepage collection carousels autoplay and resume after a mobile touch leaves the rail", async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
+  const advanced = (before, after, minimumAdvance) => {
+    if (!before || !after || before.setWidth !== after.setWidth) {
+      return false;
+    }
+
+    const wrappedAdvance = ((after.progress - before.progress) % before.setWidth + before.setWidth) % before.setWidth;
+    return wrappedAdvance > minimumAdvance;
+  };
 
   try {
     await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
@@ -1602,24 +1610,58 @@ test("homepage collection carousels autoplay and resume after a mobile touch lea
       );
     });
 
-    const initialState = await page.evaluate(() => ({
-      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
-      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
-    }));
-    await page.waitForFunction(
-      ({ favoriteRoutes, collections }) =>
-        (document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0) > favoriteRoutes + 10 &&
-        (document.getElementById("collectionViewport")?.scrollLeft || 0) > collections + 10,
-      initialState,
+    await page.evaluate(() => {
+      window.__echoSmokeReadCarouselProgress = () => {
+        const read = (viewportId) => {
+          const viewport = document.getElementById(viewportId);
+          const cards = Array.from(viewport?.querySelectorAll(".collection-card") || []);
+          const cardsPerSet = Math.floor(cards.length / 3);
+          const middleStart = cards[cardsPerSet]?.offsetLeft;
+          const nextSetStart = cards[cardsPerSet * 2]?.offsetLeft;
+          const setWidth = nextSetStart - middleStart;
+          if (!viewport || !Number.isFinite(middleStart) || !Number.isFinite(setWidth) || setWidth <= 0) {
+            return null;
+          }
+
+          return {
+            progress: ((viewport.scrollLeft - middleStart) % setWidth + setWidth) % setWidth,
+            setWidth,
+          };
+        };
+
+        return {
+          favoriteRoutes: read("favoriteRoutesViewport"),
+          collections: read("collectionViewport"),
+        };
+      };
+    });
+    const readCarouselProgress = () => page.evaluate(() => window.__echoSmokeReadCarouselProgress());
+    const waitForCarouselAdvance = (before, minimumAdvance) => page.waitForFunction(
+      ({ previous, threshold }) => {
+        const current = window.__echoSmokeReadCarouselProgress();
+        const advanced = (beforeState, afterState) => {
+          if (!beforeState || !afterState || beforeState.setWidth !== afterState.setWidth) {
+            return false;
+          }
+
+          const wrappedAdvance = ((afterState.progress - beforeState.progress) % beforeState.setWidth + beforeState.setWidth) % beforeState.setWidth;
+          return wrappedAdvance > threshold;
+        };
+
+        return advanced(previous.favoriteRoutes, current.favoriteRoutes) &&
+          advanced(previous.collections, current.collections);
+      },
+      { previous: before, threshold: minimumAdvance },
       { timeout: 3_000 },
     );
 
-    const afterAutoplay = await page.evaluate(() => ({
-      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
-      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
-    }));
-    assert.ok(afterAutoplay.favoriteRoutes > initialState.favoriteRoutes + 10);
-    assert.ok(afterAutoplay.collections > initialState.collections + 10);
+    const initialState = await readCarouselProgress();
+    assert.ok(initialState.favoriteRoutes && initialState.collections, "expected looped carousel positions to be measurable");
+    await waitForCarouselAdvance(initialState, 10);
+
+    const afterAutoplay = await readCarouselProgress();
+    assert.ok(advanced(initialState.favoriteRoutes, afterAutoplay.favoriteRoutes, 10));
+    assert.ok(advanced(initialState.collections, afterAutoplay.collections, 10));
 
     await page.evaluate(() => {
       const viewport = document.getElementById("collectionViewport");
@@ -1636,20 +1678,11 @@ test("homepage collection carousels autoplay and resume after a mobile touch lea
         isPrimary: true,
       }));
     });
-    await page.waitForFunction(
-      ({ favoriteRoutes, collections }) =>
-        (document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0) > favoriteRoutes + 8 &&
-        (document.getElementById("collectionViewport")?.scrollLeft || 0) > collections + 8,
-      afterAutoplay,
-      { timeout: 3_000 },
-    );
+    await waitForCarouselAdvance(afterAutoplay, 8);
 
-    const afterTouchResume = await page.evaluate(() => ({
-      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
-      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
-    }));
-    assert.ok(afterTouchResume.favoriteRoutes > afterAutoplay.favoriteRoutes + 8);
-    assert.ok(afterTouchResume.collections > afterAutoplay.collections + 8);
+    const afterTouchResume = await readCarouselProgress();
+    assert.ok(advanced(afterAutoplay.favoriteRoutes, afterTouchResume.favoriteRoutes, 8));
+    assert.ok(advanced(afterAutoplay.collections, afterTouchResume.collections, 8));
   } finally {
     await page.close();
   }

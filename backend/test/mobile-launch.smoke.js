@@ -323,15 +323,34 @@ test("mobile sticky search prioritizes typing space and stays out of the way whi
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => !document.getElementById("search")?.disabled);
-    await page.evaluate(() => window.scrollTo({ top: window.innerHeight * 2, behavior: "auto" }));
-    await page.waitForTimeout(100);
-    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "hidden");
+    await page.evaluate(() => {
+      window.__mobileStickyScrollEvents = 0;
+      window.addEventListener("scroll", () => {
+        window.__mobileStickyScrollEvents += 1;
+      }, { passive: true });
+      window.scrollTo({ top: window.innerHeight * 2, behavior: "auto" });
+    });
+    await page.waitForFunction(() => {
+      const browseHero = document.getElementById("browse");
+      const stickyBar = document.getElementById("stickyBrowseBar");
+      return window.__mobileStickyScrollEvents > 0 &&
+        window.scrollY >= window.innerHeight * 1.5 &&
+        browseHero?.getBoundingClientRect().bottom <= 0 &&
+        stickyBar?.dataset.visibility === "hidden";
+    });
+    const scrollDownState = await page.evaluate(() => ({
+      position: window.scrollY,
+      eventCount: window.__mobileStickyScrollEvents,
+    }));
 
     await page.evaluate(() => window.scrollBy({ top: -280, behavior: "auto" }));
     await page.waitForFunction(
-      () =>
+      (previous) =>
+        window.__mobileStickyScrollEvents > previous.eventCount &&
+        window.scrollY < previous.position &&
         document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible" &&
         document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded",
+      scrollDownState,
     );
 
     const stickyState = await page.evaluate(() => {
