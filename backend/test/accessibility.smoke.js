@@ -204,7 +204,7 @@ test("browse catalogue error state keeps its explanation and disabled controls a
   });
 
   try {
-    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "load" });
     await page.waitForFunction(() => /Search and filters could not load right now/i.test(document.getElementById("resultsSummary")?.textContent || ""));
     assert.equal(await page.locator("#resultsSummary").getAttribute("role"), "status");
     assert.equal(await page.locator("#search").isDisabled(), true);
@@ -288,14 +288,16 @@ test("mobile navigation and filter popover support keyboard focus, Escape, and f
       const grid = document.querySelector("#filterDropdown .filter-option-grid");
       return grid && Number.parseFloat(getComputedStyle(grid).opacity) >= 0.99;
     });
-    assert.equal(await page.locator("#filterDropdown").getAttribute("role"), "group");
-    assert.equal(await page.locator("#filterDropdown").getAttribute("aria-modal"), null);
+    assert.equal(await page.locator("#filterDropdown").getAttribute("role"), "dialog");
+    assert.equal(await page.locator("#filterDropdown").getAttribute("aria-modal"), "true");
+    assert.equal(await page.locator("body").evaluate((node) => node.classList.contains("filter-sheet-open")), true);
+    assert.equal(await page.locator("main").evaluate((node) => node.inert), true);
     assert.equal(await filterToggle.getAttribute("aria-expanded"), "true");
     await assertAxeClean(page, "open mobile filter popover");
     await page.keyboard.press("Tab");
-    assert.equal(await page.locator("#filterDropdown").evaluate((group) => group.contains(document.activeElement)), true);
+    assert.equal(await page.locator("#filterDropdown").evaluate((dialog) => dialog.contains(document.activeElement)), true);
     await page.keyboard.press("Shift+Tab");
-    assert.equal(await filterToggle.evaluate((node) => node === document.activeElement), true);
+    assert.equal(await page.locator("#filterDropdown").evaluate((dialog) => dialog.contains(document.activeElement)), true);
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
     assert.equal(await filterToggle.evaluate((node) => node === document.activeElement), true);
@@ -475,14 +477,14 @@ test("compact Library controls on cards and show pages pass semantic checks", { 
     assert.equal(await quickSave.getAttribute("aria-pressed"), "true");
 
     await gotoSmokePage(page, `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`, { waitUntil: "networkidle" });
-    const detailControl = page.locator('button.library-detail-quick-save[data-library-control="detail"]');
+    const detailControl = page.locator('button.library-detail-quick-save[data-library-control="detail-quick-save"]');
     await detailControl.waitFor();
     assert.ok(await page.locator(".detail-actions a").count() > 0, "listen actions remain in the primary action area");
     assert.equal(await detailControl.evaluate((node) => node.parentElement.matches(".detail-action-secondary-group")), true);
     assert.match(await detailControl.getAttribute("aria-label"), /local Library/);
     await detailControl.focus();
     await detailControl.press("Space");
-    await page.waitForFunction(() => document.querySelector('button.library-detail-quick-save[data-library-control="detail"]')?.getAttribute("aria-pressed") === "true");
+    await page.waitForFunction(() => document.querySelector('button.library-detail-quick-save[data-library-control="detail-quick-save"]')?.getAttribute("aria-pressed") === "true");
     await assertAxeClean(page, "saved show-detail quick-save control");
     assert.equal(await detailControl.locator("[data-library-state-select], [data-library-rating-select]").count(), 0,
       "private Library state and ratings stay out of the public show action controls");

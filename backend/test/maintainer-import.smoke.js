@@ -411,7 +411,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     assert.equal(calls.externalIdentity, 0);
     page.once("dialog", (dialog) => dialog.accept());
     await page.getByRole("button", { name: "Verify Amazon Music identity" }).click();
-    await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Needs Review"));
+    await page.waitForFunction(() => /Needs review/i.test(document.querySelector("#maintainerDetailMeta")?.textContent || ""));
     assert.equal(calls.externalIdentity, 1);
     assert.deepEqual(calls.externalIdentityPayload, {
       provider: "amazon-music",
@@ -424,7 +424,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.getByRole("button", { name: "Back to queue" }).click();
     await page.waitForFunction(() => document.activeElement?.id === "maintainerListHeading");
     await page.locator('[data-import-evidence-id="21"]').click();
-    await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Needs Review"));
+    await page.waitForFunction(() => /Needs review/i.test(document.querySelector("#maintainerDetailMeta")?.textContent || ""));
     assert.equal(calls.evidence, 1);
 
     await page.locator('[data-import-candidate-id="failed-1"]').click();

@@ -147,7 +147,21 @@ test("quick-save cards and show controls persist and synchronize without exposin
   }));
   try {
     const browse = await context.newPage();
-    await browse.goto(`${baseUrl}/`);
+    const popularityReady = browse.waitForResponse((response) =>
+      new URL(response.url()).pathname === "/api/popularity/scores",
+    );
+    const compactSummariesReady = new Promise((resolve) => {
+      browse.on("response", (response) => {
+        const url = new URL(response.url());
+        if (url.pathname === "/api/community/ratings/summary" && url.searchParams.get("view") === "compact") {
+          resolve();
+        }
+      });
+    });
+    await browse.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    const popularity = await (await popularityReady).json();
+    if (Object.keys(popularity?.scores || {}).length < 4) await compactSummariesReady;
+    await browse.waitForLoadState("networkidle");
     await browse.waitForSelector("#podcast-grid a[data-discovery-show-id]");
     await browse.waitForSelector('[data-library-control="card"]');
     const repeatedShow = await browse.evaluate(() => {
@@ -299,7 +313,7 @@ test("quick-save cards and show controls persist and synchronize without exposin
     const detail = await context.newPage();
     await detail.goto(repeatedShow.href);
     await detail.waitForSelector(".podcast-detail .detail-actions");
-    const detailControl = detail.locator('[data-library-control="detail"]');
+    const detailControl = detail.locator('button[data-library-control="detail-quick-save"]');
     await detailControl.waitFor();
     const similarHosts = detail.locator(".detail-similar-card[data-library-show-card][data-library-show-id]");
     const similarControls = detail.locator(".detail-similar-card > button.library-card-quick-save");
@@ -349,7 +363,7 @@ test("quick-save cards and show controls persist and synchronize without exposin
 
     const secondDetail = await context.newPage();
     await secondDetail.goto(repeatedShow.href);
-    const secondControl = secondDetail.locator('button.library-detail-quick-save[data-library-control="detail"]');
+    const secondControl = secondDetail.locator('button.library-detail-quick-save[data-library-control="detail-quick-save"]');
     await secondControl.waitFor();
     await assertEventually(async () => {
       assert.equal(await secondControl.getAttribute("aria-pressed"), "true");

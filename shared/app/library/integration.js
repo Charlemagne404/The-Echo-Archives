@@ -183,6 +183,7 @@ function findCardHosts(root = document) {
 function ensureCardControls() {
   const runtimeState = getLibraryRuntimeState();
   findCardHosts().forEach((host) => {
+    if (host.closest(".detail-similar-card")) return;
     const showId = host.dataset.libraryShowId;
     if (!showId || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
     const title = getEntryTitle(host, showId);

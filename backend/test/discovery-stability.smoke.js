@@ -103,6 +103,7 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.body.dataset.homeReady === "true");
     await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
 
     const homeSurfaceState = await page.evaluate(() => ({
@@ -720,6 +721,7 @@ test("home discovery history restores combined states, empty results, and forwar
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.body.dataset.homeReady === "true");
     await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
     const initialHistoryLength = await page.evaluate(() => history.length);
     const initialState = await readHomeState();

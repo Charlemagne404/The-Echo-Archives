@@ -187,10 +187,10 @@ test("public heroes keep full and compact sizing contracts", async () => {
           const routeStyles = await heroStyles(route.panel, route.copy);
           if (route.url === "/about") {
             assert.equal(routeStyles.panel.minHeight, "0px");
-            assert.equal(routeStyles.panel.padding, "24px 22px");
+            assert.equal(routeStyles.panel.padding, "18px 16px 14px");
             assert.equal(routeStyles.panel.borderRadius, browseStyles.panel.borderRadius);
-            assert.ok(Number.parseFloat(routeStyles.heading.fontSize) < Number.parseFloat(browseStyles.heading.fontSize),
-              "the about hero keeps its more compact mobile heading scale");
+            assert.equal(routeStyles.heading.fontSize, browseStyles.heading.fontSize,
+              "the about hero keeps the shared mobile heading scale");
           } else {
             assert.deepEqual(routeStyles, browseStyles, `${route.url} should use the browse mobile contract at ${viewport.width}px`);
           }
@@ -199,16 +199,12 @@ test("public heroes keep full and compact sizing contracts", async () => {
         for (const route of compactRoutes) {
           await page.goto(`${baseUrl}${route.url}`, { waitUntil: "load" });
           const routeStyles = await heroStyles(route.panel, route.copy);
-          const expectedMinimum = route.url === "/about" ? "278px" : "330px";
-          const expectedPadding = route.url === "/about" ? "26px 30px 22px" : "30px";
+          const expectedMinimum = "330px";
+          const expectedPadding = "28px 30px";
           assert.equal(routeStyles.panel.minHeight, expectedMinimum, `${route.url} should keep its declared compact desktop minimum`);
           assert.equal(routeStyles.panel.padding, expectedPadding, `${route.url} should keep its declared compact desktop padding`);
           assert.equal(routeStyles.panel.borderRadius, browseStyles.panel.borderRadius);
-          if (route.url === "/about") {
-            assert.ok(Number.parseFloat(routeStyles.heading.fontSize) < Number.parseFloat(browseStyles.heading.fontSize));
-          } else {
-            assert.deepEqual(routeStyles.heading, browseStyles.heading, `${route.url} should keep browse heading typography`);
-          }
+          assert.deepEqual(routeStyles.heading, browseStyles.heading, `${route.url} should keep browse heading typography`);
           const compactHeight = Math.round(await page.locator(route.panel).evaluate((panel) => panel.getBoundingClientRect().height));
           assert.ok(compactHeight >= Number.parseFloat(expectedMinimum) && compactHeight < 430, `${route.url} should fit the compact desktop height range`);
         }

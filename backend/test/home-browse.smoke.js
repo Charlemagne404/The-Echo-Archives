@@ -845,14 +845,14 @@ test("homepage mobile filter popover drills into a bucket and returns to the tog
       };
     });
 
-    assert.equal(launcherState.bodyLocked, false);
+    assert.equal(launcherState.bodyLocked, true);
     assert.equal(launcherState.bucketCount, 5);
-    assert.equal(launcherState.groupRole, "group");
-    assert.equal(launcherState.ariaModal, "");
-    assert.equal(launcherState.mainInert, false);
+    assert.equal(launcherState.groupRole, "dialog");
+    assert.equal(launcherState.ariaModal, "true");
+    assert.equal(launcherState.mainInert, true);
     assert.equal(launcherState.expanded, "true");
     assert.equal(launcherState.launcherScrollable, false);
-    assert.equal(launcherState.position, "absolute");
+    assert.equal(launcherState.position, "fixed");
 
     await openFilterBucket(page, "tone", { interaction: "click" });
     const detailState = await page.evaluate(() => {

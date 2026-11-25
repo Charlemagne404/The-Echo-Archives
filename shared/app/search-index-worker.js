@@ -18,7 +18,15 @@ self.addEventListener("message", async (event) => {
 
     const search = globalThis.EchoArchiveSearch;
     const archiveRecord = globalThis.EchoArchiveRecord;
-    const records = payload.map((record) => archiveRecord.normalizeShowRecord(record));
+    const records = payload.map((record) => {
+      const normalized = archiveRecord.normalizeShowRecord(record);
+      return {
+        ...normalized,
+        genreTokens: normalized.genres.map(search.normalizeTag),
+        tagTokens: normalized.tags.map(search.normalizeTag),
+        bestForTokens: normalized.bestFor.map(search.normalizeTag),
+      };
+    });
     search.hydrateCatalogSearch(records);
     self.postMessage({ ok: true, records });
   } catch (error) {

@@ -532,6 +532,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     assert.match(await carousel.locator("[data-review-carousel-slide]").textContent(), /Listener page 3/);
     await assertAxeClean(page, "listener review carousel failure state");
 
+    await page.setViewportSize({ width: 390, height: 844 });
     const mobile = await carousel.evaluate((node) => ({
       width: node.getBoundingClientRect().width,
       overflow: document.documentElement.scrollWidth - window.innerWidth,
@@ -542,8 +543,10 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     }));
     assert.ok(mobile.width > 0);
     assert.ok(mobile.overflow <= 1);
-    assert.equal(mobile.previousDisplay, "none");
-    assert.equal(mobile.nextDisplay, "none");
+    assert.notEqual(mobile.previousDisplay, "none");
+    assert.notEqual(mobile.nextDisplay, "none");
+    assert.equal(mobile.previousWidth, 44);
+    assert.equal(mobile.nextWidth, 44);
   } finally {
     await context.close();
   }

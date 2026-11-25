@@ -175,7 +175,7 @@ test("short-height filter popover stays contained, scrollable, and keyboard dism
         ariaModal: popover?.getAttribute("aria-modal") || "",
         bodyLocked: document.body.classList.contains("filter-sheet-open"),
         mainInert: document.querySelector("main")?.inert || false,
-        toggleFocused: document.activeElement?.id === "filterToggle",
+        closeButtonFocused: document.activeElement?.classList.contains("filter-sheet-close") || false,
         contained: Boolean(
           rect &&
           rect.top >= viewportTop - 1 &&
@@ -188,18 +188,18 @@ test("short-height filter popover stays contained, scrollable, and keyboard dism
       };
     });
 
-    assert.equal(openState.role, "group");
-    assert.equal(openState.ariaModal, "");
-    assert.equal(openState.bodyLocked, false);
-    assert.equal(openState.mainInert, false);
-    assert.equal(openState.toggleFocused, true);
+    assert.equal(openState.role, "dialog");
+    assert.equal(openState.ariaModal, "true");
+    assert.equal(openState.bodyLocked, true);
+    assert.equal(openState.mainInert, true);
+    assert.equal(openState.closeButtonFocused, true);
     assert.equal(openState.contained, true);
     assert.equal(openState.scrollable, true);
 
     await page.keyboard.press("Tab");
     assert.equal(await page.locator("#filterDropdown").evaluate((popover) => popover.contains(document.activeElement)), true);
     await page.keyboard.press("Shift+Tab");
-    assert.equal(await page.locator("#filterToggle").evaluate((toggle) => toggle === document.activeElement), true);
+    assert.equal(await page.locator("#filterDropdown").evaluate((dialog) => dialog.contains(document.activeElement)), true);
 
     await page.keyboard.press("Escape");
     await page.waitForFunction(
